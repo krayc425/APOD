@@ -53,11 +53,7 @@ class APODHelper: NSObject {
     
     func getFavoriteModels() -> [APODModel]? {
         if let dict = UserDefaults.standard.value(forKey: "favorite_apod") as? Dictionary<String, Data> {
-            return dict.values.map {
-                try! apodJSONDecoder.decode(APODModel.self, from: $0)
-                }.sorted(by: { (model1, model2) -> Bool in
-                    (model1.date?.timeIntervalSince1970 ?? 0.0) < (model2.date?.timeIntervalSince1970 ?? 0.0)
-                })
+            return dict.values.map { try! apodJSONDecoder.decode(APODModel.self, from: $0) }
         }
         return nil
     }

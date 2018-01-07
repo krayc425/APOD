@@ -9,14 +9,17 @@
 import UIKit
 import Kingfisher
 import SVProgressHUD
+import WebKit
 
 class APODInfoTableViewController: UITableViewController {
+    
+    private var animatedCellIndexs: [Int] = []
     
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var explanationLabel: UILabel!
     @IBOutlet weak var copyrightLabel: UILabel!
-    
+    @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var favoriteBarButtonItem: UIBarButtonItem!
     
     private var imageViewHeight: CGFloat = 100.0
@@ -27,11 +30,15 @@ class APODInfoTableViewController: UITableViewController {
         }
     }
     
-    var apodModel: APODModel? {
+    private var apodModel: APODModel? {
         didSet {
             if apodModel != nil {
                 DispatchQueue.main.async {
                     if self.apodModel!.media_type == APODMediaType.image {
+                        
+                        self.webView.isHidden = true
+                        self.mainImageView.isHidden = false
+                        
                         self.mainImageView.kf.setImage(with: (self.apodModel!.url)!, placeholder: nil, options: nil, progressBlock: { (current, total) in
                             SVProgressHUD.showProgress(Float(current) / Float(total))
                         }, completionHandler: { (image, error, cacheType, url) in
@@ -44,14 +51,27 @@ class APODInfoTableViewController: UITableViewController {
                             self.tableView.reloadData()
                         })
                     } else {
+                        
+                        self.webView.isHidden = false
+                        self.mainImageView.isHidden = true
+                        
+                        self.imageViewHeight = kScreenWidth / 16.0 * 9.0
+                        self.mainImageView.frame = CGRect(x: self.mainImageView.frame.origin.x,
+                                                          y: self.mainImageView.frame.origin.y,
+                                                          width: kScreenWidth,
+                                                          height: self.imageViewHeight)
+                        
+                        self.webView.load(URLRequest(url: self.apodModel!.url!))
+                        
                         SVProgressHUD.dismiss()
-                        print("Sorry, a video")
+                        self.tableView.reloadData()
                     }
                     self.titleLabel.text = self.apodModel!.title
                     self.explanationLabel.text = self.apodModel!.explanation
                     self.copyrightLabel.text = self.apodModel!.copyright
                 }
             } else {
+                self.animatedCellIndexs.removeAll()
                 self.mainImageView.image = UIImage()
                 self.titleLabel.text = ""
                 self.copyrightLabel.text = ""
@@ -105,7 +125,6 @@ class APODInfoTableViewController: UITableViewController {
     func loadModel(on date: Date) {
         self.apodModel = nil
         self.currentDate = date
-        
         if let model = APODHelper.shared.getFavoriteModel(on: date) {
             self.favoriteBarButtonItem.image = #imageLiteral(resourceName: "heart_full")
             self.apodModel = model
@@ -181,6 +200,18 @@ class APODInfoTableViewController: UITableViewController {
             return imageViewHeight
         default:
             return UITableViewAutomaticDimension
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if animatedCellIndexs.contains(indexPath.row) {
+            return
+        }
+        cell.alpha = 0.0
+        UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+            cell.alpha = 1.0
+        }) { _ in
+            self.animatedCellIndexs.append(indexPath.row)
         }
     }
     

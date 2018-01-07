@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-let kScreenWidth = UIScreen.main.bounds.width
-let kScreenHeight = UIScreen.main.bounds.height
+let kScreenWidth    : CGFloat = UIScreen.main.bounds.width
+let kScreenHeight   : CGFloat = UIScreen.main.bounds.height
 
 let apodDateFormatter: DateFormatter = {
     let dateFormatter = DateFormatter()

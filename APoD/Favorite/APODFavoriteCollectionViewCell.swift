@@ -17,7 +17,7 @@ class APODFavoriteCollectionViewCell: UICollectionViewCell {
     func configure(with model: APODModel) {
         mainImageView.kf.setImage(with: (model.url)!, placeholder: nil, options: nil, progressBlock: { (current, total) in
         }, completionHandler: { (image, error, cacheType, url) in
-            print("Finished")
+            
         })
         titleLabel.text = model.title
         dateLabel.text = apodDateFormatter.string(from: model.date!)

@@ -9,11 +9,6 @@
 import Foundation
 import SwiftyJSON
 
-enum APODMediaType: String, Codable {
-    case image
-    case video
-}
-
 struct APODModel: Codable {
     
     var copyright: String?
@@ -42,6 +37,10 @@ struct APODModel: Codable {
         if let urlString = json["url"]?.stringValue {
             self.url = URL(string: urlString)
         }
+    }
+    
+    func getVideoURL() -> URL {
+        return URL(string: url!.absoluteString.replacingOccurrences(of: "embed", with: "watch"))!
     }
     
 }

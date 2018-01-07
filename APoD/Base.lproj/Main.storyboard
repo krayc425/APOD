@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Favorite-->
+        <!--APODNavigationController-->
         <scene sceneID="pqu-X3-Ac0">
             <objects>
-                <navigationController id="yDZ-Jc-Opo" customClass="APODNavigationController" customModule="APoD" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="yDZ-Jc-Opo" userLabel="APODNavigationController" customClass="APODNavigationController" customModule="APoD" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorite" image="heart_full" id="kLY-aC-Xba"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="ryt-79-tjD">
@@ -32,10 +32,10 @@
             </objects>
             <point key="canvasLocation" x="1628" y="649"/>
         </scene>
-        <!--Favorite-->
+        <!--APODFavoriteCollectionViewController-->
         <scene sceneID="Q3k-rk-K05">
             <objects>
-                <collectionViewController id="ZCC-xn-LX6" customClass="APODFavoriteCollectionViewController" customModule="APoD" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="ZCC-xn-LX6" userLabel="APODFavoriteCollectionViewController" customClass="APODFavoriteCollectionViewController" customModule="APoD" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="unJ-dd-3KO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,16 +112,23 @@
                             <outlet property="delegate" destination="ZCC-xn-LX6" id="4hd-dJ-n7x"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Favorite" id="2er-7X-27I"/>
+                    <navigationItem key="navigationItem" title="Favorite" id="2er-7X-27I">
+                        <barButtonItem key="leftBarButtonItem" image="sort" id="OtQ-Uo-f6O">
+                            <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="sortAction:" destination="ZCC-xn-LX6" id="LyJ-dV-3K0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lVc-vp-W76" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2617" y="648"/>
         </scene>
-        <!--Calendar-->
+        <!--APODNavigationController-->
         <scene sceneID="2ef-8p-2QB">
             <objects>
-                <navigationController id="z2O-Gb-CMQ" customClass="APODNavigationController" customModule="APoD" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="z2O-Gb-CMQ" userLabel="APODNavigationController" customClass="APODNavigationController" customModule="APoD" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Calendar" image="calendar" id="JS5-og-uKb"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="AHP-5d-1VN">
@@ -140,10 +147,10 @@
             </objects>
             <point key="canvasLocation" x="1628" y="-151"/>
         </scene>
-        <!--Today-->
+        <!--APODInfoTableViewController-->
         <scene sceneID="aQt-kr-MX7">
             <objects>
-                <tableViewController id="6kz-ag-gsH" customClass="APODInfoTableViewController" customModule="APoD" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="6kz-ag-gsH" userLabel="APODInfoTableViewController" customClass="APODInfoTableViewController" customModule="APoD" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="white" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ILJ-ex-okt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -162,10 +169,22 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BfD-oS-Ejh">
                                                     <rect key="frame" x="0.0" y="11" width="375" height="189"/>
                                                 </imageView>
+                                                <wkWebView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cL5-1I-UqD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                                    <color key="backgroundColor" red="0.15732103589999999" green="0.17608103159999999" blue="0.19608157870000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <wkWebViewConfiguration key="configuration" allowsInlineMediaPlayback="YES">
+                                                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                                        <wkPreferences key="preferences"/>
+                                                    </wkWebViewConfiguration>
+                                                </wkWebView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="BfD-oS-Ejh" secondAttribute="bottom" id="5KZ-4f-Pa8"/>
+                                                <constraint firstAttribute="trailing" secondItem="cL5-1I-UqD" secondAttribute="trailing" id="Lyt-6v-82G"/>
                                                 <constraint firstItem="BfD-oS-Ejh" firstAttribute="top" secondItem="qmG-zK-34Q" secondAttribute="topMargin" id="YA9-6k-KLj"/>
+                                                <constraint firstAttribute="bottom" secondItem="cL5-1I-UqD" secondAttribute="bottom" id="gyb-CE-9Yg"/>
+                                                <constraint firstItem="cL5-1I-UqD" firstAttribute="top" secondItem="qmG-zK-34Q" secondAttribute="top" id="jMC-WL-DoD"/>
+                                                <constraint firstItem="cL5-1I-UqD" firstAttribute="leading" secondItem="qmG-zK-34Q" secondAttribute="leading" id="jtc-Ze-L8n"/>
                                                 <constraint firstItem="BfD-oS-Ejh" firstAttribute="leading" secondItem="qmG-zK-34Q" secondAttribute="leading" id="ktI-BC-ZKc"/>
                                                 <constraint firstAttribute="trailing" secondItem="BfD-oS-Ejh" secondAttribute="trailing" id="rZv-Ut-77G"/>
                                             </constraints>
@@ -269,6 +288,7 @@
                         <outlet property="favoriteBarButtonItem" destination="r7Q-rl-UX3" id="7Ca-ir-QDU"/>
                         <outlet property="mainImageView" destination="BfD-oS-Ejh" id="IJf-LH-9x6"/>
                         <outlet property="titleLabel" destination="1jV-Kn-aQm" id="eyR-FY-edw"/>
+                        <outlet property="webView" destination="cL5-1I-UqD" id="slx-mu-uZa"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rkw-TT-TwS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -350,5 +370,6 @@
         <image name="calendar" width="24" height="24"/>
         <image name="heart" width="24" height="24"/>
         <image name="heart_full" width="24" height="24"/>
+        <image name="sort" width="24" height="24"/>
     </resources>
 </document>
