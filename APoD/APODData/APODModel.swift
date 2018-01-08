@@ -20,22 +20,30 @@ struct APODModel: Codable {
     var title: String?
     var url: URL?
  
-    init(json: [String: JSON]) {
+    init?(json: [String: JSON]) {
         self.copyright = json["copyright"]?.stringValue
-        if let dateString =  json["date"]?.stringValue {
+        if let dateString = json["date"]?.stringValue {
             self.date = apodDateFormatter.date(from: dateString)
+        } else {
+            return nil
         }
         self.explanation = json["explanation"]?.stringValue
-        if let hdurlString = json["hdurl"]?.stringValue {
-            self.hdurl = URL(string: hdurlString)
-        }
         if let typeString = json["media_type"]?.stringValue {
             self.media_type = APODMediaType(rawValue: typeString)
+        } else {
+            return nil
+        }
+        if let hdurlString = json["hdurl"]?.stringValue {
+            self.hdurl = URL(string: hdurlString)
+        } else if self.media_type! == .image {
+            return nil
         }
         self.service_version = json["service_version"]?.stringValue
         self.title = json["title"]?.stringValue
         if let urlString = json["url"]?.stringValue {
             self.url = URL(string: urlString)
+        } else {
+            return nil
         }
     }
     

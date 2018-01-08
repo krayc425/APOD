@@ -41,12 +41,14 @@ class APODFavoriteCollectionViewController: UICollectionViewController, UICollec
         if let models = APODHelper.shared.getFavoriteModels() {
             self.favoriteModels = models.sorted(by: sortType.getSortDescriptor())
         }
+        
+        self.navigationController?.tabBarController?.tabBar.isHidden = false
     }
     
     @IBAction func sortAction(_ sender: UIBarButtonItem) {
-        let alertVC = UIAlertController(title: "Choose a sort method", message: nil, preferredStyle: .actionSheet)
+        let alertVC = UIAlertController(title: "Choose a Sort Type", message: nil, preferredStyle: .actionSheet)
         
-        let dateAscendingAction = UIAlertAction(title: "Date Ascending", style: .default) { (_) in
+        let dateAscendingAction = UIAlertAction(title: "Date Ascending", style: .default) { _ in
             self.sortType = APODFavoriteSort.dateAscending
             UserDefaults.standard.set(APODFavoriteSort.dateAscending.rawValue, forKey: "favorite_sort")
             UserDefaults.standard.synchronize()
@@ -54,13 +56,29 @@ class APODFavoriteCollectionViewController: UICollectionViewController, UICollec
         dateAscendingAction.setValue(UIColor.apod, forKey: "titleTextColor")
         alertVC.addAction(dateAscendingAction)
         
-        let dateDescendingAction = UIAlertAction(title: "Date Descending", style: .default) { (_) in
+        let dateDescendingAction = UIAlertAction(title: "Date Descending", style: .default) { _ in
             self.sortType = APODFavoriteSort.dateDescending
             UserDefaults.standard.set(APODFavoriteSort.dateDescending.rawValue, forKey: "favorite_sort")
             UserDefaults.standard.synchronize()
         }
         dateDescendingAction.setValue(UIColor.apod, forKey: "titleTextColor")
         alertVC.addAction(dateDescendingAction)
+        
+        let titleAscendingAction = UIAlertAction(title: "Title Ascending", style: .default) { _ in
+            self.sortType = APODFavoriteSort.titleAscending
+            UserDefaults.standard.set(APODFavoriteSort.titleAscending.rawValue, forKey: "favorite_sort")
+            UserDefaults.standard.synchronize()
+        }
+        titleAscendingAction.setValue(UIColor.apod, forKey: "titleTextColor")
+        alertVC.addAction(titleAscendingAction)
+        
+        let titleDescendingAction = UIAlertAction(title: "Title Descending", style: .default) { _ in
+            self.sortType = APODFavoriteSort.dateDescending
+            UserDefaults.standard.set(APODFavoriteSort.titleDescending.rawValue, forKey: "favorite_sort")
+            UserDefaults.standard.synchronize()
+        }
+        titleDescendingAction.setValue(UIColor.apod, forKey: "titleTextColor")
+        alertVC.addAction(titleDescendingAction)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         cancelAction.setValue(UIColor.apod, forKey: "titleTextColor")
@@ -86,6 +104,10 @@ class APODFavoriteCollectionViewController: UICollectionViewController, UICollec
     
         return cell
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "detailSegue", sender: favoriteModels[indexPath.row])
+    }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (kScreenWidth - 30) / 2.0, height: (kScreenWidth - 30) / 2.0)
@@ -100,6 +122,15 @@ class APODFavoriteCollectionViewController: UICollectionViewController, UICollec
             cell.alpha = 1.0
         }) { _ in
             self.animatedCellIndexs.append(indexPath.row)
+        }
+    }
+    
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailSegue" {
+            let detailVC = segue.destination as! APODDetailViewController
+            detailVC.apodModel = (sender as! APODModel)
         }
     }
 

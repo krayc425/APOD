@@ -12,6 +12,9 @@ import UIKit
 let kScreenWidth    : CGFloat = UIScreen.main.bounds.width
 let kScreenHeight   : CGFloat = UIScreen.main.bounds.height
 
+let minimumDate = Date(timeIntervalSince1970: 9297 * 24 * 60 * 60)
+let maximumDate = Date()
+
 let apodDateFormatter: DateFormatter = {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -21,8 +24,8 @@ let apodDateFormatter: DateFormatter = {
 let apodDatePicker: UIDatePicker = {
     let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 15, width: kScreenWidth, height: 250))
     datePicker.datePickerMode = .date
-    datePicker.maximumDate = Date()
-    datePicker.minimumDate = Date(timeIntervalSince1970: 9297 * 24 * 60 * 60)
+    datePicker.maximumDate = maximumDate
+    datePicker.minimumDate = minimumDate
     datePicker.tintColor = UIColor.apod
     return datePicker
 }()

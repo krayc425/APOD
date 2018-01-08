@@ -18,7 +18,7 @@ class APODHelper: NSObject {
         
     }
     
-    func getAPODInfo(on date: Date, completionHandler: @escaping (_ model: APODModel) -> Void) {
+    func getAPODInfo(on date: Date, completionHandler: @escaping (_ model: APODModel?) -> Void) {
         let url = URL(string: "https://api.nasa.gov/planetary/apod")!
         let para: Parameters = ["api_key": APOD_API_KEY,
                                 "date": apodDateFormatter.string(from: date)]
@@ -29,31 +29,56 @@ class APODHelper: NSObject {
         }
     }
     
+    // MARK: - Favorite
+    
     func addFavorite(model: APODModel) {
-        var dict = (UserDefaults.standard.value(forKey: "favorite_apod") as? Dictionary<String, Data>) ?? [:]
-        dict[apodDateFormatter.string(from: model.date!)] = try? apodJSONEncoder.encode(model)
-        UserDefaults.standard.set(dict, forKey: "favorite_apod")
+        var array = (UserDefaults.standard.value(forKey: "favorite_apod") as? [String]) ?? []
+        let dateString = apodDateFormatter.string(from: model.date!)
+        if !array.contains(dateString) {
+            array.append(dateString)
+        }
+        UserDefaults.standard.set(array, forKey: "favorite_apod")
         UserDefaults.standard.synchronize()
     }
     
     func removeFavorite(model: APODModel) {
-        var dict = (UserDefaults.standard.value(forKey: "favorite_apod") as? Dictionary<String, Data>) ?? [:]
-        dict[apodDateFormatter.string(from: model.date!)] = nil
-        UserDefaults.standard.set(dict, forKey: "favorite_apod")
+        var array = (UserDefaults.standard.value(forKey: "favorite_apod") as? [String]) ?? []
+        let dateString = apodDateFormatter.string(from: model.date!)
+        if array.contains(dateString) {
+            array.remove(at: array.index(of: dateString)!)
+        }
+        UserDefaults.standard.set(array, forKey: "favorite_apod")
         UserDefaults.standard.synchronize()
     }
     
-    func getFavoriteModel(on date: Date) -> APODModel? {
-        var dict = (UserDefaults.standard.value(forKey: "favorite_apod") as? Dictionary<String, Data>) ?? [:]
-        if let data = dict[apodDateFormatter.string(from: date)] {
-            return try? apodJSONDecoder.decode(APODModel.self, from: data)
+    func getFavoriteModels() -> [APODModel]? {
+        return (UserDefaults.standard.value(forKey: "favorite_apod") as? [String])?.map {
+            getCacheModel(on: apodDateFormatter.date(from: $0)!)!
         }
-        return nil
     }
     
-    func getFavoriteModels() -> [APODModel]? {
-        if let dict = UserDefaults.standard.value(forKey: "favorite_apod") as? Dictionary<String, Data> {
-            return dict.values.map { try! apodJSONDecoder.decode(APODModel.self, from: $0) }
+    func isFavoriteModel(on date: Date) -> Bool {
+        if let array = (UserDefaults.standard.value(forKey: "favorite_apod") as? [String]) {
+            return array.contains(apodDateFormatter.string(from: date))
+        }
+        return false
+    }
+    
+    // MARK: - Cache
+    
+    func cacheModel(model: APODModel) {
+        var dict = (UserDefaults.standard.value(forKey: "cache_apod") as? Dictionary<String, Data>) ?? [:]
+        if let date = model.date {
+            dict[apodDateFormatter.string(from: date)] = try? apodJSONEncoder.encode(model)
+            UserDefaults.standard.set(dict, forKey: "cache_apod")
+            UserDefaults.standard.synchronize()
+        }
+    }
+
+    func getCacheModel(on date: Date) -> APODModel? {
+        var dict = (UserDefaults.standard.value(forKey: "cache_apod") as? Dictionary<String, Data>) ?? [:]
+        if let data = dict[apodDateFormatter.string(from: date)] {
+            return try? apodJSONDecoder.decode(APODModel.self, from: data)
         }
         return nil
     }

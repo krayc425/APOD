@@ -17,6 +17,7 @@
 		240FBF772000B59500D32323 /* APODModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240FBF762000B59500D32323 /* APODModel.swift */; };
 		240FBF7B2000EA4D00D32323 /* APODInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240FBF7A2000EA4D00D32323 /* APODInfoTableViewController.swift */; };
 		240FBF7D2000F97400D32323 /* APODNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240FBF7C2000F97400D32323 /* APODNavigationController.swift */; };
+		2459568E200279B200C1A300 /* APODDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459568D200279B200C1A300 /* APODDetailViewController.swift */; };
 		24BE09F62001E1A600A57857 /* APODFavoriteCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE09F52001E1A600A57857 /* APODFavoriteCollectionViewController.swift */; };
 		24BE09F82001E1CD00A57857 /* APODFavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE09F72001E1CD00A57857 /* APODFavoriteCollectionViewCell.swift */; };
 		24BE09FA2001FFEC00A57857 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE09F92001FFEC00A57857 /* ApiKey.swift */; };
@@ -38,6 +39,7 @@
 		240FBF762000B59500D32323 /* APODModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODModel.swift; sourceTree = "<group>"; };
 		240FBF7A2000EA4D00D32323 /* APODInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODInfoTableViewController.swift; sourceTree = "<group>"; };
 		240FBF7C2000F97400D32323 /* APODNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODNavigationController.swift; sourceTree = "<group>"; };
+		2459568D200279B200C1A300 /* APODDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODDetailViewController.swift; sourceTree = "<group>"; };
 		24BE09F52001E1A600A57857 /* APODFavoriteCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODFavoriteCollectionViewController.swift; sourceTree = "<group>"; };
 		24BE09F72001E1CD00A57857 /* APODFavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODFavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		24BE09F92001FFEC00A57857 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				240FBF7C2000F97400D32323 /* APODNavigationController.swift */,
 				24BE0A0020021DB800A57857 /* APODData */,
 				24BE0A0120021DC100A57857 /* Calendar */,
+				2459568F20027D9200C1A300 /* Detail */,
 				24BE09FF20021DAF00A57857 /* Favorite */,
 				24BE09F92001FFEC00A57857 /* ApiKey.swift */,
 				240FBF702000B0B400D32323 /* Constants.swift */,
@@ -97,6 +100,14 @@
 				240FBF6A2000AF9900D32323 /* Info.plist */,
 			);
 			path = APoD;
+			sourceTree = "<group>";
+		};
+		2459568F20027D9200C1A300 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				2459568D200279B200C1A300 /* APODDetailViewController.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		24BE09FF20021DAF00A57857 /* Favorite */ = {
@@ -293,6 +304,7 @@
 				24BE09F82001E1CD00A57857 /* APODFavoriteCollectionViewCell.swift in Sources */,
 				240FBF772000B59500D32323 /* APODModel.swift in Sources */,
 				240FBF7B2000EA4D00D32323 /* APODInfoTableViewController.swift in Sources */,
+				2459568E200279B200C1A300 /* APODDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
