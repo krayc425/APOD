@@ -10,5 +10,6 @@ target 'APoD' do
   pod 'SwiftyJSON'
   pod 'Kingfisher'
   pod 'SVProgressHUD'
+  pod 'SimpleImageViewer'
 
 end

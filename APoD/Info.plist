@@ -2,21 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>&quot;APOD&quot; need access to your album to add an album.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>&quot;APOD&quot; need access to your album to save photos.</string>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>&quot;APOD&quot; need access to your album to save photos.</string>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-		<key>NSAllowsArbitraryLoadsInWebContent</key>
-		<true/>
-		<key>NSExceptionDomains</key>
-		<dict/>
-	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -37,6 +22,21 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSAllowsArbitraryLoadsInWebContent</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict/>
+	</dict>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>"APOD" need access to your album to save photos.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>"APOD" need access to your album to add an album.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>"APOD" need access to your album to save photos.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

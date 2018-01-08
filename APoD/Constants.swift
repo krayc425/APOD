@@ -12,8 +12,13 @@ import UIKit
 let kScreenWidth    : CGFloat = UIScreen.main.bounds.width
 let kScreenHeight   : CGFloat = UIScreen.main.bounds.height
 
+let kAppID = "1086636706"
+//"1173315594"
+
 let minimumDate = Date(timeIntervalSince1970: 9297 * 24 * 60 * 60)
 let maximumDate = Date()
+
+let isiPad = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad
 
 let apodDateFormatter: DateFormatter = {
     let dateFormatter = DateFormatter()
@@ -22,7 +27,10 @@ let apodDateFormatter: DateFormatter = {
 }()
 
 let apodDatePicker: UIDatePicker = {
-    let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 15, width: kScreenWidth, height: 250))
+    let datePicker = UIDatePicker(frame: CGRect(x: 0,
+                                                y: 25,
+                                                width: isiPad ? 320 : kScreenWidth,
+                                                height: isiPad ? 200 : 250))
     datePicker.datePickerMode = .date
     datePicker.maximumDate = maximumDate
     datePicker.minimumDate = minimumDate
@@ -41,3 +49,6 @@ let apodJSONEncoder: JSONEncoder = {
     encoder.dateEncodingStrategy = .formatted(apodDateFormatter)
     return encoder
 }()
+
+let videoRatioArray: [(ratio: CGFloat, description: String)] = [(9.0 / 16.0, "16:9"),
+                                                                (3.0 / 4.0, "4:3")]

@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import SimpleImageViewer
 
 private let reuseIdentifier = "APODFavoriteCollectionViewCell"
 
 class APODFavoriteCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    
+    @IBOutlet weak var sortBarButtonItem: UIBarButtonItem!
     
     private var animatedCellIndexs: [Int] = []
     
@@ -73,7 +76,7 @@ class APODFavoriteCollectionViewController: UICollectionViewController, UICollec
         alertVC.addAction(titleAscendingAction)
         
         let titleDescendingAction = UIAlertAction(title: "Title Descending", style: .default) { _ in
-            self.sortType = APODFavoriteSort.dateDescending
+            self.sortType = APODFavoriteSort.titleDescending
             UserDefaults.standard.set(APODFavoriteSort.titleDescending.rawValue, forKey: "favorite_sort")
             UserDefaults.standard.synchronize()
         }
@@ -83,6 +86,13 @@ class APODFavoriteCollectionViewController: UICollectionViewController, UICollec
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         cancelAction.setValue(UIColor.apod, forKey: "titleTextColor")
         alertVC.addAction(cancelAction)
+        
+        if let popoverPresentationController = alertVC.popoverPresentationController {
+            popoverPresentationController.barButtonItem = sortBarButtonItem
+            popoverPresentationController.permittedArrowDirections = .up
+            popoverPresentationController.sourceView = self.view
+            popoverPresentationController.sourceRect = .zero
+        }
         
         present(alertVC, animated: true, completion: nil)
     }
@@ -106,7 +116,13 @@ class APODFavoriteCollectionViewController: UICollectionViewController, UICollec
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "detailSegue", sender: favoriteModels[indexPath.row])
+        let cell = collectionView.cellForItem(at: indexPath) as! APODFavoriteCollectionViewCell
+        let configuration = ImageViewerConfiguration { config in
+            config.imageView = cell.mainImageView
+        }
+        
+        let imageViewerController = ImageViewerController(configuration: configuration)
+        present(imageViewerController, animated: true)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -122,15 +138,6 @@ class APODFavoriteCollectionViewController: UICollectionViewController, UICollec
             cell.alpha = 1.0
         }) { _ in
             self.animatedCellIndexs.append(indexPath.row)
-        }
-    }
-    
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "detailSegue" {
-            let detailVC = segue.destination as! APODDetailViewController
-            detailVC.apodModel = (sender as! APODModel)
         }
     }
 

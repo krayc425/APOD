@@ -11,6 +11,8 @@ import Kingfisher
 import SVProgressHUD
 import WebKit
 import Alamofire
+import Photos
+import SimpleImageViewer
 
 class APODInfoTableViewController: UITableViewController {
     
@@ -29,6 +31,11 @@ class APODInfoTableViewController: UITableViewController {
         return wkView
     }()
     @IBOutlet weak var favoriteBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var calendarBarButtonItem: UIBarButtonItem!
+    
+    @IBOutlet weak var hdButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
     
     private var imageViewHeight: CGFloat = 100.0
     
@@ -57,25 +64,31 @@ class APODInfoTableViewController: UITableViewController {
                     self.copyrightLabel.text = self.apodModel!.copyright
                     
                     if self.apodModel!.media_type == APODMediaType.image {
-                        
-                        self.mainImageView.isHidden = false
-                        
                         self.mainImageView.kf.setImage(with: (self.apodModel!.url)!, placeholder: nil, options: nil, progressBlock: { (current, total) in
                             SVProgressHUD.showProgress(Float(current) / Float(total))
                         }, completionHandler: { (image, error, cacheType, url) in
+                            self.mainImageView.isHidden = false
+                            self.hdButton.isHidden = false
+                            self.saveButton.isHidden = false
+                            self.shareButton.isHidden = false
+                            
                             self.imageViewHeight = kScreenWidth / (image?.size.width ?? 1.0) * (image?.size.height ?? 1.0)
                             self.mainImageView.frame = CGRect(x: self.mainImageView.frame.origin.x,
                                                               y: self.mainImageView.frame.origin.y,
                                                               width: kScreenWidth,
                                                               height: self.imageViewHeight)
+                            
                             SVProgressHUD.dismiss()
                             self.tableView.reloadData()
                         })
                     } else if self.apodModel!.media_type == APODMediaType.video {
-                        
                         self.mainImageView.isHidden = true
+                        self.hdButton.isHidden = true
+                        self.saveButton.isHidden = true
+                        self.shareButton.isHidden = false
                         
-                        self.imageViewHeight = kScreenWidth / 16.0 * 9.0
+                        let videoRatio: CGFloat = CGFloat(UserDefaults.standard.float(forKey: "video_ratio"))
+                        self.imageViewHeight = kScreenWidth * videoRatio
                         
                         self.webView.frame = CGRect(x: self.mainImageView.frame.origin.x,
                                                     y: self.mainImageView.frame.origin.y,
@@ -98,6 +111,10 @@ class APODInfoTableViewController: UITableViewController {
                 self.copyrightLabel.text = ""
                 self.explanationLabel.text = ""
                 self.favoriteBarButtonItem.image = #imageLiteral(resourceName: "heart")
+                
+                self.hdButton.isHidden = true
+                self.saveButton.isHidden = true
+                self.shareButton.isHidden = true
                 
                 cancelNetworkRequests()
                 
@@ -191,6 +208,8 @@ class APODInfoTableViewController: UITableViewController {
         }
     }
     
+    // MARK: - Bar Button Actions
+    
     @IBAction func favoriteAction(_ sender: UIBarButtonItem) {
         if let model = self.apodModel {
             let generator = UIImpactFeedbackGenerator(style: .medium)
@@ -213,7 +232,7 @@ class APODInfoTableViewController: UITableViewController {
         let alertVC = UIAlertController(title: "Choose a Date", message: nil, preferredStyle: .actionSheet)
         alertVC.view.addSubview(apodDatePicker)
         apodDatePicker.date = currentDate
-        alertVC.view.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: 10)
+        alertVC.view.frame = CGRect(x: 0, y: 0, width: isiPad ? 300 : kScreenWidth, height: 10)
         
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             self.loadModel(on: apodDatePicker.date)
@@ -231,10 +250,90 @@ class APODInfoTableViewController: UITableViewController {
                                                            toItem: nil,
                                                            attribute: .notAnAttribute,
                                                            multiplier: 1,
-                                                           constant: apodDatePicker.frame.height + 120)
+                                                           constant: apodDatePicker.frame.height + (isiPad ? 70 : 120))
         alertVC.view.addConstraint(height)
         
+        if let popoverPresentationController = alertVC.popoverPresentationController {
+            popoverPresentationController.barButtonItem = calendarBarButtonItem
+            popoverPresentationController.permittedArrowDirections = .up
+            popoverPresentationController.sourceView = self.view
+            popoverPresentationController.sourceRect = .zero
+        }
+        
         present(alertVC, animated: true, completion: nil)
+    }
+    
+    // MARK: - Button Actions
+    
+    @IBAction func loadHDAction(_ sender: UIButton) {
+        if let model = apodModel,
+            let type = model.media_type, type == .image,
+            let hdurl = model.hdurl {
+            SVProgressHUD.show(withStatus: "Loading")
+            self.mainImageView.kf.setImage(with: hdurl, placeholder: nil, options: nil, progressBlock: { (current, total) in
+                SVProgressHUD.showProgress(Float(current) / Float(total))
+            }, completionHandler: { (image, error, cacheType, url) in
+                let imageViewHeight = kScreenWidth / (image?.size.width ?? 1.0) * (image?.size.height ?? 1.0)
+                
+                self.mainImageView.frame = CGRect(x: self.mainImageView.frame.origin.x,
+                                                  y: self.mainImageView.frame.origin.y,
+                                                  width: kScreenWidth,
+                                                  height: imageViewHeight)
+                SVProgressHUD.dismiss()
+            })
+        }
+    }
+    
+    @IBAction func saveToAlbumAction(_ sender: UIButton) {
+        if let image = mainImageView.image {
+            guard PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.authorized else {
+                PHPhotoLibrary.requestAuthorization({ (status) in
+                    switch status {
+                    case .authorized:
+                        savePhoto()
+                    case .denied:
+                        SVProgressHUD.showError(withStatus: "Authorization denied")
+                    case .restricted:
+                        SVProgressHUD.showError(withStatus: "Authorization restricted")
+                    case .notDetermined:
+                        SVProgressHUD.showError(withStatus: "Authorization not determined")
+                    }
+                    SVProgressHUD.dismiss(withDelay: 2.0)
+                })
+                return
+            }
+            func savePhoto() {
+                PHPhotoLibrary.shared().performChanges({
+                    PHAssetChangeRequest.creationRequestForAsset(from: image)
+                }) { (isSuccess: Bool, error: Error?) in
+                    if isSuccess {
+                        SVProgressHUD.showSuccess(withStatus: "Save successfully")
+                    } else{
+                        SVProgressHUD.showError(withStatus: "Save failed\n\(error!.localizedDescription)")
+                    }
+                    SVProgressHUD.dismiss(withDelay: 2.0)
+                }
+            }
+            savePhoto()
+        }
+    }
+    
+    @IBAction func shareAction(_ sender: UIButton) {
+        if let model = apodModel,
+            let type = model.media_type {
+            switch type {
+            case .image:
+                let imageToShare = [mainImageView.image!]
+                let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
+                activityViewController.popoverPresentationController?.sourceView = self.view
+                self.present(activityViewController, animated: true, completion: nil)
+            case .video:
+                let urlToShre = [model.url!]
+                let activityViewController = UIActivityViewController(activityItems: urlToShre, applicationActivities: nil)
+                activityViewController.popoverPresentationController?.sourceView = self.view
+                self.present(activityViewController, animated: true, completion: nil)
+            }
+        }
     }
     
     // MARK: - Table view data source
@@ -244,7 +343,7 @@ class APODInfoTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -269,17 +368,13 @@ class APODInfoTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let model = apodModel, indexPath.row == 0 {
-            performSegue(withIdentifier: "detailSegue", sender: model)
-        }
-    }
-    
-    // MARK: - Navigation
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "detailSegue" {
-            let detailVC = segue.destination as! APODDetailViewController
-            detailVC.apodModel = (sender as! APODModel)
+        if let _ = apodModel, indexPath.row == 0 {
+            let configuration = ImageViewerConfiguration { config in
+                config.imageView = mainImageView
+            }
+            
+            let imageViewerController = ImageViewerController(configuration: configuration)
+            present(imageViewerController, animated: true)
         }
     }
     
