@@ -90,7 +90,7 @@
 				24BE0A0020021DB800A57857 /* APODData */,
 				24BE0A0120021DC100A57857 /* Calendar */,
 				24BE09FF20021DAF00A57857 /* Favorite */,
-				246887812003B180006B1D37 /* APODSettingsTableViewController.swift */,
+				246887832003BBA0006B1D37 /* Settings */,
 				24BE09F92001FFEC00A57857 /* ApiKey.swift */,
 				240FBF702000B0B400D32323 /* Constants.swift */,
 				240FBF722000B50600D32323 /* UIColorExtension.swift */,
@@ -100,6 +100,14 @@
 				240FBF6A2000AF9900D32323 /* Info.plist */,
 			);
 			path = APoD;
+			sourceTree = "<group>";
+		};
+		246887832003BBA0006B1D37 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				246887812003B180006B1D37 /* APODSettingsTableViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		24BE09FF20021DAF00A57857 /* Favorite */ = {
@@ -228,6 +236,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-APoD/Pods-APoD-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SimpleImageViewer/SimpleImageViewer.framework",
@@ -236,6 +245,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SimpleImageViewer.framework",

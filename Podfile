@@ -11,5 +11,6 @@ target 'APoD' do
   pod 'Kingfisher'
   pod 'SVProgressHUD'
   pod 'SimpleImageViewer'
+  pod 'DZNEmptyDataSet'
 
 end

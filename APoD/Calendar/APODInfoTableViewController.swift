@@ -13,6 +13,7 @@ import WebKit
 import Alamofire
 import Photos
 import SimpleImageViewer
+import DZNEmptyDataSet
 
 class APODInfoTableViewController: UITableViewController {
     
@@ -38,6 +39,8 @@ class APODInfoTableViewController: UITableViewController {
     @IBOutlet weak var shareButton: UIButton!
     
     private var imageViewHeight: CGFloat = 100.0
+    
+    private var isLoadingFailed: Bool = false
     
     private var currentDate: Date = Date() {
         didSet {
@@ -107,6 +110,8 @@ class APODInfoTableViewController: UITableViewController {
                 
                 self.webView.removeFromSuperview()
                 
+                self.isLoadingFailed = false
+                
                 self.titleLabel.text = ""
                 self.copyrightLabel.text = ""
                 self.explanationLabel.text = ""
@@ -127,6 +132,9 @@ class APODInfoTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
         
         let bgView = UIView(frame: tableView.bounds)
         bgView.backgroundColor = UIColor.apod
@@ -201,7 +209,11 @@ class APODInfoTableViewController: UITableViewController {
                         self.apodModel = model!
                     } else {
                         SVProgressHUD.showError(withStatus: "Something is wrong\non this day")
-                        SVProgressHUD.dismiss(withDelay: 2.0)
+                        SVProgressHUD.dismiss(withDelay: 2.0, completion: {
+                            self.apodModel = nil
+                            self.isLoadingFailed = true
+                            self.tableView.reloadData()
+                        })
                     }
                 }
             }
@@ -376,6 +388,24 @@ class APODInfoTableViewController: UITableViewController {
             let imageViewerController = ImageViewerController(configuration: configuration)
             present(imageViewerController, animated: true)
         }
+    }
+    
+}
+
+extension APODInfoTableViewController: DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
+    
+    func emptyDataSetShouldBeForced(toDisplay scrollView: UIScrollView!) -> Bool {
+        return apodModel == nil && isLoadingFailed
+    }
+    
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return #imageLiteral(resourceName: "logo_grey")
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let attributedString = NSAttributedString(string: "Try another day",
+                                                  attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18.0)])
+        return attributedString
     }
     
 }

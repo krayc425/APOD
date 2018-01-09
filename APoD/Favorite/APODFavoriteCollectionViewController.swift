@@ -8,6 +8,7 @@
 
 import UIKit
 import SimpleImageViewer
+import DZNEmptyDataSet
 
 private let reuseIdentifier = "APODFavoriteCollectionViewCell"
 
@@ -32,6 +33,9 @@ class APODFavoriteCollectionViewController: UICollectionViewController, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView?.emptyDataSetSource = self
+        collectionView?.emptyDataSetDelegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -139,6 +143,20 @@ class APODFavoriteCollectionViewController: UICollectionViewController, UICollec
         }) { _ in
             self.animatedCellIndexs.append(indexPath.row)
         }
+    }
+
+}
+
+extension APODFavoriteCollectionViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return #imageLiteral(resourceName: "logo_grey")
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let attributedString = NSAttributedString(string: "Nothing yet",
+                                                  attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18.0)])
+        return attributedString
     }
 
 }
