@@ -53,9 +53,9 @@ class APODFavoriteCollectionViewController: UICollectionViewController, UICollec
     }
     
     @IBAction func sortAction(_ sender: UIBarButtonItem) {
-        let alertVC = UIAlertController(title: "Choose a Sort Type", message: nil, preferredStyle: .actionSheet)
+        let alertVC = UIAlertController(title: NSLocalizedString("Choose a sort type", comment: ""), message: nil, preferredStyle: .actionSheet)
         
-        let dateAscendingAction = UIAlertAction(title: "Date Ascending", style: .default) { _ in
+        let dateAscendingAction = UIAlertAction(title: NSLocalizedString("Date Ascending", comment: ""), style: .default) { _ in
             self.sortType = APODFavoriteSort.dateAscending
             UserDefaults.standard.set(APODFavoriteSort.dateAscending.rawValue, forKey: "favorite_sort")
             UserDefaults.standard.synchronize()
@@ -63,7 +63,7 @@ class APODFavoriteCollectionViewController: UICollectionViewController, UICollec
         dateAscendingAction.setValue(UIColor.apod, forKey: "titleTextColor")
         alertVC.addAction(dateAscendingAction)
         
-        let dateDescendingAction = UIAlertAction(title: "Date Descending", style: .default) { _ in
+        let dateDescendingAction = UIAlertAction(title: NSLocalizedString("Date Descending", comment: ""), style: .default) { _ in
             self.sortType = APODFavoriteSort.dateDescending
             UserDefaults.standard.set(APODFavoriteSort.dateDescending.rawValue, forKey: "favorite_sort")
             UserDefaults.standard.synchronize()
@@ -71,7 +71,7 @@ class APODFavoriteCollectionViewController: UICollectionViewController, UICollec
         dateDescendingAction.setValue(UIColor.apod, forKey: "titleTextColor")
         alertVC.addAction(dateDescendingAction)
         
-        let titleAscendingAction = UIAlertAction(title: "Title Ascending", style: .default) { _ in
+        let titleAscendingAction = UIAlertAction(title: NSLocalizedString("Title Ascending", comment: ""), style: .default) { _ in
             self.sortType = APODFavoriteSort.titleAscending
             UserDefaults.standard.set(APODFavoriteSort.titleAscending.rawValue, forKey: "favorite_sort")
             UserDefaults.standard.synchronize()
@@ -79,7 +79,7 @@ class APODFavoriteCollectionViewController: UICollectionViewController, UICollec
         titleAscendingAction.setValue(UIColor.apod, forKey: "titleTextColor")
         alertVC.addAction(titleAscendingAction)
         
-        let titleDescendingAction = UIAlertAction(title: "Title Descending", style: .default) { _ in
+        let titleDescendingAction = UIAlertAction(title: NSLocalizedString("Title Descending", comment: ""), style: .default) { _ in
             self.sortType = APODFavoriteSort.titleDescending
             UserDefaults.standard.set(APODFavoriteSort.titleDescending.rawValue, forKey: "favorite_sort")
             UserDefaults.standard.synchronize()
@@ -87,7 +87,7 @@ class APODFavoriteCollectionViewController: UICollectionViewController, UICollec
         titleDescendingAction.setValue(UIColor.apod, forKey: "titleTextColor")
         alertVC.addAction(titleDescendingAction)
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
         cancelAction.setValue(UIColor.apod, forKey: "titleTextColor")
         alertVC.addAction(cancelAction)
         
@@ -154,7 +154,7 @@ extension APODFavoriteCollectionViewController: DZNEmptyDataSetSource, DZNEmptyD
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let attributedString = NSAttributedString(string: "Nothing yet",
+        let attributedString = NSAttributedString(string: NSLocalizedString("Nothing yet", comment: ""),
                                                   attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18.0)])
         return attributedString
     }

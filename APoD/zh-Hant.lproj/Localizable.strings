@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  APoD
+
+  Created by 宋 奎熹 on 2018/1/10.
+  Copyright © 2018年 宋 奎熹. All rights reserved.
+*/
+
+"Loading" = "加載中";
+"Something is wrong\non this day" = "這一天有點小錯誤😢";
+"Choose a Date" = "選擇一個日期";
+"OK" = "好的";
+"Cancel" = "取消";
+"Save successfully" = "保存成功";
+"Save failed" = "保存失敗";
+"Try another day" = "試試另一天吧";
+"Nothing yet" = "還沒有任何收藏";
+"Choose a sort type" = "選擇一個排序方式";
+"Date Ascending" = "日期升序";
+"Date Descending" = "日期降序";
+"Title Ascending" = "標題升序";
+"Title Descending" = "標題降序";
+"Choose a video ratio" = "選擇默認視頻比例";
+"Choose a language" = "選擇一種語言";
+"Language changed\nPlease restart the app to enable new language" = "語言切換成功\n請重啟使新語言生效";

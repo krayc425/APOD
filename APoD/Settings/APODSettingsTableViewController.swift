@@ -42,12 +42,23 @@ class APODSettingsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return 2
+        case 1:
+            return 2
+        default:
+            return 0
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         switch (indexPath.section, indexPath.row) {
         case (0, 0):
-            let alertVC = UIAlertController(title: "Choose a video ratio", message: nil, preferredStyle: .actionSheet)
+            let alertVC = UIAlertController(title: NSLocalizedString("Choose a video ratio", comment: ""), message: nil, preferredStyle: .actionSheet)
             
             videoRatioArray.forEach({ tuple in
                 let action = UIAlertAction(title: tuple.description, style: .default) { _ in
@@ -60,7 +71,7 @@ class APODSettingsTableViewController: UITableViewController {
                 alertVC.addAction(action)
             })
             
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
             cancelAction.setValue(UIColor.apod, forKey: "titleTextColor")
             alertVC.addAction(cancelAction)
             

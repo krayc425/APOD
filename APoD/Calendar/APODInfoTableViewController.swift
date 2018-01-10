@@ -202,13 +202,13 @@ class APODInfoTableViewController: UITableViewController {
         if let model = APODHelper.shared.getCacheModel(on: date) {
             self.apodModel = model
         } else {
-            SVProgressHUD.show(withStatus: "Loading")
+            SVProgressHUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
             DispatchQueue.global().async {
                 APODHelper.shared.getAPODInfo(on: date) { model in
                     if model != nil {
                         self.apodModel = model!
                     } else {
-                        SVProgressHUD.showError(withStatus: "Something is wrong\non this day")
+                        SVProgressHUD.showError(withStatus: NSLocalizedString("Something is wrong\non this day", comment: ""))
                         SVProgressHUD.dismiss(withDelay: 2.0, completion: {
                             self.apodModel = nil
                             self.isLoadingFailed = true
@@ -241,18 +241,18 @@ class APODInfoTableViewController: UITableViewController {
     }
 
     @IBAction func calendarAction(_ sender: UIBarButtonItem) {
-        let alertVC = UIAlertController(title: "Choose a Date", message: nil, preferredStyle: .actionSheet)
+        let alertVC = UIAlertController(title: NSLocalizedString("Choose a Date", comment: ""), message: nil, preferredStyle: .actionSheet)
         alertVC.view.addSubview(apodDatePicker)
         apodDatePicker.date = currentDate
         alertVC.view.frame = CGRect(x: 0, y: 0, width: isiPad ? 300 : kScreenWidth, height: 10)
         
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+        let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { _ in
             self.loadModel(on: apodDatePicker.date)
         }
         okAction.setValue(UIColor.apod, forKey: "titleTextColor")
         alertVC.addAction(okAction)
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
         cancelAction.setValue(UIColor.apod, forKey: "titleTextColor")
         alertVC.addAction(cancelAction)
         
@@ -281,7 +281,7 @@ class APODInfoTableViewController: UITableViewController {
         if let model = apodModel,
             let type = model.media_type, type == .image,
             let hdurl = model.hdurl {
-            SVProgressHUD.show(withStatus: "Loading")
+            SVProgressHUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
             self.mainImageView.kf.setImage(with: hdurl, placeholder: nil, options: nil, progressBlock: { (current, total) in
                 SVProgressHUD.showProgress(Float(current) / Float(total))
             }, completionHandler: { (image, error, cacheType, url) in
@@ -319,9 +319,9 @@ class APODInfoTableViewController: UITableViewController {
                     PHAssetChangeRequest.creationRequestForAsset(from: image)
                 }) { (isSuccess: Bool, error: Error?) in
                     if isSuccess {
-                        SVProgressHUD.showSuccess(withStatus: "Save successfully")
+                        SVProgressHUD.showSuccess(withStatus: NSLocalizedString("Save successfully", comment: ""))
                     } else{
-                        SVProgressHUD.showError(withStatus: "Save failed\n\(error!.localizedDescription)")
+                        SVProgressHUD.showError(withStatus: "\(NSLocalizedString("Save failed", comment: ""))\n\(error!.localizedDescription)")
                     }
                     SVProgressHUD.dismiss(withDelay: 2.0)
                 }
@@ -403,7 +403,7 @@ extension APODInfoTableViewController: DZNEmptyDataSetDelegate, DZNEmptyDataSetS
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let attributedString = NSAttributedString(string: "Try another day",
+        let attributedString = NSAttributedString(string: NSLocalizedString("Try another day", comment: "") ,
                                                   attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18.0)])
         return attributedString
     }

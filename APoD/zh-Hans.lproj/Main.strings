@@ -1,0 +1,66 @@
+
+/* Class = "UINavigationItem"; title = "Favorite"; ObjectID = "2er-7X-27I"; */
+"2er-7X-27I.title" = "收藏";
+
+/* Class = "UITableViewSection"; headerTitle = "About"; ObjectID = "48G-7Y-cvC"; */
+"48G-7Y-cvC.headerTitle" = "关于";
+
+/* Class = "UITableViewSection"; headerTitle = "Preference"; ObjectID = "Axk-AL-q1Q"; */
+"Axk-AL-q1Q.headerTitle" = "偏好";
+
+/* Class = "UINavigationItem"; title = "Today"; ObjectID = "AyQ-BS-uwh"; */
+"AyQ-BS-uwh.title" = "今天";
+
+/* Class = "UITableViewController"; title = "Settings"; ObjectID = "Boc-1C-nFq"; */
+"Boc-1C-nFq.title" = "设置";
+
+/* Class = "UILabel"; text = "Rate APOD"; ObjectID = "EFV-L6-8yb"; */
+"EFV-L6-8yb.text" = "评价我们";
+
+/* Class = "UILabel"; text = "Language"; ObjectID = "Hj2-8r-6JC"; */
+"Hj2-8r-6JC.text" = "语言";
+
+/* Class = "UILabel"; text = "16:9"; ObjectID = "IkZ-cK-UsJ"; */
+"IkZ-cK-UsJ.text" = "16:9";
+
+/* Class = "UITableViewController"; title = "Language"; ObjectID = "JER-qh-6Gx"; */
+"JER-qh-6Gx.title" = "语言";
+
+/* Class = "UIButton"; normalTitle = "HD"; ObjectID = "JNv-ea-3MW"; */
+"JNv-ea-3MW.normalTitle" = "HD";
+
+/* Class = "UITabBarItem"; title = "Calendar"; ObjectID = "JS5-og-uKb"; */
+"JS5-og-uKb.title" = "日历";
+
+/* Class = "UILabel"; text = "1.0"; ObjectID = "NR8-h1-pf1"; */
+"NR8-h1-pf1.text" = "1.0";
+
+/* Class = "UILabel"; text = "Version"; ObjectID = "NVf-8h-Fe8"; */
+"NVf-8h-Fe8.text" = "版本号";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "Twa-xu-fwk"; */
+"Twa-xu-fwk.normalTitle" = "保存";
+
+/* Class = "UIButton"; normalTitle = "Share"; ObjectID = "aJp-ry-Ksa"; */
+"aJp-ry-Ksa.normalTitle" = "分享";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "dEH-XD-Dy2"; */
+"dEH-XD-Dy2.title" = "Item";
+
+/* Class = "UITabBarItem"; title = "Favorite"; ObjectID = "kLY-aC-Xba"; */
+"kLY-aC-Xba.title" = "收藏";
+
+/* Class = "UILabel"; text = "Load HD images"; ObjectID = "pUT-lw-Ppe"; */
+"pUT-lw-Ppe.text" = "加载 HD 图片";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "pY0-AC-x8j"; */
+"pY0-AC-x8j.text" = "Label";
+
+/* Class = "UILabel"; text = "Default video ratio"; ObjectID = "pmu-8W-BOk"; */
+"pmu-8W-BOk.text" = "默认视频比例";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "qgy-XB-lvw"; */
+"qgy-XB-lvw.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "收藏"; ObjectID = "r7Q-rl-UX3"; */
+"r7Q-rl-UX3.title" = "收藏";
