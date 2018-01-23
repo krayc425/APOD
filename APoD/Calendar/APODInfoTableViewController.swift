@@ -52,11 +52,11 @@ class APODInfoTableViewController: UITableViewController {
         didSet {
             if apodModel != nil {
                 
-                APODHelper.shared.cacheModel(model: apodModel!)
+                APODCacheHelper.shared.cacheModel(model: apodModel!)
                 
                 DispatchQueue.main.async {
                     if let date = self.apodModel!.date {
-                        if APODHelper.shared.isFavoriteModel(on: date) {
+                        if APODCacheHelper.shared.isFavoriteModel(on: date) {
                             self.favoriteBarButtonItem.image = #imageLiteral(resourceName: "heart_full")
                         } else {
                             self.favoriteBarButtonItem.image = #imageLiteral(resourceName: "heart")
@@ -64,7 +64,10 @@ class APODInfoTableViewController: UITableViewController {
                     }
                     self.titleLabel.text = self.apodModel!.title
                     self.explanationLabel.text = self.apodModel!.explanation
-                    self.copyrightLabel.text = self.apodModel!.copyright
+                    
+                    if let copyright = self.apodModel?.copyright {
+                        self.copyrightLabel.text = copyright
+                    }
                     
                     if self.apodModel!.media_type == APODMediaType.image {
                         self.mainImageView.kf.setImage(with: (self.apodModel!.url)!, placeholder: nil, options: nil, progressBlock: { (current, total) in
@@ -90,7 +93,7 @@ class APODInfoTableViewController: UITableViewController {
                         self.saveButton.isHidden = true
                         self.shareButton.isHidden = false
                         
-                        let videoRatio: CGFloat = CGFloat(UserDefaults.standard.float(forKey: "video_ratio"))
+                        let videoRatio: CGFloat = CGFloat(kUserDefaults.float(forKey: "video_ratio"))
                         self.imageViewHeight = kScreenWidth * videoRatio
                         
                         self.webView.frame = CGRect(x: self.mainImageView.frame.origin.x,
@@ -148,7 +151,13 @@ class APODInfoTableViewController: UITableViewController {
         swipeRightGesture.direction = .right
         tableView.addGestureRecognizer(swipeRightGesture)
         
-        loadModel(on: Date())
+        loadModel(on: currentDate)
+        
+        for button in [hdButton, saveButton, shareButton] {
+            button?.layer.cornerRadius = (button?.layer.frame.height)! / 2.0
+            button?.layer.masksToBounds = true
+            button?.setTitleColor(.apod, for: .highlighted)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -199,7 +208,7 @@ class APODInfoTableViewController: UITableViewController {
         self.apodModel = nil
         self.currentDate = date
         
-        if let model = APODHelper.shared.getCacheModel(on: date) {
+        if let model = APODCacheHelper.shared.getCacheModel(on: date) {
             self.apodModel = model
         } else {
             SVProgressHUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
@@ -228,14 +237,14 @@ class APODInfoTableViewController: UITableViewController {
             generator.prepare()
             generator.impactOccurred()
             
-            if APODHelper.shared.isFavoriteModel(on: model.date!) {
+            if APODCacheHelper.shared.isFavoriteModel(on: model.date!) {
                 favoriteBarButtonItem.image = #imageLiteral(resourceName: "heart")
                 
-                APODHelper.shared.removeFavorite(model: model)
+                APODCacheHelper.shared.removeFavorite(model: model)
             } else {
                 favoriteBarButtonItem.image = #imageLiteral(resourceName: "heart_full")
                 
-                APODHelper.shared.addFavorite(model: model)
+                APODCacheHelper.shared.addFavorite(model: model)
             }
         }
     }
@@ -335,15 +344,21 @@ class APODInfoTableViewController: UITableViewController {
             let type = model.media_type {
             switch type {
             case .image:
-                let imageToShare = [mainImageView.image!]
-                let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
-                activityViewController.popoverPresentationController?.sourceView = self.view
-                self.present(activityViewController, animated: true, completion: nil)
+                if let image = mainImageView.image {
+                    let imageToShare = [image]
+                    let activityViewController = UIActivityViewController(activityItems: imageToShare,
+                                                                          applicationActivities: nil)
+                    activityViewController.popoverPresentationController?.sourceView = shareButton
+                    self.present(activityViewController, animated: true, completion: nil)
+                }
             case .video:
-                let urlToShre = [model.url!]
-                let activityViewController = UIActivityViewController(activityItems: urlToShre, applicationActivities: nil)
-                activityViewController.popoverPresentationController?.sourceView = self.view
-                self.present(activityViewController, animated: true, completion: nil)
+                if let url = model.url {
+                    let urlToShre = [url]
+                    let activityViewController = UIActivityViewController(activityItems: urlToShre,
+                                                                          applicationActivities: nil)
+                    activityViewController.popoverPresentationController?.sourceView = shareButton
+                    self.present(activityViewController, animated: true, completion: nil)
+                }
             }
         }
     }
@@ -362,6 +377,10 @@ class APODInfoTableViewController: UITableViewController {
         switch indexPath.row {
         case 0:
             return imageViewHeight
+        case 3:
+            return self.apodModel?.copyright == nil ? 0.0 : 44.0
+        case 4:
+            return self.apodModel?.copyright == nil ? 65.0 : 60.0
         default:
             return UITableViewAutomaticDimension
         }

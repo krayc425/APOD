@@ -12,8 +12,9 @@ import UIKit
 let kScreenWidth    : CGFloat = UIScreen.main.bounds.width
 let kScreenHeight   : CGFloat = UIScreen.main.bounds.height
 
-let kAppID = "1086636706"
-//"1173315594"
+let kAppID = "1173315594"
+let kGroupID = "group.com.krayc.Triplorex"
+let kUserDefaults = UserDefaults(suiteName: kGroupID)!
 
 let minimumDate = Date(timeIntervalSince1970: 9297 * 24 * 60 * 60)
 let maximumDate = Date()

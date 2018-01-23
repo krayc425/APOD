@@ -13,7 +13,7 @@
 "Cancel" = "取消";
 "Save successfully" = "保存成功";
 "Save failed" = "保存失敗";
-"Try another day" = "試試另一天吧";
+"Try another day" = "試試另一日期吧";
 "Nothing yet" = "還沒有任何收藏";
 "Choose a sort type" = "選擇一個排序方式";
 "Date Ascending" = "日期升序";
@@ -22,4 +22,4 @@
 "Title Descending" = "標題降序";
 "Choose a video ratio" = "選擇默認視頻比例";
 "Choose a language" = "選擇一種語言";
-"Language changed\nPlease restart the app to enable new language" = "語言切換成功\n請重啟使新語言生效";
+"Language changed\nPlease restart the app to enable new language" = "語言切換成功\n請重啟應用使新語言生效";

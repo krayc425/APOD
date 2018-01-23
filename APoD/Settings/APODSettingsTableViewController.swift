@@ -37,7 +37,7 @@ class APODSettingsTableViewController: UITableViewController {
     }
     
     func reloadRatioLabel() {
-        videoRatioLabel.text = UserDefaults.standard.string(forKey: "video_ratio_description")
+        videoRatioLabel.text = kUserDefaults.string(forKey: "video_ratio_description")
     }
 
     // MARK: - Table view data source
@@ -62,9 +62,9 @@ class APODSettingsTableViewController: UITableViewController {
             
             videoRatioArray.forEach({ tuple in
                 let action = UIAlertAction(title: tuple.description, style: .default) { _ in
-                    UserDefaults.standard.set(tuple.ratio, forKey: "video_ratio")
-                    UserDefaults.standard.set(tuple.description, forKey: "video_ratio_description")
-                    UserDefaults.standard.synchronize()
+                    kUserDefaults.set(tuple.ratio, forKey: "video_ratio")
+                    kUserDefaults.set(tuple.description, forKey: "video_ratio_description")
+                    kUserDefaults.synchronize()
                     self.reloadRatioLabel()
                 }
                 action.setValue(UIColor.apod, forKey: "titleTextColor")
@@ -76,9 +76,12 @@ class APODSettingsTableViewController: UITableViewController {
             alertVC.addAction(cancelAction)
             
             if let popoverPresentationController = alertVC.popoverPresentationController {
-                popoverPresentationController.permittedArrowDirections = .up
-                popoverPresentationController.sourceView = tableView.cellForRow(at: indexPath)
-                popoverPresentationController.sourceRect = (tableView.cellForRow(at: indexPath)?.frame)!
+                popoverPresentationController.permittedArrowDirections = []
+                popoverPresentationController.sourceView = self.view
+                popoverPresentationController.sourceRect = CGRect(x: self.view.bounds.midX,
+                                                                  y: self.view.bounds.midY,
+                                                                  width: 0,
+                                                                  height: 0)
             }
             
             present(alertVC, animated: true, completion: nil)
