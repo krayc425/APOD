@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SVProgressHUD.setDefaultStyle(.dark)
         
         if !kUserDefaults.bool(forKey: "first_apod") {
-            
             kUserDefaults.set(videoRatioArray[0].ratio, forKey: "video_ratio")
             kUserDefaults.set(true, forKey: "first_apod")
             
@@ -56,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Open URL \(url)")
         
         if url.absoluteString.contains("widgetopen") {
-            
+            print(url.absoluteString.substring("apodscheme://widgetopen?date=".count))
         }
         
         return true

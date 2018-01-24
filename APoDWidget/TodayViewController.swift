@@ -8,7 +8,8 @@
 
 import UIKit
 import NotificationCenter
-import Kingfisher
+
+typealias APODWidgetDictPair = (date: String, imageData: Data)
 
 class TodayViewController: UIViewController, NCWidgetProviding {
     
@@ -21,7 +22,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
     
-    private var modelArray: [APODModel] = []
+    private var widgetPairs: [APODWidgetDictPair] = []
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +31,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @objc func tapAction(_ sender: UITapGestureRecognizer) {
         if let imageView = sender.view {
             let tag = imageView.tag
-            let model = modelArray[tag]
-            self.extensionContext?.open(URL(string: "apodscheme://widgetopen?date=\(apodDateFormatter.string(from: model.date!))")!, completionHandler: nil)
+            self.extensionContext?.open(URL(string: "apodscheme://widgetopen?date=\(widgetPairs[tag].date)")!, completionHandler: nil)
         }
     }
     
@@ -42,30 +42,30 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        modelArray.removeAll()
+        widgetPairs.removeAll()
         
-        let favoriteArray = APODCacheHelper.shared.getFavoriteModels()!
+        let favoriteArray = APODWidgetHelper.shared.getWidgetModelDict()
         let end = favoriteArray.count < imageViewArray.count ? favoriteArray.count : imageViewArray.count
         var randomDateIndexes: [Int] = []
+        
         for _ in 0..<end {
-            let i = Int(arc4random()) % end
-            while randomDateIndexes.contains(i) && favoriteArray[i].media_type! == .image {
-                
+            while true {
+                let i = Int(arc4random()) % favoriteArray.count
+                if !randomDateIndexes.contains(i) {
+                    randomDateIndexes.append(i)
+                    let index = favoriteArray.index(favoriteArray.startIndex, offsetBy: i)
+                    widgetPairs.append((favoriteArray.keys[index], favoriteArray.values[index]))
+                    break
+                }
             }
-            randomDateIndexes.append(i)
-            modelArray.append(favoriteArray[i])
         }
         
         setImages()
     }
     
-    func setImages() {
-        for i in 0..<modelArray.count {
-            imageViewArray[i].kf.setImage(with: modelArray[i].url, placeholder: #imageLiteral(resourceName: "logo"), options: nil, progressBlock: { (current, total) in
-                print(current, total)
-            }, completionHandler: { (_, _, _, _) in
-            
-            })
+    private func setImages() {
+        for i in 0..<widgetPairs.count {
+            imageViewArray[i].image = UIImage(data: widgetPairs[i].imageData)
         }
     }
     

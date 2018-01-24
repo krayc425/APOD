@@ -23,13 +23,14 @@
 		241B93222017019900D4C058 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 240FBF652000AF9900D32323 /* Assets.xcassets */; };
 		241B93252017037A00D4C058 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240FBF702000B0B400D32323 /* Constants.swift */; };
 		241B93262017044F00D4C058 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240FBF722000B50600D32323 /* UIColorExtension.swift */; };
-		241B9327201704B100D4C058 /* APODModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240FBF762000B59500D32323 /* APODModel.swift */; };
 		241B93282017058B00D4C058 /* APODMediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE09FD20021CD900A57857 /* APODMediaType.swift */; };
 		241B932C2017071000D4C058 /* APODCacheHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241B932A201706E900D4C058 /* APODCacheHelper.swift */; };
-		241B932D2017071000D4C058 /* APODCacheHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241B932A201706E900D4C058 /* APODCacheHelper.swift */; };
 		241B9331201728A500D4C058 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241B9330201728A500D4C058 /* StringExtension.swift */; };
 		246887822003B180006B1D37 /* APODSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246887812003B180006B1D37 /* APODSettingsTableViewController.swift */; };
 		2475EF572005BE540002694F /* APODLanguageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475EF562005BE540002694F /* APODLanguageTableViewController.swift */; };
+		2495963520188ECE00D659D0 /* APODWidgetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2495963420188ECE00D659D0 /* APODWidgetHelper.swift */; };
+		249596362018905600D659D0 /* APODWidgetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2495963420188ECE00D659D0 /* APODWidgetHelper.swift */; };
+		249596372018908E00D659D0 /* APODModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240FBF762000B59500D32323 /* APODModel.swift */; };
 		249C69FF20065B8500BEBCF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 240FBF652000AF9900D32323 /* Assets.xcassets */; };
 		24BE09F62001E1A600A57857 /* APODFavoriteCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE09F52001E1A600A57857 /* APODFavoriteCollectionViewController.swift */; };
 		24BE09F82001E1CD00A57857 /* APODFavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE09F72001E1CD00A57857 /* APODFavoriteCollectionViewCell.swift */; };
@@ -91,6 +92,7 @@
 		241B9330201728A500D4C058 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		246887812003B180006B1D37 /* APODSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODSettingsTableViewController.swift; sourceTree = "<group>"; };
 		2475EF562005BE540002694F /* APODLanguageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODLanguageTableViewController.swift; sourceTree = "<group>"; };
+		2495963420188ECE00D659D0 /* APODWidgetHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODWidgetHelper.swift; sourceTree = "<group>"; };
 		24A8831D2005B77A0063E23E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		24A8831E2005B8730063E23E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		24A8831F2005B9290063E23E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				240FBF762000B59500D32323 /* APODModel.swift */,
 				240FBF742000B56000D32323 /* APODHelper.swift */,
 				241B932A201706E900D4C058 /* APODCacheHelper.swift */,
+				2495963420188ECE00D659D0 /* APODWidgetHelper.swift */,
 			);
 			path = APODData;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				24BE09F62001E1A600A57857 /* APODFavoriteCollectionViewController.swift in Sources */,
 				24BE09FC20021C0200A57857 /* APODFavoriteSort.swift in Sources */,
 				2475EF572005BE540002694F /* APODLanguageTableViewController.swift in Sources */,
+				2495963520188ECE00D659D0 /* APODWidgetHelper.swift in Sources */,
 				246887822003B180006B1D37 /* APODSettingsTableViewController.swift in Sources */,
 				240FBF752000B56000D32323 /* APODHelper.swift in Sources */,
 				241B932C2017071000D4C058 /* APODCacheHelper.swift in Sources */,
@@ -503,12 +507,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				249596372018908E00D659D0 /* APODModel.swift in Sources */,
 				241B93162017000D00D4C058 /* TodayViewController.swift in Sources */,
 				241B93252017037A00D4C058 /* Constants.swift in Sources */,
-				241B932D2017071000D4C058 /* APODCacheHelper.swift in Sources */,
 				241B93262017044F00D4C058 /* UIColorExtension.swift in Sources */,
-				241B9327201704B100D4C058 /* APODModel.swift in Sources */,
 				241B93282017058B00D4C058 /* APODMediaType.swift in Sources */,
+				249596362018905600D659D0 /* APODWidgetHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

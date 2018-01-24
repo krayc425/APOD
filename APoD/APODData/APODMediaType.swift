@@ -9,6 +9,8 @@
 import Foundation
 
 enum APODMediaType: String, Codable {
+    
     case image
     case video
+    
 }

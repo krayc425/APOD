@@ -19,29 +19,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SjU-1J-4bQ">
-                                <rect key="frame" x="15" y="10.5" width="290" height="59.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="SjU-1J-4bQ">
+                                <rect key="frame" x="15" y="9" width="290" height="62"/>
                                 <subviews>
-                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="PgZ-ST-m5S">
-                                        <rect key="frame" x="0.0" y="0.0" width="59.5" height="59.5"/>
+                                    <imageView contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="PgZ-ST-m5S">
+                                        <rect key="frame" x="0.0" y="0.0" width="62" height="62"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="PgZ-ST-m5S" secondAttribute="height" multiplier="1:1" id="oiA-3W-Mc0"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="pGl-LS-1S5">
-                                        <rect key="frame" x="77" y="0.0" width="59.5" height="59.5"/>
+                                    <imageView tag="1" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="pGl-LS-1S5">
+                                        <rect key="frame" x="76" y="0.0" width="62" height="62"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="pGl-LS-1S5" secondAttribute="height" multiplier="1:1" id="zhb-5a-9Ay"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="adX-9d-sw7">
-                                        <rect key="frame" x="153.5" y="0.0" width="59.5" height="59.5"/>
+                                    <imageView tag="2" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="adX-9d-sw7">
+                                        <rect key="frame" x="152" y="0.0" width="62" height="62"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="adX-9d-sw7" secondAttribute="height" multiplier="1:1" id="C0x-z3-OeE"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Pee-ZZ-dNI">
-                                        <rect key="frame" x="230.5" y="0.0" width="59.5" height="59.5"/>
+                                    <imageView tag="3" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Pee-ZZ-dNI">
+                                        <rect key="frame" x="228" y="0.0" width="62" height="62"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Pee-ZZ-dNI" secondAttribute="height" multiplier="1:1" id="lTA-dP-hgd"/>
                                         </constraints>
@@ -59,8 +59,8 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="SjU-1J-4bQ" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="15" id="QWv-0m-04a"/>
-                            <constraint firstItem="SjU-1J-4bQ" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" constant="10" id="WbD-7k-la3"/>
-                            <constraint firstAttribute="bottom" secondItem="SjU-1J-4bQ" secondAttribute="bottom" constant="10" id="XW1-KY-PVA"/>
+                            <constraint firstItem="SjU-1J-4bQ" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" constant="9" id="WbD-7k-la3"/>
+                            <constraint firstAttribute="bottom" secondItem="SjU-1J-4bQ" secondAttribute="bottom" constant="9" id="XW1-KY-PVA"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="SjU-1J-4bQ" secondAttribute="trailing" constant="15" id="fjA-sP-N3t"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>

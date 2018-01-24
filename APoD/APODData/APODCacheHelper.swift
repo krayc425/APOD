@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class APODCacheHelper: NSObject {
     
@@ -26,6 +27,8 @@ class APODCacheHelper: NSObject {
         }
         kUserDefaults.set(array, forKey: "favorite_apod")
         kUserDefaults.synchronize()
+        
+        APODWidgetHelper.shared.addWidgetModel(model: model)
     }
     
     func removeFavorite(model: APODModel) {
@@ -36,6 +39,8 @@ class APODCacheHelper: NSObject {
         }
         kUserDefaults.set(array, forKey: "favorite_apod")
         kUserDefaults.synchronize()
+        
+        APODWidgetHelper.shared.removeWidgetModel(model: model)
     }
     
     func getFavoriteModels() -> [APODModel]? {

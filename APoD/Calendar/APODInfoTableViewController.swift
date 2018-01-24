@@ -70,7 +70,10 @@ class APODInfoTableViewController: UITableViewController {
                     }
                     
                     if self.apodModel!.media_type == APODMediaType.image {
-                        self.mainImageView.kf.setImage(with: (self.apodModel!.url)!, placeholder: nil, options: nil, progressBlock: { (current, total) in
+                        let imageResourse = ImageResource(downloadURL: (self.apodModel!.url)!,
+                                                          cacheKey: apodDateFormatter.string(from: self.currentDate))
+                        
+                        self.mainImageView.kf.setImage(with: imageResourse, placeholder: nil, options: nil, progressBlock: { (current, total) in
                             SVProgressHUD.showProgress(Float(current) / Float(total))
                         }, completionHandler: { (image, error, cacheType, url) in
                             self.mainImageView.isHidden = false
