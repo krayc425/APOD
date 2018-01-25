@@ -52,12 +52,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        print("Open URL \(url)")
-        
         if url.absoluteString.contains("widgetopen") {
-            print(url.absoluteString.substring("apodscheme://widgetopen?date=".count))
+            let tabVC: UITabBarController = self.window!.rootViewController as! UITabBarController
+            tabVC.selectedIndex = 0
+            let navVC: APODNavigationController = tabVC.viewControllers![0] as! APODNavigationController
+            let calendarVC: APODInfoTableViewController = navVC.viewControllers[0] as! APODInfoTableViewController
+            calendarVC.currentDate = apodDateFormatter.date(from: url.absoluteString.substring("apodscheme://widgetopen?date=".count))!
         }
-        
         return true
     }
 

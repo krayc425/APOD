@@ -42,9 +42,10 @@ class APODInfoTableViewController: UITableViewController {
     
     private var isLoadingFailed: Bool = false
     
-    private var currentDate: Date = Date() {
+    var currentDate: Date = Date() {
         didSet {
             self.navigationItem.title = apodDateFormatter.string(from: currentDate)
+            loadModel(on: currentDate)
         }
     }
     
@@ -154,13 +155,13 @@ class APODInfoTableViewController: UITableViewController {
         swipeRightGesture.direction = .right
         tableView.addGestureRecognizer(swipeRightGesture)
         
-        loadModel(on: currentDate)
-        
         for button in [hdButton, saveButton, shareButton] {
             button?.layer.cornerRadius = (button?.layer.frame.height)! / 2.0
             button?.layer.masksToBounds = true
             button?.setTitleColor(.apod, for: .highlighted)
         }
+        
+        currentDate = Date()
     }
 
     override func didReceiveMemoryWarning() {
@@ -174,11 +175,10 @@ class APODInfoTableViewController: UITableViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
         cancelNetworkRequests()
     }
     
-    func cancelNetworkRequests() {
+    private func cancelNetworkRequests() {
         self.mainImageView.kf.cancelDownloadTask()
         
         Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
@@ -195,21 +195,20 @@ class APODInfoTableViewController: UITableViewController {
         case UISwipeGestureRecognizerDirection.left:
             let newDate = currentDate.addingTimeInterval(24 * 60 * 60)
             if newDate.timeIntervalSince1970 <= maximumDate.timeIntervalSince1970 {
-                loadModel(on: newDate)
+                currentDate = newDate
             }
         case UISwipeGestureRecognizerDirection.right:
             let newDate = currentDate.addingTimeInterval(-24 * 60 * 60)
             if newDate.timeIntervalSince1970 >= minimumDate.timeIntervalSince1970 {
-                loadModel(on: newDate)
+                currentDate = newDate
             }
         default:
             return
         }
     }
     
-    func loadModel(on date: Date) {
+    private func loadModel(on date: Date) {
         self.apodModel = nil
-        self.currentDate = date
         
         if let model = APODCacheHelper.shared.getCacheModel(on: date) {
             self.apodModel = model

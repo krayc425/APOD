@@ -26,6 +26,7 @@
 		241B93282017058B00D4C058 /* APODMediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE09FD20021CD900A57857 /* APODMediaType.swift */; };
 		241B932C2017071000D4C058 /* APODCacheHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241B932A201706E900D4C058 /* APODCacheHelper.swift */; };
 		241B9331201728A500D4C058 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241B9330201728A500D4C058 /* StringExtension.swift */; };
+		2457A9062018EA220088AA87 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24E82E402005B2C7005DB978 /* Localizable.strings */; };
 		246887822003B180006B1D37 /* APODSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246887812003B180006B1D37 /* APODSettingsTableViewController.swift */; };
 		2475EF572005BE540002694F /* APODLanguageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475EF562005BE540002694F /* APODLanguageTableViewController.swift */; };
 		2495963520188ECE00D659D0 /* APODWidgetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2495963420188ECE00D659D0 /* APODWidgetHelper.swift */; };
@@ -371,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				241B93222017019900D4C058 /* Assets.xcassets in Resources */,
+				2457A9062018EA220088AA87 /* Localizable.strings in Resources */,
 				241B93192017000D00D4C058 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

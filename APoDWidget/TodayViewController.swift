@@ -11,7 +11,15 @@ import NotificationCenter
 
 typealias APODWidgetDictPair = (date: String, imageData: Data)
 
+private let kUIViewAnimationDuration = 0.05
+
 class TodayViewController: UIViewController, NCWidgetProviding {
+    
+    @IBOutlet weak var noDataLabel: UILabel! {
+        didSet {
+            noDataLabel.text = NSLocalizedString("Nothing yet", comment: "")
+        }
+    }
     
     @IBOutlet var imageViewArray: [UIImageView]! {
         didSet {
@@ -46,8 +54,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         let favoriteArray = APODWidgetHelper.shared.getWidgetModelDict()
         let end = favoriteArray.count < imageViewArray.count ? favoriteArray.count : imageViewArray.count
-        var randomDateIndexes: [Int] = []
         
+        guard end > 0 else {
+            noDataLabel.isHidden = false
+            return
+        }
+        noDataLabel.isHidden = true
+        
+        var randomDateIndexes: [Int] = []
         for _ in 0..<end {
             while true {
                 let i = Int(arc4random()) % favoriteArray.count
@@ -65,7 +79,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     private func setImages() {
         for i in 0..<widgetPairs.count {
-            imageViewArray[i].image = UIImage(data: widgetPairs[i].imageData)
+            self.imageViewArray[i].image = UIImage(data: widgetPairs[i].imageData)
+            self.imageViewArray[i].alpha = 0.0
+            UIView.animate(withDuration: kUIViewAnimationDuration, animations: { [weak self] in
+                self?.imageViewArray[i].alpha = 1.0
+            })
         }
     }
     

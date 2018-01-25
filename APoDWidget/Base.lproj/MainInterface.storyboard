@@ -19,29 +19,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无收藏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npO-WB-gwT">
+                                <rect key="frame" x="127.5" y="30" width="65.5" height="19.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                <nil key="textColor"/>
+                                <color key="highlightedColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="SjU-1J-4bQ">
                                 <rect key="frame" x="15" y="9" width="290" height="62"/>
                                 <subviews>
-                                    <imageView contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="PgZ-ST-m5S">
+                                    <imageView contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PgZ-ST-m5S">
                                         <rect key="frame" x="0.0" y="0.0" width="62" height="62"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="PgZ-ST-m5S" secondAttribute="height" multiplier="1:1" id="oiA-3W-Mc0"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView tag="1" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="pGl-LS-1S5">
+                                    <imageView tag="1" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pGl-LS-1S5">
                                         <rect key="frame" x="76" y="0.0" width="62" height="62"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="pGl-LS-1S5" secondAttribute="height" multiplier="1:1" id="zhb-5a-9Ay"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView tag="2" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="adX-9d-sw7">
+                                    <imageView tag="2" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="adX-9d-sw7">
                                         <rect key="frame" x="152" y="0.0" width="62" height="62"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="adX-9d-sw7" secondAttribute="height" multiplier="1:1" id="C0x-z3-OeE"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView tag="3" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Pee-ZZ-dNI">
+                                    <imageView tag="3" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pee-ZZ-dNI">
                                         <rect key="frame" x="228" y="0.0" width="62" height="62"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Pee-ZZ-dNI" secondAttribute="height" multiplier="1:1" id="lTA-dP-hgd"/>
                                         </constraints>
@@ -58,6 +68,8 @@
                             </stackView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="npO-WB-gwT" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="O6a-yy-H0N"/>
+                            <constraint firstItem="npO-WB-gwT" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="ODE-kK-BAX"/>
                             <constraint firstItem="SjU-1J-4bQ" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="15" id="QWv-0m-04a"/>
                             <constraint firstItem="SjU-1J-4bQ" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" constant="9" id="WbD-7k-la3"/>
                             <constraint firstAttribute="bottom" secondItem="SjU-1J-4bQ" secondAttribute="bottom" constant="9" id="XW1-KY-PVA"/>
@@ -69,6 +81,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="80"/>
                     <connections>
+                        <outlet property="noDataLabel" destination="npO-WB-gwT" id="U5Z-E7-GcC"/>
                         <outletCollection property="imageViewArray" destination="PgZ-ST-m5S" collectionClass="NSMutableArray" id="bvl-FT-jGl"/>
                         <outletCollection property="imageViewArray" destination="pGl-LS-1S5" collectionClass="NSMutableArray" id="9q8-dI-j1A"/>
                         <outletCollection property="imageViewArray" destination="adX-9d-sw7" collectionClass="NSMutableArray" id="UKp-uY-8Q6"/>
@@ -80,7 +93,4 @@
             <point key="canvasLocation" x="33.600000000000001" y="85.907046476761622"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="logo" width="102" height="102"/>
-    </resources>
 </document>

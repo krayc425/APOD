@@ -61,7 +61,7 @@ class APODLanguageTableViewController: UITableViewController {
         
         cell.tintColor = .white
         
-        if languageArray[indexPath.row].rawValue == (kUserDefaults.array(forKey: "AppleLanguages")?.first)! as! String {
+        if languageArray[indexPath.row].rawValue == (UserDefaults.standard.array(forKey: "AppleLanguages")?.first)! as! String {
             cell.accessoryType = .checkmark
         } else {
             cell.accessoryType = .none
@@ -73,8 +73,8 @@ class APODLanguageTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        kUserDefaults.set([languageArray[indexPath.row].rawValue], forKey: "AppleLanguages")
-        kUserDefaults.synchronize()
+        UserDefaults.standard.set([languageArray[indexPath.row].rawValue], forKey: "AppleLanguages")
+        UserDefaults.standard.synchronize()
         tableView.reloadData()
         
         SVProgressHUD.showSuccess(withStatus: NSLocalizedString("Language changed\nPlease restart the app to enable new language", comment: ""))
