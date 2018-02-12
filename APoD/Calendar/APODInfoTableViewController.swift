@@ -258,7 +258,7 @@ class APODInfoTableViewController: UITableViewController {
         alertVC.view.frame = CGRect(x: 0, y: 0, width: isiPad ? 300 : kScreenWidth, height: 10)
         
         let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { _ in
-            self.loadModel(on: apodDatePicker.date)
+            self.currentDate = apodDatePicker.date
         }
         okAction.setValue(UIColor.apod, forKey: "titleTextColor")
         alertVC.addAction(okAction)
@@ -268,12 +268,12 @@ class APODInfoTableViewController: UITableViewController {
         alertVC.addAction(cancelAction)
         
         let height: NSLayoutConstraint = NSLayoutConstraint(item: alertVC.view,
-                                                           attribute: .height,
-                                                           relatedBy: .equal,
-                                                           toItem: nil,
-                                                           attribute: .notAnAttribute,
-                                                           multiplier: 1,
-                                                           constant: apodDatePicker.frame.height + (isiPad ? 70 : 120))
+                                                            attribute: .height,
+                                                            relatedBy: .equal,
+                                                            toItem: nil,
+                                                            attribute: .notAnAttribute,
+                                                            multiplier: 1,
+                                                            constant: apodDatePicker.frame.height + (isiPad ? 70 : 120))
         alertVC.view.addConstraint(height)
         
         if let popoverPresentationController = alertVC.popoverPresentationController {
@@ -380,7 +380,7 @@ class APODInfoTableViewController: UITableViewController {
         case 0:
             return imageViewHeight
         case 3:
-            return self.apodModel?.copyright == nil ? 0.0 : 44.0
+            return self.apodModel?.copyright == nil ? 0.0 : UITableViewAutomaticDimension
         case 4:
             return self.apodModel?.copyright == nil ? 65.0 : 60.0
         default:

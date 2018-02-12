@@ -37,7 +37,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     @objc func tapAction(_ sender: UITapGestureRecognizer) {
-        if let imageView = sender.view {
+        if let imageView = sender.view as? UIImageView, let _ = imageView.image {
             let tag = imageView.tag
             self.extensionContext?.open(URL(string: "apodscheme://widgetopen?date=\(widgetPairs[tag].date)")!, completionHandler: nil)
         }
