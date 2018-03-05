@@ -53,14 +53,14 @@
 /* Class = "UILabel"; text = "Load HD images"; ObjectID = "pUT-lw-Ppe"; */
 "pUT-lw-Ppe.text" = "加載 HD 圖片";
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "pY0-AC-x8j"; */
-"pY0-AC-x8j.text" = "Label";
-
 /* Class = "UILabel"; text = "Video ratio"; ObjectID = "pmu-8W-BOk"; */
 "pmu-8W-BOk.text" = "視頻比例";
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "qgy-XB-lvw"; */
-"qgy-XB-lvw.text" = "Label";
-
 /* Class = "UIBarButtonItem"; title = "收藏"; ObjectID = "r7Q-rl-UX3"; */
 "r7Q-rl-UX3.title" = "收藏";
+
+/* Class = "UILabel"; text = "Acknowledgements"; ObjectID = "Sbk-ak-V48"; */
+"Sbk-ak-V48.text" = "致謝";
+
+/* Class = "UILabel"; text = "Contact us"; ObjectID = "Bzw-RV-KU0"; */
+"Bzw-RV-KU0.text" = "聯繫我們";

@@ -14,11 +14,20 @@
 /* Class = "UITableViewController"; title = "Settings"; ObjectID = "Boc-1C-nFq"; */
 "Boc-1C-nFq.title" = "Settings";
 
+/* Class = "UILabel"; text = "Contact us"; ObjectID = "Bzw-RV-KU0"; */
+"Bzw-RV-KU0.text" = "Contact us";
+
 /* Class = "UILabel"; text = "Rate APOD"; ObjectID = "EFV-L6-8yb"; */
 "EFV-L6-8yb.text" = "Rate APOD";
 
+/* Class = "UILabel"; text = "Language"; ObjectID = "Hj2-8r-6JC"; */
+"Hj2-8r-6JC.text" = "Language";
+
 /* Class = "UILabel"; text = "16:9"; ObjectID = "IkZ-cK-UsJ"; */
 "IkZ-cK-UsJ.text" = "16:9";
+
+/* Class = "UITableViewController"; title = "Language"; ObjectID = "JER-qh-6Gx"; */
+"JER-qh-6Gx.title" = "Language";
 
 /* Class = "UIButton"; normalTitle = "HD"; ObjectID = "JNv-ea-3MW"; */
 "JNv-ea-3MW.normalTitle" = "HD";
@@ -32,14 +41,14 @@
 /* Class = "UILabel"; text = "Version"; ObjectID = "NVf-8h-Fe8"; */
 "NVf-8h-Fe8.text" = "Version";
 
+/* Class = "UILabel"; text = "Acknowledgements"; ObjectID = "Sbk-ak-V48"; */
+"Sbk-ak-V48.text" = "Acknowledgements";
+
 /* Class = "UIButton"; normalTitle = "Save"; ObjectID = "Twa-xu-fwk"; */
 "Twa-xu-fwk.normalTitle" = "Save";
 
 /* Class = "UIButton"; normalTitle = "Share"; ObjectID = "aJp-ry-Ksa"; */
 "aJp-ry-Ksa.normalTitle" = "Share";
-
-/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "dEH-XD-Dy2"; */
-"dEH-XD-Dy2.title" = "Item";
 
 /* Class = "UITabBarItem"; title = "Favorite"; ObjectID = "kLY-aC-Xba"; */
 "kLY-aC-Xba.title" = "Favorite";
@@ -47,14 +56,5 @@
 /* Class = "UILabel"; text = "Load HD images"; ObjectID = "pUT-lw-Ppe"; */
 "pUT-lw-Ppe.text" = "Load HD images";
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "pY0-AC-x8j"; */
-"pY0-AC-x8j.text" = "Label";
-
-/* Class = "UILabel"; text = "Default video ratio"; ObjectID = "pmu-8W-BOk"; */
-"pmu-8W-BOk.text" = "Default video ratio";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "qgy-XB-lvw"; */
-"qgy-XB-lvw.text" = "Label";
-
-/* Class = "UIBarButtonItem"; title = "收藏"; ObjectID = "r7Q-rl-UX3"; */
-"r7Q-rl-UX3.title" = "收藏";
+/* Class = "UILabel"; text = "Video ratio"; ObjectID = "pmu-8W-BOk"; */
+"pmu-8W-BOk.text" = "Video ratio";

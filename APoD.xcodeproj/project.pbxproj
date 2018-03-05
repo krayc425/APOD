@@ -39,7 +39,7 @@
 		24BE09FC20021C0200A57857 /* APODFavoriteSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE09FB20021C0200A57857 /* APODFavoriteSort.swift */; };
 		24BE09FE20021CD900A57857 /* APODMediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE09FD20021CD900A57857 /* APODMediaType.swift */; };
 		24E644C0204CE41500586F66 /* Pods-APoD-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24E644BF204CE41400586F66 /* Pods-APoD-acknowledgements.plist */; };
-		24E644C2204CE5D200586F66 /* URLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E644C1204CE5D200586F66 /* URLHelper.swift */; };
+		24E644C4204CED6A00586F66 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E644C3204CED6A00586F66 /* URLExtension.swift */; };
 		24E82E382005B207005DB978 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24E82E3A2005B207005DB978 /* InfoPlist.strings */; };
 		24E82E3E2005B2C7005DB978 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24E82E402005B2C7005DB978 /* Localizable.strings */; };
 		8EEE16D707AE9935A2D146DD /* Pods_APoDWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EF88FDCCAFA1AF5F421BFDE /* Pods_APoDWidget.framework */; };
@@ -96,9 +96,6 @@
 		246887812003B180006B1D37 /* APODSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODSettingsTableViewController.swift; sourceTree = "<group>"; };
 		2475EF562005BE540002694F /* APODLanguageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODLanguageTableViewController.swift; sourceTree = "<group>"; };
 		2495963420188ECE00D659D0 /* APODWidgetHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODWidgetHelper.swift; sourceTree = "<group>"; };
-		24A8831D2005B77A0063E23E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
-		24A8831E2005B8730063E23E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		24A8831F2005B9290063E23E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		24A883202005B9290063E23E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		24A883212005B92A0063E23E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		24A883222005B92A0063E23E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -110,7 +107,10 @@
 		24BE0A02200222A600A57857 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		24BE0A04200222AB00A57857 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		24E644BF204CE41400586F66 /* Pods-APoD-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-APoD-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-APoD/Pods-APoD-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
-		24E644C1204CE5D200586F66 /* URLHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHelper.swift; sourceTree = "<group>"; };
+		24E644C3204CED6A00586F66 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
+		24E644CD204D201A00586F66 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		24E644CE204D202100586F66 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		24E644CF204D202700586F66 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		24E82E352005B1D6005DB978 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		24E82E392005B207005DB978 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		24E82E3B2005B213005DB978 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -174,18 +174,16 @@
 				24BE0A0120021DC100A57857 /* Calendar */,
 				24BE09FF20021DAF00A57857 /* Favorite */,
 				246887832003BBA0006B1D37 /* Settings */,
+				24E644C5204CED7C00586F66 /* Extensions */,
 				24BE09F92001FFEC00A57857 /* ApiKey.swift */,
 				240FBF702000B0B400D32323 /* Constants.swift */,
-				241B9330201728A500D4C058 /* StringExtension.swift */,
-				240FBF722000B50600D32323 /* UIColorExtension.swift */,
-				240FBF622000AF9900D32323 /* Main.storyboard */,
-				240FBF652000AF9900D32323 /* Assets.xcassets */,
-				240FBF672000AF9900D32323 /* LaunchScreen.storyboard */,
-				240FBF6A2000AF9900D32323 /* Info.plist */,
-				24E644BF204CE41400586F66 /* Pods-APoD-acknowledgements.plist */,
 				24E82E3A2005B207005DB978 /* InfoPlist.strings */,
 				24E82E402005B2C7005DB978 /* Localizable.strings */,
-				24E644C1204CE5D200586F66 /* URLHelper.swift */,
+				240FBF672000AF9900D32323 /* LaunchScreen.storyboard */,
+				240FBF622000AF9900D32323 /* Main.storyboard */,
+				240FBF652000AF9900D32323 /* Assets.xcassets */,
+				240FBF6A2000AF9900D32323 /* Info.plist */,
+				24E644BF204CE41400586F66 /* Pods-APoD-acknowledgements.plist */,
 			);
 			path = APoD;
 			sourceTree = "<group>";
@@ -238,6 +236,16 @@
 				240FBF7A2000EA4D00D32323 /* APODInfoTableViewController.swift */,
 			);
 			path = Calendar;
+			sourceTree = "<group>";
+		};
+		24E644C5204CED7C00586F66 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				241B9330201728A500D4C058 /* StringExtension.swift */,
+				240FBF722000B50600D32323 /* UIColorExtension.swift */,
+				24E644C3204CED6A00586F66 /* URLExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		290EF5D1FAB2D395950BB140 /* Pods */ = {
@@ -493,9 +501,9 @@
 				24BE09FE20021CD900A57857 /* APODMediaType.swift in Sources */,
 				24BE09FA2001FFEC00A57857 /* ApiKey.swift in Sources */,
 				240FBF5F2000AF9900D32323 /* AppDelegate.swift in Sources */,
-				24E644C2204CE5D200586F66 /* URLHelper.swift in Sources */,
 				240FBF7D2000F97400D32323 /* APODNavigationController.swift in Sources */,
 				241B9331201728A500D4C058 /* StringExtension.swift in Sources */,
+				24E644C4204CED6A00586F66 /* URLExtension.swift in Sources */,
 				240FBF712000B0B400D32323 /* Constants.swift in Sources */,
 				240FBF732000B50600D32323 /* UIColorExtension.swift in Sources */,
 				24BE09F62001E1A600A57857 /* APODFavoriteCollectionViewController.swift in Sources */,
@@ -539,9 +547,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				240FBF632000AF9900D32323 /* Base */,
-				24A8831D2005B77A0063E23E /* zh-Hans */,
-				24A8831E2005B8730063E23E /* en */,
-				24A8831F2005B9290063E23E /* zh-Hant */,
+				24E644CD204D201A00586F66 /* en */,
+				24E644CE204D202100586F66 /* zh-Hant */,
+				24E644CF204D202700586F66 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
