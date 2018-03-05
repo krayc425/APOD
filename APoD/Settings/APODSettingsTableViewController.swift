@@ -8,6 +8,7 @@
 
 import UIKit
 import StoreKit
+import AcknowList
 
 class APODSettingsTableViewController: UITableViewController {
 
@@ -47,7 +48,7 @@ class APODSettingsTableViewController: UITableViewController {
         case 0:
             return 2
         case 1:
-            return 2
+            return 4
         default:
             return 0
         }
@@ -87,15 +88,14 @@ class APODSettingsTableViewController: UITableViewController {
             present(alertVC, animated: true, completion: nil)
         case (1, 0):
             let url = URL(string: "https://itunes.apple.com/us/app/itunes-u/id\(kAppID)?action=write-review&mt=8")!
-            print(UIDevice.current.systemVersion)
-            if Float(UIDevice.current.systemVersion.split(separator: ".")[0])! >= 10.0 {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            } else {
-                if UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.openURL(url)
-                }
-            }
-            break
+            url.open()
+        case (1, 1):
+            let path = Bundle.main.path(forResource: "Pods-APoD-acknowledgements", ofType: "plist")
+            let viewController = AcknowListViewController(acknowledgementsPlistPath: path)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (1, 2):
+            let url = URL.init(string: "sms:krayc425@gmail.com")!
+            url.open()
         default:
             break
         }

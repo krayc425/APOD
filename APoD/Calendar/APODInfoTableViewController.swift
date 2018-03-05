@@ -21,7 +21,7 @@ class APODInfoTableViewController: UITableViewController {
     
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var explanationLabel: UILabel!
+    @IBOutlet weak var explanationTextView: UITextView!
     @IBOutlet weak var copyrightLabel: UILabel!
     lazy var webView: WKWebView = {
         let webViewConfig = WKWebViewConfiguration()
@@ -64,7 +64,7 @@ class APODInfoTableViewController: UITableViewController {
                         }
                     }
                     self.titleLabel.text = self.apodModel!.title
-                    self.explanationLabel.text = self.apodModel!.explanation
+                    self.explanationTextView.text = self.apodModel!.explanation
                     
                     if let copyright = self.apodModel?.copyright {
                         self.copyrightLabel.text = copyright
@@ -121,7 +121,7 @@ class APODInfoTableViewController: UITableViewController {
                 
                 self.titleLabel.text = ""
                 self.copyrightLabel.text = ""
-                self.explanationLabel.text = ""
+                self.explanationTextView.text = ""
                 self.favoriteBarButtonItem.image = #imageLiteral(resourceName: "heart")
                 
                 self.hdButton.isHidden = true
