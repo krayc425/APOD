@@ -11,13 +11,10 @@ import UIKit
 extension URL {
     
     func open() {
-        if Float(UIDevice.current.systemVersion.split(separator: ".")[0])! >= 10.0 {
-            UIApplication.shared.open(self, options: [:], completionHandler: nil)
-        } else {
-            if UIApplication.shared.canOpenURL(self) {
-                UIApplication.shared.openURL(self)
-            }
+        guard Float(UIDevice.current.systemVersion.split(separator: ".")[0])! >= 10.0 else {
+            return
         }
+        UIApplication.shared.open(self, options: [:], completionHandler: nil)
     }
     
 }

@@ -1,11 +1,11 @@
 PODS:
-  - AcknowList (1.4)
-  - Alamofire (4.6.0)
+  - AcknowList (1.6)
+  - Alamofire (4.7.2)
   - DZNEmptyDataSet (1.8.1)
-  - Kingfisher (4.5.0)
-  - SimpleImageViewer (1.1)
-  - SVProgressHUD (2.2.2)
-  - SwiftyJSON (4.0.0)
+  - Kingfisher (4.7.0)
+  - SimpleImageViewer (1.1.1)
+  - SVProgressHUD (2.2.5)
+  - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
   - AcknowList
@@ -17,13 +17,13 @@ DEPENDENCIES:
   - SwiftyJSON
 
 SPEC CHECKSUMS:
-  AcknowList: 1fae3fa62f256ddd1001adf20ba5c52743515ac7
-  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  AcknowList: 2b27ccc75110be58be37424c4b08b07bdec628b4
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  Kingfisher: 26ae0473102b77b575da51960c932431e3745407
-  SimpleImageViewer: 293698047ffaf41e79c0c6b052ed38b218583453
-  SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
-  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
+  SimpleImageViewer: 34c3a2cde2d9ac022146772cefc27fca14b0c8b1
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
 PODFILE CHECKSUM: 2fc4592d3b965ea200b908e5ddc88bb15a3c6454
 

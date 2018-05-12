@@ -346,17 +346,19 @@ class APODInfoTableViewController: UITableViewController {
             let type = model.media_type {
             switch type {
             case .image:
-                if let image = mainImageView.image {
-                    let imageToShare = [image]
-                    let activityViewController = UIActivityViewController(activityItems: imageToShare,
+                if let image = mainImageView.image,
+                    let text = model.explanation {
+                    let itemsToShare: [Any] = [text, image]
+                    let activityViewController = UIActivityViewController(activityItems: itemsToShare,
                                                                           applicationActivities: nil)
                     activityViewController.popoverPresentationController?.sourceView = shareButton
                     self.present(activityViewController, animated: true, completion: nil)
                 }
             case .video:
-                if let url = model.url {
-                    let urlToShre = [url]
-                    let activityViewController = UIActivityViewController(activityItems: urlToShre,
+                if let url = model.url,
+                    let text = model.explanation {
+                    let itemsToShare: [Any] = [url, text]
+                    let activityViewController = UIActivityViewController(activityItems: itemsToShare,
                                                                           applicationActivities: nil)
                     activityViewController.popoverPresentationController?.sourceView = shareButton
                     self.present(activityViewController, animated: true, completion: nil)

@@ -44,9 +44,6 @@
 /* Class = "UIButton"; normalTitle = "Share"; ObjectID = "aJp-ry-Ksa"; */
 "aJp-ry-Ksa.normalTitle" = "分享";
 
-/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "dEH-XD-Dy2"; */
-"dEH-XD-Dy2.title" = "Item";
-
 /* Class = "UITabBarItem"; title = "Favorite"; ObjectID = "kLY-aC-Xba"; */
 "kLY-aC-Xba.title" = "收藏";
 

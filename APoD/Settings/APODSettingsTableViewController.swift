@@ -90,12 +90,12 @@ class APODSettingsTableViewController: UITableViewController {
             let url = URL(string: "https://itunes.apple.com/us/app/itunes-u/id\(kAppID)?action=write-review&mt=8")!
             url.open()
         case (1, 1):
+            let url = URL.init(string: "sms:krayc425@gmail.com")!
+            url.open()
+        case (1, 2):
             let path = Bundle.main.path(forResource: "Pods-APoD-acknowledgements", ofType: "plist")
             let viewController = AcknowListViewController(acknowledgementsPlistPath: path)
             navigationController?.pushViewController(viewController, animated: true)
-        case (1, 2):
-            let url = URL.init(string: "sms:krayc425@gmail.com")!
-            url.open()
         default:
             break
         }
