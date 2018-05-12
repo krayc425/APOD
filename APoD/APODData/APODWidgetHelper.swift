@@ -10,8 +10,9 @@ import Foundation
 import Kingfisher
 
 typealias APODImageData = Data
+typealias APODWidgetModel = [String: APODImageData]
 
-typealias APODWidgetModel = Dictionary<String, APODImageData>
+private let widgetKey = "widget_dict"
 
 class APODWidgetHelper: NSObject {
     
@@ -26,7 +27,7 @@ class APODWidgetHelper: NSObject {
             return
         }
         
-        var widgetDict = kUserDefaults.value(forKey: "widget_dict") as? APODWidgetModel ?? [:]
+        var widgetDict = kUserDefaults.value(forKey: widgetKey) as? APODWidgetModel ?? [:]
         
         let resource = ImageResource(downloadURL: model.url!, cacheKey: apodDateFormatter.string(from: model.date!))
         KingfisherManager.shared.retrieveImage(with: resource, options: nil, progressBlock: nil) { (image, _, _, _) in
@@ -35,7 +36,7 @@ class APODWidgetHelper: NSObject {
             }
         }
         
-        kUserDefaults.set(widgetDict, forKey: "widget_dict")
+        kUserDefaults.set(widgetDict, forKey: widgetKey)
         kUserDefaults.synchronize()
     }
     
@@ -44,16 +45,16 @@ class APODWidgetHelper: NSObject {
             return
         }
         
-        var widgetDict = kUserDefaults.value(forKey: "widget_dict") as? APODWidgetModel ?? [:]
+        var widgetDict = kUserDefaults.value(forKey: widgetKey) as? APODWidgetModel ?? [:]
         
         widgetDict[apodDateFormatter.string(from: model.date!)] = nil
         
-        kUserDefaults.set(widgetDict, forKey: "widget_dict")
+        kUserDefaults.set(widgetDict, forKey: widgetKey)
         kUserDefaults.synchronize()
     }
     
     func getWidgetModelDict() -> APODWidgetModel {
-        return kUserDefaults.value(forKey: "widget_dict") as! APODWidgetModel
+        return kUserDefaults.value(forKey: widgetKey) as! APODWidgetModel
     }
     
 }
