@@ -11,14 +11,14 @@ import SwiftyJSON
 
 struct APODModel: Codable {
     
-    var copyright: String?
-    var date: Date?
-    var explanation: String?
+    let copyright: String?
+    let date: Date?
+    let explanation: String?
+    let media_type: APODMediaType?
+    let service_version: String?
+    let title: String?
+    let url: URL?
     var hdurl: URL?
-    var media_type: APODMediaType?
-    var service_version: String?
-    var title: String?
-    var url: URL?
  
     init?(json: [String: JSON]) {
         self.copyright = json["copyright"]?.stringValue
@@ -33,16 +33,16 @@ struct APODModel: Codable {
         } else {
             return nil
         }
-        if let hdurlString = json["hdurl"]?.stringValue {
-            self.hdurl = URL(string: hdurlString)
-        } else if self.media_type! == .image {
-            return nil
-        }
         self.service_version = json["service_version"]?.stringValue
         self.title = json["title"]?.stringValue
         if let urlString = json["url"]?.stringValue {
             self.url = URL(string: urlString)
         } else {
+            return nil
+        }
+        if let hdurlString = json["hdurl"]?.stringValue {
+            self.hdurl = URL(string: hdurlString)
+        } else if self.media_type! == .image {
             return nil
         }
     }

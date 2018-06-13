@@ -26,6 +26,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             imageViewArray.forEach {
                 let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction(_:)))
                 $0.addGestureRecognizer(tapGesture)
+                
+                $0.layer.cornerRadius = 7.5
+                $0.layer.masksToBounds = true
             }
         }
     }
@@ -64,7 +67,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         var randomDateIndexes: [Int] = []
         for _ in 0..<end {
             while true {
-                let i = Int(arc4random()) % favoriteArray.count
+                let i = Int.random(in: 0..<favoriteArray.count) 
                 if !randomDateIndexes.contains(i) {
                     randomDateIndexes.append(i)
                     let index = favoriteArray.index(favoriteArray.startIndex, offsetBy: i)

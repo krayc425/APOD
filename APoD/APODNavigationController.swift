@@ -23,22 +23,26 @@ class APODNavigationController: UINavigationController, UIGestureRecognizerDeleg
         
         self.interactivePopGestureRecognizer?.delegate = self
         
-        findBottomLine(under: navigationBar)?.isHidden = true
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        self.navigationBar.setValue(true, forKey: "hidesShadow")
+        
+        if #available(iOS 11.0, *) {
+            self.navigationBar.prefersLargeTitles = true
+            let dict:[NSAttributedString.Key : Any] = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            self.navigationBar.largeTitleTextAttributes = dict
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if self.viewControllers.count >= 1 {
             let button = UIButton(type: .custom)
             button.bounds = CGRect(x: 0, y: 0, width: 100, height: 21)
-            button.setImage(#imageLiteral(resourceName: "nav_back"), for: .normal)
-            button.setImage(#imageLiteral(resourceName: "nav_back"), for: .highlighted)
+            button.setImage(#imageLiteral(resourceName: "nav_back"), for: UIControl.State.normal)
+            button.setImage(#imageLiteral(resourceName: "nav_back"), for: UIControl.State.highlighted)
             button.contentHorizontalAlignment = .left
             button.contentEdgeInsets = UIEdgeInsets.zero
-            button.addTarget(self, action: #selector(back), for: .touchUpInside)
+            button.addTarget(self, action: #selector(back), for: UIControl.Event.touchUpInside)
             viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
         }
         super.pushViewController(viewController, animated: animated)
@@ -46,19 +50,6 @@ class APODNavigationController: UINavigationController, UIGestureRecognizerDeleg
     
     @objc func back() {
         self.popViewController(animated: true)
-    }
-    
-    private func findBottomLine(under view: UIView) -> UIImageView? {
-        if view is UIImageView && view.bounds.size.height <= 1.0 {
-            return view as? UIImageView
-        }
-        for subview in view.subviews {
-            let imageView = self.findBottomLine(under: subview)
-            if imageView != nil {
-                return imageView
-            }
-        }
-        return nil
     }
     
 }

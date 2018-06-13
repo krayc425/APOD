@@ -148,26 +148,22 @@ class APODInfoTableViewController: UITableViewController {
         tableView.backgroundView = bgView
         
         let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(_:)))
-        swipeLeftGesture.direction = .left
+        swipeLeftGesture.direction = UISwipeGestureRecognizer.Direction.left
         tableView.addGestureRecognizer(swipeLeftGesture)
         
         let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(_:)))
-        swipeRightGesture.direction = .right
+        swipeRightGesture.direction = UISwipeGestureRecognizer.Direction.right
         tableView.addGestureRecognizer(swipeRightGesture)
         
         for button in [hdButton, saveButton, shareButton] {
             button?.layer.cornerRadius = (button?.layer.frame.height)! / 2.0
             button?.layer.masksToBounds = true
-            button?.setTitleColor(.apod, for: .highlighted)
+            button?.setTitleColor(.apod, for: UIControl.State.highlighted)
         }
         
         currentDate = Date()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.navigationController?.tabBarController?.tabBar.isHidden = false
@@ -192,12 +188,12 @@ class APODInfoTableViewController: UITableViewController {
     
     @objc func swipeAction(_ sender: UISwipeGestureRecognizer) {
         switch sender.direction {
-        case UISwipeGestureRecognizerDirection.left:
+        case UISwipeGestureRecognizer.Direction.left:
             let newDate = currentDate.addingTimeInterval(24 * 60 * 60)
             if newDate.timeIntervalSince1970 <= maximumDate.timeIntervalSince1970 {
                 currentDate = newDate
             }
-        case UISwipeGestureRecognizerDirection.right:
+        case UISwipeGestureRecognizer.Direction.right:
             let newDate = currentDate.addingTimeInterval(-24 * 60 * 60)
             if newDate.timeIntervalSince1970 >= minimumDate.timeIntervalSince1970 {
                 currentDate = newDate
@@ -395,7 +391,7 @@ class APODInfoTableViewController: UITableViewController {
             return
         }
         cell.alpha = 0.0
-        UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0, options: UIView.AnimationOptions.curveEaseInOut, animations: {
             cell.alpha = 1.0
         }) { _ in
             self.animatedCellIndexs.append(indexPath.row)
@@ -427,7 +423,7 @@ extension APODInfoTableViewController: DZNEmptyDataSetDelegate, DZNEmptyDataSetS
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let attributedString = NSAttributedString(string: NSLocalizedString("Try another day", comment: "") ,
-                                                  attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18.0)])
+                                                  attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18.0)])
         return attributedString
     }
     

@@ -138,7 +138,7 @@ class APODFavoriteCollectionViewController: UICollectionViewController, UICollec
             return
         }
         cell.alpha = 0.0
-        UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0, options: UIView.AnimationOptions.curveEaseInOut, animations: {
             cell.alpha = 1.0
         }) { _ in
             self.animatedCellIndexs.append(indexPath.row)
@@ -155,7 +155,7 @@ extension APODFavoriteCollectionViewController: DZNEmptyDataSetSource, DZNEmptyD
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let attributedString = NSAttributedString(string: NSLocalizedString("Nothing yet", comment: ""),
-                                                  attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18.0)])
+                                                  attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18.0)])
         return attributedString
     }
 
