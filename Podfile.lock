@@ -1,15 +1,17 @@
 PODS:
-  - AcknowList (1.6)
-  - Alamofire (4.7.2)
+  - AcknowList (1.8)
+  - Alamofire (4.8.0)
+  - Bugly (2.5.0)
   - DZNEmptyDataSet (1.8.1)
-  - Kingfisher (4.7.0)
+  - Kingfisher (5.0.1)
   - SimpleImageViewer (1.1.1)
   - SVProgressHUD (2.2.5)
-  - SwiftyJSON (4.1.0)
+  - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
   - AcknowList
   - Alamofire
+  - Bugly
   - DZNEmptyDataSet
   - Kingfisher
   - SimpleImageViewer
@@ -20,6 +22,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AcknowList
     - Alamofire
+    - Bugly
     - DZNEmptyDataSet
     - Kingfisher
     - SimpleImageViewer
@@ -27,14 +30,15 @@ SPEC REPOS:
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  AcknowList: 2b27ccc75110be58be37424c4b08b07bdec628b4
-  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  AcknowList: 5b8820004d019d0a8d6a091ea2392dcb54bd3ad2
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
+  Kingfisher: 4f771421b9208185217550528a06fd48756cb7c2
   SimpleImageViewer: 34c3a2cde2d9ac022146772cefc27fca14b0c8b1
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 2fc4592d3b965ea200b908e5ddc88bb15a3c6454
+PODFILE CHECKSUM: 186c1a85e5d7ff19e6b37307354fe0edfe37d625
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3

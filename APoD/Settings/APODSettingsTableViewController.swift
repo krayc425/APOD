@@ -48,7 +48,7 @@ class APODSettingsTableViewController: UITableViewController {
         case 0:
             return 2
         case 1:
-            return 4
+            return 5
         default:
             return 0
         }
@@ -90,11 +90,15 @@ class APODSettingsTableViewController: UITableViewController {
             let url = URL(string: "https://itunes.apple.com/us/app/itunes-u/id\(kAppID)?action=write-review&mt=8")!
             url.open()
         case (1, 1):
+            let activityViewController = UIActivityViewController(activityItems: [UIImage(named: "logo")!, "APOD by Kuixi Song", URL(string: kAppItunesLink)!],
+                                                                  applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            self.present(activityViewController, animated: true, completion: nil)
+        case (1, 2):
             let url = URL.init(string: "sms:krayc425@gmail.com")!
             url.open()
-        case (1, 2):
-            let path = Bundle.main.path(forResource: "Pods-APoD-acknowledgements", ofType: "plist")
-            let viewController = AcknowListViewController(acknowledgementsPlistPath: path)
+        case (1, 3):
+            let viewController = AcknowListViewController()
             navigationController?.pushViewController(viewController, animated: true)
         default:
             break

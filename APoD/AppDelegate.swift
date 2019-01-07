@@ -15,9 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
+
         SVProgressHUD.setDefaultStyle(.dark)
+         
+        Bugly.start(withAppId: APOD_BUGLY_ID)
         
         if !kUserDefaults.bool(forKey: "first_apod") {
             kUserDefaults.set(videoRatioArray[0].ratio, forKey: "video_ratio")

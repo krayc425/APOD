@@ -269,7 +269,7 @@ class APODInfoTableViewController: UITableViewController {
                                                             toItem: nil,
                                                             attribute: .notAnAttribute,
                                                             multiplier: 1,
-                                                            constant: apodDatePicker.frame.height + (isiPad ? 70 : 120))
+                                                            constant: apodDatePicker.frame.height + (isiPad ? 80 : 150))
         alertVC.view.addConstraint(height)
         
         if let popoverPresentationController = alertVC.popoverPresentationController {

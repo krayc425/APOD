@@ -13,6 +13,7 @@ target 'APoD' do
   pod 'SimpleImageViewer'
   pod 'DZNEmptyDataSet'
   pod 'AcknowList'
+  pod 'Bugly'
 
 end
 

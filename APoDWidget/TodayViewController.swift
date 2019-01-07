@@ -34,10 +34,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     private var widgetPairs: [APODWidgetDictPair] = []
-        
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     
     @objc func tapAction(_ sender: UITapGestureRecognizer) {
         if let imageView = sender.view as? UIImageView, let _ = imageView.image {
