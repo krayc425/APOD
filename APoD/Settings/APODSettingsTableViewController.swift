@@ -26,10 +26,6 @@ class APODSettingsTableViewController: UITableViewController {
         
         versionLabel.text = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

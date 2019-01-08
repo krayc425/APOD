@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
+        
         SVProgressHUD.setDefaultStyle(.dark)
          
         Bugly.start(withAppId: APOD_BUGLY_ID)
@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             kUserDefaults.synchronize()
         }
-        
         return true
     }
 

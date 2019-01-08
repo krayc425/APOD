@@ -37,10 +37,6 @@ class APODFavoriteCollectionViewController: UICollectionViewController, UICollec
         collectionView?.emptyDataSetSource = self
         collectionView?.emptyDataSetDelegate = self
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

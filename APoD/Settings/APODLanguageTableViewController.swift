@@ -33,15 +33,7 @@ class APODLanguageTableViewController: UITableViewController {
     let languageArray: [Language] = [Language.english,
                                      Language.chinese_simplified,
                                      Language.chinese_tradition]
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -56,9 +48,7 @@ class APODLanguageTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "apodLanguageTableViewCell", for: indexPath)
 
         cell.textLabel?.text = languageArray[indexPath.row].getDisplayString()
-        
         cell.textLabel?.textColor = .white
-        
         cell.tintColor = .white
         
         if languageArray[indexPath.row].rawValue == (UserDefaults.standard.array(forKey: "AppleLanguages")?.first)! as! String {
