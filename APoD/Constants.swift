@@ -23,9 +23,16 @@ let maximumDate = Date()
 let isiPad = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad
 
 let apodDateFormatter: DateFormatter = {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd"
-    return dateFormatter
+    let apodDateFormatter = DateFormatter()
+    apodDateFormatter.dateFormat = "yyyy-MM-dd"
+    return apodDateFormatter
+}()
+
+let urlDateFormatter: DateFormatter = {
+    let urlDateFormatter = DateFormatter()
+    urlDateFormatter.dateFormat = "yyyy-MM-dd"
+    urlDateFormatter.calendar = Calendar.init(identifier: Calendar.Identifier.gregorian)
+    return urlDateFormatter
 }()
 
 let apodDatePicker: UIDatePicker = {

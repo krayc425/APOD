@@ -12,8 +12,8 @@ target 'APoD' do
   pod 'SVProgressHUD'
   pod 'SimpleImageViewer'
   pod 'DZNEmptyDataSet'
-  pod 'AcknowList'
   pod 'Bugly'
+  pod 'AcknowList'
 
 end
 
