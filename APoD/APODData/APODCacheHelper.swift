@@ -38,7 +38,7 @@ class APODCacheHelper: NSObject {
         var array = (kUserDefaults.value(forKey: favoriteKey) as? [String]) ?? []
         let dateString = apodDateFormatter.string(from: model.date!)
         if array.contains(dateString) {
-            array.remove(at: array.index(of: dateString)!)
+            array.remove(at: array.firstIndex(of: dateString)!)
         }
         kUserDefaults.set(array, forKey: favoriteKey)
         kUserDefaults.synchronize()

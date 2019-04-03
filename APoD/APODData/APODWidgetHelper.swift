@@ -32,7 +32,7 @@ class APODWidgetHelper: NSObject {
         let resource = ImageResource(downloadURL: model.url!, cacheKey: apodDateFormatter.string(from: model.date!))
         KingfisherManager.shared.retrieveImage(with: resource, options: nil, progressBlock: nil) { (image, _, _, _) in
             if let image = image {
-                widgetDict[apodDateFormatter.string(from: model.date!)] = UIImageJPEGRepresentation(image, 0.25)
+                widgetDict[apodDateFormatter.string(from: model.date!)] = image.jpegData(compressionQuality: 0.25)
             }
         }
         

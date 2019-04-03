@@ -1,12 +1,12 @@
 PODS:
   - AcknowList (1.8)
-  - Alamofire (4.8.0)
+  - Alamofire (4.8.2)
   - Bugly (2.5.0)
   - DZNEmptyDataSet (1.8.1)
-  - Kingfisher (5.0.1)
+  - Kingfisher (5.3.1)
   - SimpleImageViewer (1.1.1)
   - SVProgressHUD (2.2.5)
-  - SwiftyJSON (4.2.0)
+  - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - AcknowList
@@ -31,13 +31,13 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AcknowList: 5b8820004d019d0a8d6a091ea2392dcb54bd3ad2
-  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  Kingfisher: 4f771421b9208185217550528a06fd48756cb7c2
+  Kingfisher: d9e7e0b209b59b8f9873aa2f37654e81a7beea51
   SimpleImageViewer: 34c3a2cde2d9ac022146772cefc27fca14b0c8b1
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
 PODFILE CHECKSUM: 72dbcbec87c5b5ad87f884a4fb2e0146769f060a
 

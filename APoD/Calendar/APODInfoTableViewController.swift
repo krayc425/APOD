@@ -56,7 +56,8 @@ class APODInfoTableViewController: UITableViewController {
                 APODCacheHelper.shared.cacheModel(model: apodModel!)
                 
                 DispatchQueue.main.async {
-                    if let date = self.apodModel!.date {
+                    if let model = self.apodModel,
+                        let date = model.date {
                         if APODCacheHelper.shared.isFavoriteModel(on: date) {
                             self.favoriteBarButtonItem.image = #imageLiteral(resourceName: "heart_full")
                         } else {
@@ -138,7 +139,7 @@ class APODInfoTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
@@ -378,11 +379,11 @@ class APODInfoTableViewController: UITableViewController {
         case 0:
             return imageViewHeight
         case 3:
-            return self.apodModel?.copyright == nil ? 0.0 : UITableViewAutomaticDimension
+            return self.apodModel?.copyright == nil ? 0.0 : UITableView.automaticDimension
         case 4:
             return self.apodModel?.copyright == nil ? 65.0 : 60.0
         default:
-            return UITableViewAutomaticDimension
+            return UITableView.automaticDimension
         }
     }
     

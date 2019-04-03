@@ -10,7 +10,7 @@ import UIKit
 
 class APODNavigationController: UINavigationController, UIGestureRecognizerDelegate {
     
-    override var childViewControllerForStatusBarStyle: UIViewController? {
+    override var childForStatusBarStyle: UIViewController? {
         return visibleViewController
     }
     
