@@ -11,9 +11,6 @@ import UIKit
 extension URL {
     
     func open() {
-        guard Float(UIDevice.current.systemVersion.split(separator: ".")[0])! >= 10.0 else {
-            return
-        }
         UIApplication.shared.open(self, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
     }
     

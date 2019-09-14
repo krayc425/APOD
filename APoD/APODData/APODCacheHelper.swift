@@ -71,7 +71,7 @@ class APODCacheHelper: NSObject {
     }
     
     func getCacheModel(on date: Date) -> APODModel? {
-        var dict = (kUserDefaults.value(forKey: cacheKey) as? [String: Data]) ?? [:]
+        let dict = (kUserDefaults.value(forKey: cacheKey) as? [String: Data]) ?? [:]
         if let data = dict[apodDateFormatter.string(from: date)] {
             return try? apodJSONDecoder.decode(APODModel.self, from: data)
         }

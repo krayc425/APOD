@@ -25,13 +25,11 @@ class APODNavigationController: UINavigationController, UIGestureRecognizerDeleg
         
         self.navigationBar.setValue(true, forKey: "hidesShadow")
         
-        if #available(iOS 11.0, *) {
-            self.navigationBar.prefersLargeTitles = true
-            let dict:[NSAttributedString.Key : Any] = [NSAttributedString.Key.foregroundColor: UIColor.white]
-            self.navigationBar.largeTitleTextAttributes = dict
-        } else {
-            // Fallback on earlier versions
-        }
+        self.navigationBar.prefersLargeTitles = true
+        let dict:[NSAttributedString.Key : Any] = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationBar.largeTitleTextAttributes = dict
+        
+        self.view.backgroundColor = UIColor.apod
     }
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {

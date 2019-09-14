@@ -18,11 +18,7 @@ class APODSettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if #available(iOS 10.3, *) {
-            SKStoreReviewController.requestReview()
-        } else {
-            // Fallback on earlier versions
-        }
+        SKStoreReviewController.requestReview()
         
         versionLabel.text = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
     }

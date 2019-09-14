@@ -51,8 +51,7 @@ class APODInfoTableViewController: UITableViewController {
     
     private var apodModel: APODModel? {
         didSet {
-            if apodModel != nil {
-                
+            if apodModel != nil {    
                 APODCacheHelper.shared.cacheModel(model: apodModel!)
                 
                 DispatchQueue.main.async {
@@ -144,9 +143,10 @@ class APODInfoTableViewController: UITableViewController {
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
         
-        let bgView = UIView(frame: tableView.bounds)
+        let bgView = UIView(frame: self.tableView.bounds)
         bgView.backgroundColor = UIColor.apod
         tableView.backgroundView = bgView
+        self.view.backgroundColor = UIColor.apod
         
         let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(_:)))
         swipeLeftGesture.direction = UISwipeGestureRecognizer.Direction.left

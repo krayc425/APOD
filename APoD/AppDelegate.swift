@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if !kUserDefaults.bool(forKey: "first_apod") {
             kUserDefaults.set(videoRatioArray[0].ratio, forKey: "video_ratio")
             kUserDefaults.set(true, forKey: "first_apod")
-            
             kUserDefaults.synchronize()
         }
         return true
