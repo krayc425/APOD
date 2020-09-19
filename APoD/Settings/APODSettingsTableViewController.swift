@@ -12,25 +12,25 @@ import AcknowList
 
 class APODSettingsTableViewController: UITableViewController {
 
-    @IBOutlet weak var videoRatioLabel: UILabel!
-    @IBOutlet weak var versionLabel: UILabel!
+    @IBOutlet weak var videoRatioLabel: UILabel?
+    @IBOutlet weak var versionLabel: UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         SKStoreReviewController.requestReview()
         
-        versionLabel.text = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
+        versionLabel?.text = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationController?.tabBarController?.tabBar.isHidden = true
+        navigationController?.tabBarController?.tabBar.isHidden = true
     }
     
     func reloadRatioLabel() {
-        videoRatioLabel.text = kUserDefaults.string(forKey: "video_ratio_description")
+        videoRatioLabel?.text = kUserDefaults.string(forKey: "video_ratio_description")
     }
 
     // MARK: - Table view data source
@@ -60,12 +60,12 @@ class APODSettingsTableViewController: UITableViewController {
                     kUserDefaults.synchronize()
                     self.reloadRatioLabel()
                 }
-                action.setValue(UIColor.apod, forKey: "titleTextColor")
+                action.setValue(UIColor.apodReversed, forKey: "titleTextColor")
                 alertVC.addAction(action)
             })
             
             let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
-            cancelAction.setValue(UIColor.apod, forKey: "titleTextColor")
+            cancelAction.setValue(UIColor.apodReversed, forKey: "titleTextColor")
             alertVC.addAction(cancelAction)
             
             if let popoverPresentationController = alertVC.popoverPresentationController {
@@ -87,7 +87,7 @@ class APODSettingsTableViewController: UITableViewController {
             activityViewController.popoverPresentationController?.sourceView = self.view
             self.present(activityViewController, animated: true, completion: nil)
         case (1, 2):
-            let url = URL.init(string: "sms:krayc425@gmail.com")!
+            let url = URL(string: "sms:krayc425@gmail.com")!
             url.open()
         case (1, 3):
             let viewController = AcknowListViewController()

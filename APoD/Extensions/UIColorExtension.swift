@@ -11,7 +11,11 @@ import UIKit
 extension UIColor {
     
     static let apod: UIColor = {
-        return UIColor(red: 40.0 / 255.0, green: 45.0 / 255.0, blue: 50.0 / 255.0, alpha: 1.0)
+        return UIColor(named: "APOD")!
+    }()
+    
+    static let apodReversed: UIColor = {
+        return UIColor(named: "APOD-Reverse")!
     }()
     
 }

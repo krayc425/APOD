@@ -56,7 +56,7 @@ class APODFavoriteCollectionViewController: UICollectionViewController, UICollec
             kUserDefaults.set(APODFavoriteSort.dateAscending.rawValue, forKey: "favorite_sort")
             kUserDefaults.synchronize()
         }
-        dateAscendingAction.setValue(UIColor.apod, forKey: "titleTextColor")
+        dateAscendingAction.setValue(UIColor.apodReversed, forKey: "titleTextColor")
         alertVC.addAction(dateAscendingAction)
         
         let dateDescendingAction = UIAlertAction(title: NSLocalizedString("Date Descending", comment: ""), style: .default) { _ in
@@ -64,7 +64,7 @@ class APODFavoriteCollectionViewController: UICollectionViewController, UICollec
             kUserDefaults.set(APODFavoriteSort.dateDescending.rawValue, forKey: "favorite_sort")
             kUserDefaults.synchronize()
         }
-        dateDescendingAction.setValue(UIColor.apod, forKey: "titleTextColor")
+        dateDescendingAction.setValue(UIColor.apodReversed, forKey: "titleTextColor")
         alertVC.addAction(dateDescendingAction)
         
         let titleAscendingAction = UIAlertAction(title: NSLocalizedString("Title Ascending", comment: ""), style: .default) { _ in
@@ -72,7 +72,7 @@ class APODFavoriteCollectionViewController: UICollectionViewController, UICollec
             kUserDefaults.set(APODFavoriteSort.titleAscending.rawValue, forKey: "favorite_sort")
             kUserDefaults.synchronize()
         }
-        titleAscendingAction.setValue(UIColor.apod, forKey: "titleTextColor")
+        titleAscendingAction.setValue(UIColor.apodReversed, forKey: "titleTextColor")
         alertVC.addAction(titleAscendingAction)
         
         let titleDescendingAction = UIAlertAction(title: NSLocalizedString("Title Descending", comment: ""), style: .default) { _ in
@@ -80,11 +80,11 @@ class APODFavoriteCollectionViewController: UICollectionViewController, UICollec
             kUserDefaults.set(APODFavoriteSort.titleDescending.rawValue, forKey: "favorite_sort")
             kUserDefaults.synchronize()
         }
-        titleDescendingAction.setValue(UIColor.apod, forKey: "titleTextColor")
+        titleDescendingAction.setValue(UIColor.apodReversed, forKey: "titleTextColor")
         alertVC.addAction(titleDescendingAction)
         
         let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
-        cancelAction.setValue(UIColor.apod, forKey: "titleTextColor")
+        cancelAction.setValue(UIColor.apodReversed, forKey: "titleTextColor")
         alertVC.addAction(cancelAction)
         
         if let popoverPresentationController = alertVC.popoverPresentationController {
@@ -145,13 +145,9 @@ class APODFavoriteCollectionViewController: UICollectionViewController, UICollec
 
 extension APODFavoriteCollectionViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
-    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        return #imageLiteral(resourceName: "logo_grey")
-    }
-    
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let attributedString = NSAttributedString(string: NSLocalizedString("Nothing yet", comment: ""),
-                                                  attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18.0)])
+                                                  attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18.0, weight: .bold)])
         return attributedString
     }
 

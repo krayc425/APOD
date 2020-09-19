@@ -14,32 +14,43 @@ import Alamofire
 import Photos
 import SimpleImageViewer
 import DZNEmptyDataSet
+import AVFoundation
 
 class APODInfoTableViewController: UITableViewController {
     
     private var animatedCellIndexs: [Int] = []
     
-    @IBOutlet weak var mainImageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var explanationTextView: UITextView!
-    @IBOutlet weak var copyrightLabel: UILabel!
+    @IBOutlet weak var mainImageView: UIImageView?
+    @IBOutlet weak var titleLabel: UILabel?
+    @IBOutlet weak var explanationTextView: UITextView?
+    @IBOutlet weak var copyrightLabel: UILabel?
     lazy var webView: WKWebView = {
+        guard let imageView = mainImageView else {
+            return WKWebView()
+        }
         let webViewConfig = WKWebViewConfiguration()
         webViewConfig.allowsInlineMediaPlayback = true
         webViewConfig.allowsPictureInPictureMediaPlayback = true
-        let wkView = WKWebView(frame: mainImageView.frame, configuration: webViewConfig)
+        let wkView = WKWebView(frame: imageView.frame, configuration: webViewConfig)
         wkView.isOpaque = false
         return wkView
     }()
-    @IBOutlet weak var favoriteBarButtonItem: UIBarButtonItem!
-    @IBOutlet weak var calendarBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var favoriteBarButtonItem: UIBarButtonItem?
+    @IBOutlet weak var calendarBarButtonItem: UIBarButtonItem?
+    @IBOutlet weak var voiceBarButtonItem: UIBarButtonItem?
     
-    @IBOutlet weak var hdButton: UIButton!
-    @IBOutlet weak var saveButton: UIButton!
-    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var hdButton: UIButton?
+    @IBOutlet weak var saveButton: UIButton?
+    @IBOutlet weak var shareButton: UIButton?
+    
+    private lazy var synthesizer: AVSpeechSynthesizer = {
+        let synthesizer = AVSpeechSynthesizer()
+        synthesizer.delegate = self
+        synthesizer.usesApplicationAudioSession = false
+        return synthesizer
+    }()
     
     private var imageViewHeight: CGFloat = 100.0
-    
     private var isLoadingFailed: Bool = false
     
     var currentDate: Date = Date() {
@@ -51,57 +62,55 @@ class APODInfoTableViewController: UITableViewController {
     
     private var apodModel: APODModel? {
         didSet {
-            if apodModel != nil {    
-                APODCacheHelper.shared.cacheModel(model: apodModel!)
-                
+            synthesizer.stopSpeaking(at: .immediate)
+            if let apodModel = apodModel {
+                APODCacheHelper.shared.cacheModel(model: apodModel)
                 DispatchQueue.main.async {
-                    if let model = self.apodModel,
-                        let date = model.date {
+                    if let date = apodModel.date {
                         if APODCacheHelper.shared.isFavoriteModel(on: date) {
-                            self.favoriteBarButtonItem.image = #imageLiteral(resourceName: "heart_full")
+                            self.favoriteBarButtonItem?.image = UIImage(systemName: "heart.fill")!
                         } else {
-                            self.favoriteBarButtonItem.image = #imageLiteral(resourceName: "heart")
+                            self.favoriteBarButtonItem?.image = UIImage(systemName: "heart")!
                         }
                     }
-                    self.titleLabel.text = self.apodModel!.title
-                    self.explanationTextView.text = self.apodModel!.explanation
+                    self.titleLabel?.text = apodModel.title
+                    self.explanationTextView?.text = apodModel.explanation
                     
                     if let copyright = self.apodModel?.copyright {
-                        self.copyrightLabel.text = copyright
+                        self.copyrightLabel?.text = copyright
                     }
                     
                     if self.apodModel!.media_type == APODMediaType.image {
                         let imageResourse = ImageResource(downloadURL: (self.apodModel!.url)!,
                                                           cacheKey: apodDateFormatter.string(from: self.currentDate))
                         
-                        self.mainImageView.kf.setImage(with: imageResourse, placeholder: nil, options: nil, progressBlock: { (current, total) in
-                            SVProgressHUD.showProgress(Float(current) / Float(total))
+                        self.mainImageView?.kf.setImage(with: imageResourse, placeholder: nil, options: nil, progressBlock: { (current, total) in
+                            SVProgressHUD.showProgress(Float(current) / Float(total), status: NSLocalizedString("Loading media", comment: ""))
                         }, completionHandler: { (image, error, cacheType, url) in
-                            self.mainImageView.isHidden = false
-                            self.hdButton.isHidden = false
-                            self.saveButton.isHidden = false
-                            self.shareButton.isHidden = false
-                            
+                            self.mainImageView?.isHidden = false
+                            self.hdButton?.isHidden = false
+                            self.saveButton?.isHidden = false
+                            self.shareButton?.isHidden = false
                             self.imageViewHeight = kScreenWidth / (image?.size.width ?? 1.0) * (image?.size.height ?? 1.0)
-                            self.mainImageView.frame = CGRect(x: self.mainImageView.frame.origin.x,
-                                                              y: self.mainImageView.frame.origin.y,
-                                                              width: kScreenWidth,
-                                                              height: self.imageViewHeight)
+                            self.mainImageView?.frame = CGRect(x: self.mainImageView?.frame.origin.x ?? 0.0,
+                                                               y: self.mainImageView?.frame.origin.y ?? 0.0,
+                                                               width: kScreenWidth,
+                                                               height: self.imageViewHeight)
                             
                             SVProgressHUD.dismiss()
                             self.tableView.reloadData()
                         })
                     } else if self.apodModel!.media_type == APODMediaType.video {
-                        self.mainImageView.isHidden = true
-                        self.hdButton.isHidden = true
-                        self.saveButton.isHidden = true
-                        self.shareButton.isHidden = false
+                        self.mainImageView?.isHidden = true
+                        self.hdButton?.isHidden = true
+                        self.saveButton?.isHidden = true
+                        self.shareButton?.isHidden = false
                         
                         let videoRatio: CGFloat = CGFloat(kUserDefaults.float(forKey: "video_ratio"))
                         self.imageViewHeight = kScreenWidth * videoRatio
                         
-                        self.webView.frame = CGRect(x: self.mainImageView.frame.origin.x,
-                                                    y: self.mainImageView.frame.origin.y,
+                        self.webView.frame = CGRect(x: self.mainImageView?.frame.origin.x ?? 0.0,
+                                                    y: self.mainImageView?.frame.origin.y ?? 0.0,
                                                     width: kScreenWidth,
                                                     height: self.imageViewHeight)
                         self.webView.load(URLRequest(url: self.apodModel!.url!))
@@ -113,20 +122,20 @@ class APODInfoTableViewController: UITableViewController {
                 }
             } else {
                 self.animatedCellIndexs.removeAll()
-                self.mainImageView.isHidden = true
+                self.mainImageView?.isHidden = true
                 
                 self.webView.removeFromSuperview()
                 
                 self.isLoadingFailed = false
                 
-                self.titleLabel.text = ""
-                self.copyrightLabel.text = ""
-                self.explanationTextView.text = ""
-                self.favoriteBarButtonItem.image = #imageLiteral(resourceName: "heart")
+                self.titleLabel?.text = ""
+                self.copyrightLabel?.text = ""
+                self.explanationTextView?.text = ""
+                self.favoriteBarButtonItem?.image = UIImage(systemName: "heart")!
                 
-                self.hdButton.isHidden = true
-                self.saveButton.isHidden = true
-                self.shareButton.isHidden = true
+                self.hdButton?.isHidden = true
+                self.saveButton?.isHidden = true
+                self.shareButton?.isHidden = true
                 
                 cancelNetworkRequests()
                 
@@ -143,11 +152,6 @@ class APODInfoTableViewController: UITableViewController {
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
         
-        let bgView = UIView(frame: self.tableView.bounds)
-        bgView.backgroundColor = UIColor.apod
-        tableView.backgroundView = bgView
-        self.view.backgroundColor = UIColor.apod
-        
         let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(_:)))
         swipeLeftGesture.direction = UISwipeGestureRecognizer.Direction.left
         tableView.addGestureRecognizer(swipeLeftGesture)
@@ -159,7 +163,6 @@ class APODInfoTableViewController: UITableViewController {
         for button in [hdButton, saveButton, shareButton] {
             button?.layer.cornerRadius = (button?.layer.frame.height)! / 2.0
             button?.layer.masksToBounds = true
-            button?.setTitleColor(.apod, for: UIControl.State.highlighted)
         }
         
         currentDate = Date()
@@ -176,13 +179,9 @@ class APODInfoTableViewController: UITableViewController {
     }
     
     private func cancelNetworkRequests() {
-        self.mainImageView.kf.cancelDownloadTask()
+        self.mainImageView?.kf.cancelDownloadTask()
         
-        Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
-            sessionDataTask.forEach { $0.cancel() }
-            uploadData.forEach { $0.cancel() }
-            downloadData.forEach { $0.cancel() }
-        }
+        Alamofire.Session.default.cancelAllRequests(completingOnQueue: DispatchQueue.global(qos: .background))
         
         SVProgressHUD.dismiss()
     }
@@ -211,16 +210,16 @@ class APODInfoTableViewController: UITableViewController {
             self.apodModel = model
         } else {
             SVProgressHUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
-            DispatchQueue.global().async {
+            DispatchQueue.global().async { [weak self] in
                 APODHelper.shared.getAPODInfo(on: date) { model in
                     if model != nil {
-                        self.apodModel = model!
+                        self?.apodModel = model!
                     } else {
                         SVProgressHUD.showError(withStatus: NSLocalizedString("Something is wrong\non this day", comment: ""))
                         SVProgressHUD.dismiss(withDelay: 2.0, completion: {
-                            self.apodModel = nil
-                            self.isLoadingFailed = true
-                            self.tableView.reloadData()
+                            self?.apodModel = nil
+                            self?.isLoadingFailed = true
+                            self?.tableView.reloadData()
                         })
                     }
                 }
@@ -230,6 +229,18 @@ class APODInfoTableViewController: UITableViewController {
     
     // MARK: - Bar Button Actions
     
+    @IBAction func voiceAction(_ sender: UIBarButtonItem) {
+        if synthesizer.isSpeaking {
+            synthesizer.stopSpeaking(at: .immediate)
+        } else {
+            guard let string = explanationTextView?.text else {
+                return
+            }
+            let utterance = AVSpeechUtterance(string: string)
+            synthesizer.speak(utterance)
+        }
+    }
+    
     @IBAction func favoriteAction(_ sender: UIBarButtonItem) {
         if let model = self.apodModel {
             let generator = UIImpactFeedbackGenerator(style: .medium)
@@ -237,12 +248,10 @@ class APODInfoTableViewController: UITableViewController {
             generator.impactOccurred()
             
             if APODCacheHelper.shared.isFavoriteModel(on: model.date!) {
-                favoriteBarButtonItem.image = #imageLiteral(resourceName: "heart")
-                
+                favoriteBarButtonItem?.image = UIImage(systemName: "heart")!
                 APODCacheHelper.shared.removeFavorite(model: model)
             } else {
-                favoriteBarButtonItem.image = #imageLiteral(resourceName: "heart_full")
-                
+                favoriteBarButtonItem?.image = UIImage(systemName: "heart.fill")!
                 APODCacheHelper.shared.addFavorite(model: model)
             }
         }
@@ -250,28 +259,25 @@ class APODInfoTableViewController: UITableViewController {
 
     @IBAction func calendarAction(_ sender: UIBarButtonItem) {
         let alertVC = UIAlertController(title: NSLocalizedString("Choose a Date", comment: ""), message: nil, preferredStyle: .actionSheet)
-        alertVC.view.addSubview(apodDatePicker)
-        apodDatePicker.date = currentDate
         alertVC.view.frame = CGRect(x: 0, y: 0, width: isiPad ? 300 : kScreenWidth, height: 10)
         
         let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { _ in
             self.currentDate = apodDatePicker.date
         }
-        okAction.setValue(UIColor.apod, forKey: "titleTextColor")
+        okAction.setValue(UIColor.apodReversed, forKey: "titleTextColor")
         alertVC.addAction(okAction)
         
         let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
-        cancelAction.setValue(UIColor.apod, forKey: "titleTextColor")
+        cancelAction.setValue(UIColor.apodReversed, forKey: "titleTextColor")
         alertVC.addAction(cancelAction)
         
-        let height: NSLayoutConstraint = NSLayoutConstraint(item: alertVC.view,
-                                                            attribute: .height,
-                                                            relatedBy: .equal,
-                                                            toItem: nil,
-                                                            attribute: .notAnAttribute,
-                                                            multiplier: 1,
-                                                            constant: apodDatePicker.frame.height + (isiPad ? 80 : 150))
-        alertVC.view.addConstraint(height)
+        alertVC.view.addSubview(apodDatePicker)
+        apodDatePicker.date = currentDate
+        let height = NSLayoutConstraint(item: alertVC.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: apodDatePicker.frame.height + (isiPad ? 80 : 150))
+        NSLayoutConstraint.activate([height])
+        if !isiPad {
+            apodDatePicker.center = CGPoint(x: view.center.x - 10, y: apodDatePicker.center.y)
+        }
         
         if let popoverPresentationController = alertVC.popoverPresentationController {
             popoverPresentationController.barButtonItem = calendarBarButtonItem
@@ -280,7 +286,7 @@ class APODInfoTableViewController: UITableViewController {
             popoverPresentationController.sourceRect = .zero
         }
         
-        present(alertVC, animated: true, completion: nil)
+        present(alertVC, animated: true)
     }
     
     // MARK: - Button Actions
@@ -290,22 +296,21 @@ class APODInfoTableViewController: UITableViewController {
             let type = model.media_type, type == .image,
             let hdurl = model.hdurl {
             SVProgressHUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
-            self.mainImageView.kf.setImage(with: hdurl, placeholder: nil, options: nil, progressBlock: { (current, total) in
-                SVProgressHUD.showProgress(Float(current) / Float(total))
+            self.mainImageView?.kf.setImage(with: hdurl, placeholder: nil, options: nil, progressBlock: { (current, total) in
+                SVProgressHUD.showProgress(Float(current) / Float(total), status: NSLocalizedString("Loading media", comment: ""))
             }, completionHandler: { (image, error, cacheType, url) in
                 let imageViewHeight = kScreenWidth / (image?.size.width ?? 1.0) * (image?.size.height ?? 1.0)
-                
-                self.mainImageView.frame = CGRect(x: self.mainImageView.frame.origin.x,
-                                                  y: self.mainImageView.frame.origin.y,
-                                                  width: kScreenWidth,
-                                                  height: imageViewHeight)
+                self.mainImageView?.frame = CGRect(x: self.mainImageView?.frame.origin.x ?? 0.0,
+                                                   y: self.mainImageView?.frame.origin.y ?? 0.0,
+                                                   width: kScreenWidth,
+                                                   height: imageViewHeight)
                 SVProgressHUD.dismiss()
             })
         }
     }
     
     @IBAction func saveToAlbumAction(_ sender: UIButton) {
-        if let image = mainImageView.image {
+        if let image = mainImageView?.image {
             guard PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.authorized else {
                 PHPhotoLibrary.requestAuthorization({ (status) in
                     switch status {
@@ -317,6 +322,10 @@ class APODInfoTableViewController: UITableViewController {
                         SVProgressHUD.showError(withStatus: "Authorization restricted")
                     case .notDetermined:
                         SVProgressHUD.showError(withStatus: "Authorization not determined")
+                    case .limited:
+                        break
+                    @unknown default:
+                        fatalError()
                     }
                     SVProgressHUD.dismiss(withDelay: 2.0)
                 })
@@ -343,13 +352,13 @@ class APODInfoTableViewController: UITableViewController {
             let type = model.media_type {
             switch type {
             case .image:
-                if let image = mainImageView.image,
+                if let image = mainImageView?.image,
                     let text = model.explanation {
                     let itemsToShare: [Any] = [text, image]
                     let activityViewController = UIActivityViewController(activityItems: itemsToShare,
                                                                           applicationActivities: nil)
                     activityViewController.popoverPresentationController?.sourceView = shareButton
-                    self.present(activityViewController, animated: true, completion: nil)
+                    present(activityViewController, animated: true, completion: nil)
                 }
             case .video:
                 if let url = model.url,
@@ -358,7 +367,7 @@ class APODInfoTableViewController: UITableViewController {
                     let activityViewController = UIActivityViewController(activityItems: itemsToShare,
                                                                           applicationActivities: nil)
                     activityViewController.popoverPresentationController?.sourceView = shareButton
-                    self.present(activityViewController, animated: true, completion: nil)
+                    present(activityViewController, animated: true, completion: nil)
                 }
             }
         }
@@ -412,19 +421,39 @@ class APODInfoTableViewController: UITableViewController {
     
 }
 
+extension APODInfoTableViewController: AVSpeechSynthesizerDelegate {
+    
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
+        voiceBarButtonItem?.image = UIImage(systemName: "pause.fill")
+    }
+
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        voiceBarButtonItem?.image = UIImage(systemName: "play.fill")
+    }
+
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didPause utterance: AVSpeechUtterance) {
+        voiceBarButtonItem?.image = UIImage(systemName: "play.fill")
+    }
+
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didContinue utterance: AVSpeechUtterance) {
+        voiceBarButtonItem?.image = UIImage(systemName: "pause.fill")
+    }
+
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didCancel utterance: AVSpeechUtterance) {
+        voiceBarButtonItem?.image = UIImage(systemName: "play.fill")
+    }
+    
+}
+
 extension APODInfoTableViewController: DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     
     func emptyDataSetShouldBeForced(toDisplay scrollView: UIScrollView!) -> Bool {
         return apodModel == nil && isLoadingFailed
     }
     
-    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        return #imageLiteral(resourceName: "logo_grey")
-    }
-    
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let attributedString = NSAttributedString(string: NSLocalizedString("Try another day", comment: "") ,
-                                                  attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18.0)])
+                                                  attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18.0, weight: .bold)])
         return attributedString
     }
     

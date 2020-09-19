@@ -12,7 +12,7 @@ import UIKit
 let kScreenWidth    : CGFloat = UIScreen.main.bounds.width
 let kScreenHeight   : CGFloat = UIScreen.main.bounds.height
 
-let kAppItunesLink = "https://itunes.apple.com/cn/app/apod/id1173315594?mt=8"
+let kAppItunesLink = "https://itunes.apple.com/cn/app/apod/id1173315594"
 let kAppID = "1173315594"
 let kGroupID = "group.com.krayc.Triplorex"
 let kUserDefaults = UserDefaults(suiteName: kGroupID)!
@@ -31,7 +31,7 @@ let apodDateFormatter: DateFormatter = {
 let urlDateFormatter: DateFormatter = {
     let urlDateFormatter = DateFormatter()
     urlDateFormatter.dateFormat = "yyyy-MM-dd"
-    urlDateFormatter.calendar = Calendar.init(identifier: Calendar.Identifier.gregorian)
+    urlDateFormatter.calendar = Calendar(identifier: Calendar.Identifier.gregorian)
     return urlDateFormatter
 }()
 
@@ -41,6 +41,7 @@ let apodDatePicker: UIDatePicker = {
                                                 width: isiPad ? 320 : kScreenWidth,
                                                 height: isiPad ? 200 : 250))
     datePicker.datePickerMode = .date
+    datePicker.preferredDatePickerStyle = .wheels
     datePicker.maximumDate = maximumDate
     datePicker.minimumDate = minimumDate
     datePicker.tintColor = UIColor.apod

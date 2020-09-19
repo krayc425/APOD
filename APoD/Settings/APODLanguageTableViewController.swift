@@ -48,8 +48,6 @@ class APODLanguageTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "apodLanguageTableViewCell", for: indexPath)
 
         cell.textLabel?.text = languageArray[indexPath.row].getDisplayString()
-        cell.textLabel?.textColor = .white
-        cell.tintColor = .white
         
         if languageArray[indexPath.row].rawValue == (UserDefaults.standard.array(forKey: "AppleLanguages")?.first)! as! String {
             cell.accessoryType = .checkmark

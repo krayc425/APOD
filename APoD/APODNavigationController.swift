@@ -14,33 +14,22 @@ class APODNavigationController: UINavigationController, UIGestureRecognizerDeleg
         return visibleViewController
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.interactivePopGestureRecognizer?.delegate = self
-        
-        self.navigationBar.setValue(true, forKey: "hidesShadow")
-        
         self.navigationBar.prefersLargeTitles = true
-        let dict:[NSAttributedString.Key : Any] = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        self.navigationBar.largeTitleTextAttributes = dict
-        
-        self.view.backgroundColor = UIColor.apod
     }
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if self.viewControllers.count >= 1 {
             let button = UIButton(type: .custom)
             button.bounds = CGRect(x: 0, y: 0, width: 100, height: 21)
-            button.setImage(#imageLiteral(resourceName: "nav_back"), for: UIControl.State.normal)
-            button.setImage(#imageLiteral(resourceName: "nav_back"), for: UIControl.State.highlighted)
+            button.setImage(#imageLiteral(resourceName: "nav_back"), for: .normal)
+            button.setImage(#imageLiteral(resourceName: "nav_back"), for: .highlighted)
             button.contentHorizontalAlignment = .left
-            button.contentEdgeInsets = UIEdgeInsets.zero
-            button.addTarget(self, action: #selector(back), for: UIControl.Event.touchUpInside)
+            button.contentEdgeInsets = .zero
+            button.tintColor = .apodReversed
+            button.addTarget(self, action: #selector(back), for: .touchUpInside)
             viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
         }
         super.pushViewController(viewController, animated: animated)

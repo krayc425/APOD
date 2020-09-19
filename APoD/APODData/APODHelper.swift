@@ -22,9 +22,9 @@ class APODHelper: NSObject {
         let url = URL(string: "https://api.nasa.gov/planetary/apod")!
         let para: Parameters = ["api_key": APOD_API_KEY,
                                 "date": urlDateFormatter.string(from: date)]
-        Alamofire.request(url, method: .get, parameters: para).responseJSON { (response) in
-            if let json = response.result.value {
-                completionHandler(APODModel(json: JSON(json).dictionaryValue))
+        AF.request(url, method: .get, parameters: para).responseJSON { (response) in
+            if case let .success(dict) = response.result {
+                completionHandler(APODModel(json: JSON(dict).dictionaryValue))
             }
         }
     }
