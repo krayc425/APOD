@@ -9,7 +9,7 @@ import WidgetKit
 import SwiftUI
 import UIKit
 
-struct Provider: TimelineProvider {
+struct APoDProvider: TimelineProvider {
 
     static let emptyEntry = APoDTodayEntry(image: nil, dateString: nil)
 
@@ -79,7 +79,7 @@ struct APoDTodayEntry: TimelineEntry {
 
 struct APoDTodayEntryView : View {
 
-    var entry: Provider.Entry
+    var entry: APoDProvider.Entry
 
     var body: some View {
         VStack {
@@ -103,9 +103,10 @@ struct APoDToday: Widget {
     let kind: String = "APoDToday"
 
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: Provider()) { entry in
+        StaticConfiguration(kind: kind, provider: APoDProvider()) { entry in
             APoDTodayEntryView(entry: entry)
         }
+        .configurationDisplayName("Astronomy Picture of the Day")
         .supportedFamilies([.systemSmall, .systemLarge, .systemExtraLarge])
         .contentMarginsDisabledIfAvailable()
     }
