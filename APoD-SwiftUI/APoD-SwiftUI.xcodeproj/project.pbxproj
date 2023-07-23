@@ -15,7 +15,40 @@
 		EF382BAD2A6CDE6A005946D7 /* APoDAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF382BAC2A6CDE6A005946D7 /* APoDAPIHelper.swift */; };
 		EF706FE62A6CDFD80027352B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF706FE52A6CDFD80027352B /* Utils.swift */; };
 		EF706FE92A6D05AB0027352B /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = EF706FE82A6D05AB0027352B /* YouTubePlayerKit */; };
+		EF70700D2A6D170F0027352B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF70700C2A6D170F0027352B /* WidgetKit.framework */; };
+		EF70700F2A6D170F0027352B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF70700E2A6D170F0027352B /* SwiftUI.framework */; };
+		EF7070122A6D170F0027352B /* APoDTodayBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7070112A6D170F0027352B /* APoDTodayBundle.swift */; };
+		EF7070142A6D170F0027352B /* APoDToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7070132A6D170F0027352B /* APoDToday.swift */; };
+		EF7070162A6D17100027352B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF7070152A6D17100027352B /* Assets.xcassets */; };
+		EF70701B2A6D17100027352B /* APoDTodayExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EF70700A2A6D170F0027352B /* APoDTodayExtension.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EF7070202A6D17290027352B /* APoDAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF382BAC2A6CDE6A005946D7 /* APoDAPIHelper.swift */; };
+		EF7070212A6D177A0027352B /* APoDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF382BAA2A6CDE57005946D7 /* APoDModel.swift */; };
+		EF7070222A6D17D90027352B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF706FE52A6CDFD80027352B /* Utils.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EF7070192A6D17100027352B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF382B902A6CDE12005946D7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF7070092A6D170F0027352B;
+			remoteInfo = APoDTodayExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EF70701C2A6D17100027352B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				EF70701B2A6D17100027352B /* APoDTodayExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		EF382B982A6CDE12005946D7 /* APoD-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "APoD-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -27,6 +60,14 @@
 		EF382BAA2A6CDE57005946D7 /* APoDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APoDModel.swift; sourceTree = "<group>"; };
 		EF382BAC2A6CDE6A005946D7 /* APoDAPIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APoDAPIHelper.swift; sourceTree = "<group>"; };
 		EF706FE52A6CDFD80027352B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		EF70700A2A6D170F0027352B /* APoDTodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = APoDTodayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF70700C2A6D170F0027352B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = /System/Library/Frameworks/WidgetKit.framework; sourceTree = "<absolute>"; };
+		EF70700E2A6D170F0027352B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = /System/Library/Frameworks/SwiftUI.framework; sourceTree = "<absolute>"; };
+		EF7070112A6D170F0027352B /* APoDTodayBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APoDTodayBundle.swift; sourceTree = "<group>"; };
+		EF7070132A6D170F0027352B /* APoDToday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APoDToday.swift; sourceTree = "<group>"; };
+		EF7070152A6D17100027352B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF7070172A6D17100027352B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF7070182A6D17100027352B /* APoDToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = APoDToday.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +79,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EF7070072A6D170F0027352B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF70700F2A6D170F0027352B /* SwiftUI.framework in Frameworks */,
+				EF70700D2A6D170F0027352B /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -45,6 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				EF382B9A2A6CDE12005946D7 /* APoD-SwiftUI */,
+				EF7070102A6D170F0027352B /* APoDToday */,
+				EF70700B2A6D170F0027352B /* Frameworks */,
 				EF382B992A6CDE12005946D7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				EF382B982A6CDE12005946D7 /* APoD-SwiftUI.app */,
+				EF70700A2A6D170F0027352B /* APoDTodayExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -80,6 +133,27 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		EF70700B2A6D170F0027352B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EF70700C2A6D170F0027352B /* WidgetKit.framework */,
+				EF70700E2A6D170F0027352B /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EF7070102A6D170F0027352B /* APoDToday */ = {
+			isa = PBXGroup;
+			children = (
+				EF7070112A6D170F0027352B /* APoDTodayBundle.swift */,
+				EF7070132A6D170F0027352B /* APoDToday.swift */,
+				EF7070152A6D17100027352B /* Assets.xcassets */,
+				EF7070172A6D17100027352B /* Info.plist */,
+				EF7070182A6D17100027352B /* APoDToday.entitlements */,
+			);
+			path = APoDToday;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -90,10 +164,12 @@
 				EF382B942A6CDE12005946D7 /* Sources */,
 				EF382B952A6CDE12005946D7 /* Frameworks */,
 				EF382B962A6CDE12005946D7 /* Resources */,
+				EF70701C2A6D17100027352B /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				EF70701A2A6D17100027352B /* PBXTargetDependency */,
 			);
 			name = "APoD-SwiftUI";
 			packageProductDependencies = (
@@ -102,6 +178,23 @@
 			productName = "APoD-SwiftUI";
 			productReference = EF382B982A6CDE12005946D7 /* APoD-SwiftUI.app */;
 			productType = "com.apple.product-type.application";
+		};
+		EF7070092A6D170F0027352B /* APoDTodayExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF70701F2A6D17100027352B /* Build configuration list for PBXNativeTarget "APoDTodayExtension" */;
+			buildPhases = (
+				EF7070062A6D170F0027352B /* Sources */,
+				EF7070072A6D170F0027352B /* Frameworks */,
+				EF7070082A6D170F0027352B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = APoDTodayExtension;
+			productName = APoDTodayExtension;
+			productReference = EF70700A2A6D170F0027352B /* APoDTodayExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -114,6 +207,9 @@
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					EF382B972A6CDE12005946D7 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					EF7070092A6D170F0027352B = {
 						CreatedOnToolsVersion = 15.0;
 					};
 				};
@@ -135,6 +231,7 @@
 			projectRoot = "";
 			targets = (
 				EF382B972A6CDE12005946D7 /* APoD-SwiftUI */,
+				EF7070092A6D170F0027352B /* APoDTodayExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -146,6 +243,14 @@
 			files = (
 				EF382BA42A6CDE13005946D7 /* Preview Assets.xcassets in Resources */,
 				EF382BA02A6CDE13005946D7 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF7070082A6D170F0027352B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF7070162A6D17100027352B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +269,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EF7070062A6D170F0027352B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF7070222A6D17D90027352B /* Utils.swift in Sources */,
+				EF7070122A6D170F0027352B /* APoDTodayBundle.swift in Sources */,
+				EF7070202A6D17290027352B /* APoDAPIHelper.swift in Sources */,
+				EF7070142A6D170F0027352B /* APoDToday.swift in Sources */,
+				EF7070212A6D177A0027352B /* APoDModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EF70701A2A6D17100027352B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF7070092A6D170F0027352B /* APoDTodayExtension */;
+			targetProxy = EF7070192A6D17100027352B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		EF382BA52A6CDE13005946D7 /* Debug */ = {
@@ -284,6 +409,7 @@
 		EF382BA82A6CDE13005946D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "APoD-SwiftUI/APoD_SwiftUI.entitlements";
@@ -294,6 +420,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = APoD;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -325,6 +452,7 @@
 		EF382BA92A6CDE13005946D7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "APoD-SwiftUI/APoD_SwiftUI.entitlements";
@@ -335,6 +463,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = APoD;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -363,6 +492,82 @@
 			};
 			name = Release;
 		};
+		EF70701D2A6D17100027352B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = APoDToday/APoDToday.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VEBQ28K9EA;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = APoDToday/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = APoDToday;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.krayc.APoD-SwiftUI.APoDToday";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EF70701E2A6D17100027352B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = APoDToday/APoDToday.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VEBQ28K9EA;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = APoDToday/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = APoDToday;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.krayc.APoD-SwiftUI.APoDToday";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -380,6 +585,15 @@
 			buildConfigurations = (
 				EF382BA82A6CDE13005946D7 /* Debug */,
 				EF382BA92A6CDE13005946D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF70701F2A6D17100027352B /* Build configuration list for PBXNativeTarget "APoDTodayExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF70701D2A6D17100027352B /* Debug */,
+				EF70701E2A6D17100027352B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

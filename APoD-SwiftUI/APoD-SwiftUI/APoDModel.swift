@@ -34,6 +34,10 @@ struct APoDModel: Codable, Identifiable, Hashable, Equatable {
         return dateString
     }
 
+    var imageURL: URL {
+        return videoThumbnailURL ?? url
+    }
+
     enum CodingKeys: String, CodingKey {
         case dateString = "date"
         case explanation = "explanation"
