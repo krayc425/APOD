@@ -33,7 +33,7 @@ struct APoDFullScreenImageView: View {
             Button {
                 dismiss()
             } label: {
-                Image(systemName: "xmark")
+                Text("Dismiss").bold()
             }
         }
     }
@@ -96,14 +96,21 @@ struct APoDView: View {
                             Image(systemName: "calendar")
                         }
                         .sheet(isPresented: $isSelectingDate, content: {
-                            DatePicker(
-                                "Choose a date",
-                                selection: $currentDate,
-                                in: Utils.validDateRange(),
-                                displayedComponents: .date)
-                            .datePickerStyle(.graphical)
-                            .presentationDetents([.medium])
-                            .presentationDragIndicator(.visible)
+                            VStack {
+                                DatePicker(
+                                    "Choose a date",
+                                    selection: $currentDate,
+                                    in: Utils.validDateRange(),
+                                    displayedComponents: .date)
+                                .datePickerStyle(.graphical)
+                                .presentationDetents([.medium])
+                                .presentationDragIndicator(.visible)
+                                Button {
+                                    isSelectingDate = false
+                                } label: {
+                                    Text("Dismiss").bold()
+                                }
+                            }
                         })
                     }
                 }
@@ -126,7 +133,6 @@ struct APoDView: View {
         .scrollIndicators(.automatic, axes: .vertical)
         .scrollIndicators(.never, axes: .horizontal)
         .task(id: currentDate) {
-            isSelectingDate = false
             apodModel = await APoDAPIHelper.shared.loadAPoDData(for: currentDate)
         }
     }
