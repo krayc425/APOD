@@ -94,6 +94,7 @@ struct APoDTodayEntryView : View {
         .edgesIgnoringSafeArea(.all)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .widgetBackground(.black)
+        .widgetURL(URL(string: "apodwidget://\(Utils.dateFormatter.string(from: entry.date))"))
     }
 
 }

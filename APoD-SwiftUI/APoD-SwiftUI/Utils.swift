@@ -10,6 +10,7 @@ import Foundation
 enum Utils {
 
     static let youtubeAspectRatio: CGFloat = 16.0 / 9.0
+    static let widgetScheme = "apodwidget"
 
     static var dateFormatter: DateFormatter {
         let formatter = DateFormatter()

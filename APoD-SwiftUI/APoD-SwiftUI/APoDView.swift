@@ -135,6 +135,16 @@ struct APoDView: View {
         .task(id: currentDate) {
             apodModel = await APoDAPIHelper.shared.loadAPoDData(for: currentDate)
         }
+        .onOpenURL(perform: { url in
+            guard url.scheme == Utils.widgetScheme else {
+                return
+            }
+            let arr = url.absoluteString.split(separator: "://")
+            if arr.count == 2,
+                let dateFromURL = Utils.dateFormatter.date(from: String(arr[1])) {
+                currentDate = dateFromURL
+            }
+        })
     }
 
 }
