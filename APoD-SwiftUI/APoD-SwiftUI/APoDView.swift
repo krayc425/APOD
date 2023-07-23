@@ -104,7 +104,6 @@ struct APoDView: View {
                             .datePickerStyle(.graphical)
                             .presentationDetents([.medium])
                             .presentationDragIndicator(.visible)
-                            .presentationBackgroundInteraction(.enabled)
                         })
                     }
                 }
@@ -127,12 +126,14 @@ struct APoDView: View {
         .scrollIndicators(.automatic, axes: .vertical)
         .scrollIndicators(.never, axes: .horizontal)
         .task(id: currentDate) {
+            isSelectingDate = false
             apodModel = await APoDAPIHelper.shared.loadAPoDData(for: currentDate)
         }
     }
 
 }
 
+@available(iOS 17.0, *)
 #Preview {
     APoDView()
 }
