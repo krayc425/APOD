@@ -12,7 +12,7 @@ class APoDAPIHelper {
     static let shared = APoDAPIHelper()
 
     private static let baseURLString = "https://api.nasa.gov/planetary/apod"
-    private static let apiKey = "uvzsruEoLTaAxT4H2AdSDRWtMjq3IHyPSMBiQ64j"
+    private static let apiKey = "YOUR_API_KEY"
 
     private init() {
         
