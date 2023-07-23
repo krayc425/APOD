@@ -30,10 +30,6 @@ struct APoDModel: Codable, Identifiable, Hashable, Equatable {
     let mediaType: MediaType
     let copyright: String?
 
-    var date: Date? {
-        return Utils.dateFormatter.date(from: dateString)
-    }
-
     var id: String {
         return dateString
     }
