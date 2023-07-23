@@ -24,6 +24,13 @@
 		EF7070202A6D17290027352B /* APoDAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF382BAC2A6CDE6A005946D7 /* APoDAPIHelper.swift */; };
 		EF7070212A6D177A0027352B /* APoDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF382BAA2A6CDE57005946D7 /* APoDModel.swift */; };
 		EF7070222A6D17D90027352B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF706FE52A6CDFD80027352B /* Utils.swift */; };
+		EF7070592A6D52A90027352B /* APoDTodayIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EF7070232A6D516E0027352B /* APoDTodayIntents.intentdefinition */; };
+		EF70705A2A6D52AA0027352B /* APoDTodayIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EF7070232A6D516E0027352B /* APoDTodayIntents.intentdefinition */; };
+		EF7070732A6D54340027352B /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF7070292A6D51D70027352B /* Intents.framework */; };
+		EF7070762A6D54340027352B /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7070752A6D54340027352B /* IntentHandler.swift */; };
+		EF70707A2A6D54340027352B /* APoDTodayIntentExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EF7070722A6D54340027352B /* APoDTodayIntentExtension.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EF70707E2A6D546C0027352B /* APoDTodayIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EF7070232A6D516E0027352B /* APoDTodayIntents.intentdefinition */; };
+		EF70707F2A6D54E30027352B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF706FE52A6CDFD80027352B /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +41,13 @@
 			remoteGlobalIDString = EF7070092A6D170F0027352B;
 			remoteInfo = APoDTodayExtension;
 		};
+		EF7070782A6D54340027352B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF382B902A6CDE12005946D7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF7070712A6D54340027352B;
+			remoteInfo = APoDTodayIntentExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +57,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				EF70707A2A6D54340027352B /* APoDTodayIntentExtension.appex in Embed Foundation Extensions */,
 				EF70701B2A6D17100027352B /* APoDTodayExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
@@ -68,6 +83,12 @@
 		EF7070152A6D17100027352B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF7070172A6D17100027352B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF7070182A6D17100027352B /* APoDToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = APoDToday.entitlements; sourceTree = "<group>"; };
+		EF7070232A6D516E0027352B /* APoDTodayIntents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = APoDTodayIntents.intentdefinition; sourceTree = "<group>"; };
+		EF7070292A6D51D70027352B /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
+		EF7070342A6D51D70027352B /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		EF7070722A6D54340027352B /* APoDTodayIntentExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = APoDTodayIntentExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF7070752A6D54340027352B /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		EF7070772A6D54340027352B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +109,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EF70706F2A6D54340027352B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF7070732A6D54340027352B /* Intents.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -96,6 +125,7 @@
 			children = (
 				EF382B9A2A6CDE12005946D7 /* APoD-SwiftUI */,
 				EF7070102A6D170F0027352B /* APoDToday */,
+				EF7070742A6D54340027352B /* APoDTodayIntentExtension */,
 				EF70700B2A6D170F0027352B /* Frameworks */,
 				EF382B992A6CDE12005946D7 /* Products */,
 			);
@@ -106,6 +136,7 @@
 			children = (
 				EF382B982A6CDE12005946D7 /* APoD-SwiftUI.app */,
 				EF70700A2A6D170F0027352B /* APoDTodayExtension.appex */,
+				EF7070722A6D54340027352B /* APoDTodayIntentExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,6 +169,8 @@
 			children = (
 				EF70700C2A6D170F0027352B /* WidgetKit.framework */,
 				EF70700E2A6D170F0027352B /* SwiftUI.framework */,
+				EF7070292A6D51D70027352B /* Intents.framework */,
+				EF7070342A6D51D70027352B /* IntentsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -150,8 +183,18 @@
 				EF7070152A6D17100027352B /* Assets.xcassets */,
 				EF7070172A6D17100027352B /* Info.plist */,
 				EF7070182A6D17100027352B /* APoDToday.entitlements */,
+				EF7070232A6D516E0027352B /* APoDTodayIntents.intentdefinition */,
 			);
 			path = APoDToday;
+			sourceTree = "<group>";
+		};
+		EF7070742A6D54340027352B /* APoDTodayIntentExtension */ = {
+			isa = PBXGroup;
+			children = (
+				EF7070752A6D54340027352B /* IntentHandler.swift */,
+				EF7070772A6D54340027352B /* Info.plist */,
+			);
+			path = APoDTodayIntentExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +213,7 @@
 			);
 			dependencies = (
 				EF70701A2A6D17100027352B /* PBXTargetDependency */,
+				EF7070792A6D54340027352B /* PBXTargetDependency */,
 			);
 			name = "APoD-SwiftUI";
 			packageProductDependencies = (
@@ -196,6 +240,23 @@
 			productReference = EF70700A2A6D170F0027352B /* APoDTodayExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		EF7070712A6D54340027352B /* APoDTodayIntentExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF70707B2A6D54340027352B /* Build configuration list for PBXNativeTarget "APoDTodayIntentExtension" */;
+			buildPhases = (
+				EF70706E2A6D54340027352B /* Sources */,
+				EF70706F2A6D54340027352B /* Frameworks */,
+				EF7070702A6D54340027352B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = APoDTodayIntentExtension;
+			productName = APoDTodayIntentExtension;
+			productReference = EF7070722A6D54340027352B /* APoDTodayIntentExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -210,6 +271,9 @@
 						CreatedOnToolsVersion = 15.0;
 					};
 					EF7070092A6D170F0027352B = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					EF7070712A6D54340027352B = {
 						CreatedOnToolsVersion = 15.0;
 					};
 				};
@@ -232,6 +296,7 @@
 			targets = (
 				EF382B972A6CDE12005946D7 /* APoD-SwiftUI */,
 				EF7070092A6D170F0027352B /* APoDTodayExtension */,
+				EF7070712A6D54340027352B /* APoDTodayIntentExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -254,6 +319,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EF7070702A6D54340027352B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -265,6 +337,7 @@
 				EF382BAD2A6CDE6A005946D7 /* APoDAPIHelper.swift in Sources */,
 				EF382BAB2A6CDE57005946D7 /* APoDModel.swift in Sources */,
 				EF382B9E2A6CDE12005946D7 /* APoDView.swift in Sources */,
+				EF7070592A6D52A90027352B /* APoDTodayIntents.intentdefinition in Sources */,
 				EF382B9C2A6CDE12005946D7 /* APoDApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,7 +350,18 @@
 				EF7070122A6D170F0027352B /* APoDTodayBundle.swift in Sources */,
 				EF7070202A6D17290027352B /* APoDAPIHelper.swift in Sources */,
 				EF7070142A6D170F0027352B /* APoDToday.swift in Sources */,
+				EF70705A2A6D52AA0027352B /* APoDTodayIntents.intentdefinition in Sources */,
 				EF7070212A6D177A0027352B /* APoDModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF70706E2A6D54340027352B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF70707E2A6D546C0027352B /* APoDTodayIntents.intentdefinition in Sources */,
+				EF7070762A6D54340027352B /* IntentHandler.swift in Sources */,
+				EF70707F2A6D54E30027352B /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +372,11 @@
 			isa = PBXTargetDependency;
 			target = EF7070092A6D170F0027352B /* APoDTodayExtension */;
 			targetProxy = EF7070192A6D17100027352B /* PBXContainerItemProxy */;
+		};
+		EF7070792A6D54340027352B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF7070712A6D54340027352B /* APoDTodayIntentExtension */;
+			targetProxy = EF7070782A6D54340027352B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -344,12 +433,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Debug;
 		};
@@ -399,10 +491,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Release;
 		};
@@ -420,6 +515,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "APoD-SwiftUI/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = APoD;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -463,6 +559,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "APoD-SwiftUI/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = APoD;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -568,6 +665,61 @@
 			};
 			name = Release;
 		};
+		EF70707C2A6D54340027352B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VEBQ28K9EA;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = APoDTodayIntentExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = APoDTodayIntentExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.krayc.APoD-SwiftUI.APoDTodayIntentExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EF70707D2A6D54340027352B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VEBQ28K9EA;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = APoDTodayIntentExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = APoDTodayIntentExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.krayc.APoD-SwiftUI.APoDTodayIntentExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -594,6 +746,15 @@
 			buildConfigurations = (
 				EF70701D2A6D17100027352B /* Debug */,
 				EF70701E2A6D17100027352B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF70707B2A6D54340027352B /* Build configuration list for PBXNativeTarget "APoDTodayIntentExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF70707C2A6D54340027352B /* Debug */,
+				EF70707D2A6D54340027352B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
