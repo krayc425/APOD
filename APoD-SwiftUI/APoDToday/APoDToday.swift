@@ -34,7 +34,7 @@ struct APoDToday: Widget {
             APoDWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("Today's APoD")
-        .supportedFamilies([.systemSmall, .systemLarge, .systemExtraLarge])
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge])
         .contentMarginsDisabledIfAvailable()
     }
 

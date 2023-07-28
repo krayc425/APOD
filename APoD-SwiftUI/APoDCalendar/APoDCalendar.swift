@@ -48,7 +48,7 @@ struct APoDCalendar: Widget {
             APoDWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("APoD on your chosen date")
-        .supportedFamilies([.systemSmall, .systemLarge, .systemExtraLarge])
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge])
         .contentMarginsDisabledIfAvailable()
     }
 

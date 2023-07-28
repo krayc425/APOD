@@ -24,7 +24,7 @@
 		EF4A0B4B2A73BDD1005053A0 /* WidgetUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4A0B472A73BDA9005053A0 /* WidgetUtils.swift */; };
 		EF4A0B4C2A73BE1A005053A0 /* APoDCalendar.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EF7070232A6D516E0027352B /* APoDCalendar.intentdefinition */; };
 		EF4A0B522A73BE33005053A0 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF7070292A6D51D70027352B /* Intents.framework */; };
-		EF4A0B552A73BE33005053A0 /* APoDCalendarIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4A0B542A73BE33005053A0 /* APoDCalendarIntentHandler.swift */; };
+		EF4A0B552A73BE33005053A0 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4A0B542A73BE33005053A0 /* IntentHandler.swift */; };
 		EF4A0B592A73BE33005053A0 /* APoDCalendarIntents.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EF4A0B512A73BE33005053A0 /* APoDCalendarIntents.appex */; platformFilters = (ios, maccatalyst, ); settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EF4A0B5E2A73BE4E005053A0 /* APoDCalendar.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EF7070232A6D516E0027352B /* APoDCalendar.intentdefinition */; };
 		EF4A0B5F2A73BE62005053A0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF706FE52A6CDFD80027352B /* Utils.swift */; };
@@ -102,7 +102,7 @@
 		EF4A0B432A73BD5C005053A0 /* APoDCalendarExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = APoDCalendarExtension.entitlements; sourceTree = "<group>"; };
 		EF4A0B472A73BDA9005053A0 /* WidgetUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetUtils.swift; sourceTree = "<group>"; };
 		EF4A0B512A73BE33005053A0 /* APoDCalendarIntents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = APoDCalendarIntents.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF4A0B542A73BE33005053A0 /* APoDCalendarIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APoDCalendarIntentHandler.swift; sourceTree = "<group>"; };
+		EF4A0B542A73BE33005053A0 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		EF4A0B562A73BE33005053A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF4A0B5A2A73BE33005053A0 /* APoDCalendarIntents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = APoDCalendarIntents.entitlements; sourceTree = "<group>"; };
 		EF706FE52A6CDFD80027352B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -221,7 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				EF4A0B5A2A73BE33005053A0 /* APoDCalendarIntents.entitlements */,
-				EF4A0B542A73BE33005053A0 /* APoDCalendarIntentHandler.swift */,
+				EF4A0B542A73BE33005053A0 /* IntentHandler.swift */,
 				EF4A0B562A73BE33005053A0 /* Info.plist */,
 			);
 			path = APoDCalendarIntents;
@@ -445,7 +445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF4A0B5E2A73BE4E005053A0 /* APoDCalendar.intentdefinition in Sources */,
-				EF4A0B552A73BE33005053A0 /* APoDCalendarIntentHandler.swift in Sources */,
+				EF4A0B552A73BE33005053A0 /* IntentHandler.swift in Sources */,
 				EF4A0B5F2A73BE62005053A0 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
