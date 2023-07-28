@@ -13,6 +13,26 @@
 		EF382BA42A6CDE13005946D7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF382BA32A6CDE13005946D7 /* Preview Assets.xcassets */; };
 		EF382BAB2A6CDE57005946D7 /* APoDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF382BAA2A6CDE57005946D7 /* APoDModel.swift */; };
 		EF382BAD2A6CDE6A005946D7 /* APoDAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF382BAC2A6CDE6A005946D7 /* APoDAPIHelper.swift */; };
+		EF4A0B362A73BD52005053A0 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF70700C2A6D170F0027352B /* WidgetKit.framework */; };
+		EF4A0B372A73BD52005053A0 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF70700E2A6D170F0027352B /* SwiftUI.framework */; };
+		EF4A0B3A2A73BD52005053A0 /* APoDCalendarBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4A0B392A73BD52005053A0 /* APoDCalendarBundle.swift */; };
+		EF4A0B3C2A73BD52005053A0 /* APoDCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4A0B3B2A73BD52005053A0 /* APoDCalendar.swift */; };
+		EF4A0B3E2A73BD5C005053A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF4A0B3D2A73BD5C005053A0 /* Assets.xcassets */; };
+		EF4A0B422A73BD5C005053A0 /* APoDCalendarExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EF4A0B352A73BD52005053A0 /* APoDCalendarExtension.appex */; platformFilters = (ios, maccatalyst, ); settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EF4A0B492A73BDCF005053A0 /* WidgetUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4A0B472A73BDA9005053A0 /* WidgetUtils.swift */; };
+		EF4A0B4A2A73BDCF005053A0 /* WidgetUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4A0B472A73BDA9005053A0 /* WidgetUtils.swift */; };
+		EF4A0B4B2A73BDD1005053A0 /* WidgetUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4A0B472A73BDA9005053A0 /* WidgetUtils.swift */; };
+		EF4A0B4C2A73BE1A005053A0 /* APoDCalendar.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EF7070232A6D516E0027352B /* APoDCalendar.intentdefinition */; };
+		EF4A0B522A73BE33005053A0 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF7070292A6D51D70027352B /* Intents.framework */; };
+		EF4A0B552A73BE33005053A0 /* APoDCalendarIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4A0B542A73BE33005053A0 /* APoDCalendarIntentHandler.swift */; };
+		EF4A0B592A73BE33005053A0 /* APoDCalendarIntents.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EF4A0B512A73BE33005053A0 /* APoDCalendarIntents.appex */; platformFilters = (ios, maccatalyst, ); settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EF4A0B5E2A73BE4E005053A0 /* APoDCalendar.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EF7070232A6D516E0027352B /* APoDCalendar.intentdefinition */; };
+		EF4A0B5F2A73BE62005053A0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF706FE52A6CDFD80027352B /* Utils.swift */; };
+		EF4A0B602A73BE63005053A0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF706FE52A6CDFD80027352B /* Utils.swift */; };
+		EF4A0B612A73BEA2005053A0 /* APoDAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF382BAC2A6CDE6A005946D7 /* APoDAPIHelper.swift */; };
+		EF4A0B632A73BEA2005053A0 /* APoDAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF382BAC2A6CDE6A005946D7 /* APoDAPIHelper.swift */; };
+		EF4A0B642A73BEAB005053A0 /* APoDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF382BAA2A6CDE57005946D7 /* APoDModel.swift */; };
+		EF4A0B652A73BEAB005053A0 /* APoDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF382BAA2A6CDE57005946D7 /* APoDModel.swift */; };
 		EF706FE62A6CDFD80027352B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF706FE52A6CDFD80027352B /* Utils.swift */; };
 		EF706FE92A6D05AB0027352B /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = EF706FE82A6D05AB0027352B /* YouTubePlayerKit */; };
 		EF70700D2A6D170F0027352B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF70700C2A6D170F0027352B /* WidgetKit.framework */; };
@@ -21,32 +41,31 @@
 		EF7070142A6D170F0027352B /* APoDToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7070132A6D170F0027352B /* APoDToday.swift */; };
 		EF7070162A6D17100027352B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF7070152A6D17100027352B /* Assets.xcassets */; };
 		EF70701B2A6D17100027352B /* APoDTodayExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EF70700A2A6D170F0027352B /* APoDTodayExtension.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		EF7070202A6D17290027352B /* APoDAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF382BAC2A6CDE6A005946D7 /* APoDAPIHelper.swift */; };
-		EF7070212A6D177A0027352B /* APoDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF382BAA2A6CDE57005946D7 /* APoDModel.swift */; };
 		EF7070222A6D17D90027352B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF706FE52A6CDFD80027352B /* Utils.swift */; };
-		EF7070592A6D52A90027352B /* APoDTodayIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EF7070232A6D516E0027352B /* APoDTodayIntents.intentdefinition */; };
-		EF70705A2A6D52AA0027352B /* APoDTodayIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EF7070232A6D516E0027352B /* APoDTodayIntents.intentdefinition */; };
-		EF7070732A6D54340027352B /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF7070292A6D51D70027352B /* Intents.framework */; };
-		EF7070762A6D54340027352B /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7070752A6D54340027352B /* IntentHandler.swift */; };
-		EF70707A2A6D54340027352B /* APoDTodayIntentExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EF7070722A6D54340027352B /* APoDTodayIntentExtension.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		EF70707E2A6D546C0027352B /* APoDTodayIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EF7070232A6D516E0027352B /* APoDTodayIntents.intentdefinition */; };
-		EF70707F2A6D54E30027352B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF706FE52A6CDFD80027352B /* Utils.swift */; };
+		EF7070592A6D52A90027352B /* APoDCalendar.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EF7070232A6D516E0027352B /* APoDCalendar.intentdefinition */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		EF4A0B402A73BD5C005053A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF382B902A6CDE12005946D7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF4A0B342A73BD52005053A0;
+			remoteInfo = APoDCalendarExtension;
+		};
+		EF4A0B572A73BE33005053A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF382B902A6CDE12005946D7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF4A0B502A73BE33005053A0;
+			remoteInfo = APoDCalendarIntents;
+		};
 		EF7070192A6D17100027352B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EF382B902A6CDE12005946D7 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = EF7070092A6D170F0027352B;
 			remoteInfo = APoDTodayExtension;
-		};
-		EF7070782A6D54340027352B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EF382B902A6CDE12005946D7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EF7070712A6D54340027352B;
-			remoteInfo = APoDTodayIntentExtension;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -57,7 +76,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				EF70707A2A6D54340027352B /* APoDTodayIntentExtension.appex in Embed Foundation Extensions */,
+				EF4A0B422A73BD5C005053A0 /* APoDCalendarExtension.appex in Embed Foundation Extensions */,
+				EF4A0B592A73BE33005053A0 /* APoDCalendarIntents.appex in Embed Foundation Extensions */,
 				EF70701B2A6D17100027352B /* APoDTodayExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
@@ -74,6 +94,17 @@
 		EF382BA32A6CDE13005946D7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EF382BAA2A6CDE57005946D7 /* APoDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APoDModel.swift; sourceTree = "<group>"; };
 		EF382BAC2A6CDE6A005946D7 /* APoDAPIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APoDAPIHelper.swift; sourceTree = "<group>"; };
+		EF4A0B352A73BD52005053A0 /* APoDCalendarExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = APoDCalendarExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF4A0B392A73BD52005053A0 /* APoDCalendarBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APoDCalendarBundle.swift; sourceTree = "<group>"; };
+		EF4A0B3B2A73BD52005053A0 /* APoDCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APoDCalendar.swift; sourceTree = "<group>"; };
+		EF4A0B3D2A73BD5C005053A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF4A0B3F2A73BD5C005053A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF4A0B432A73BD5C005053A0 /* APoDCalendarExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = APoDCalendarExtension.entitlements; sourceTree = "<group>"; };
+		EF4A0B472A73BDA9005053A0 /* WidgetUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetUtils.swift; sourceTree = "<group>"; };
+		EF4A0B512A73BE33005053A0 /* APoDCalendarIntents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = APoDCalendarIntents.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF4A0B542A73BE33005053A0 /* APoDCalendarIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APoDCalendarIntentHandler.swift; sourceTree = "<group>"; };
+		EF4A0B562A73BE33005053A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF4A0B5A2A73BE33005053A0 /* APoDCalendarIntents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = APoDCalendarIntents.entitlements; sourceTree = "<group>"; };
 		EF706FE52A6CDFD80027352B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		EF70700A2A6D170F0027352B /* APoDTodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = APoDTodayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF70700C2A6D170F0027352B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = /System/Library/Frameworks/WidgetKit.framework; sourceTree = "<absolute>"; };
@@ -83,12 +114,9 @@
 		EF7070152A6D17100027352B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF7070172A6D17100027352B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF7070182A6D17100027352B /* APoDToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = APoDToday.entitlements; sourceTree = "<group>"; };
-		EF7070232A6D516E0027352B /* APoDTodayIntents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = APoDTodayIntents.intentdefinition; sourceTree = "<group>"; };
+		EF7070232A6D516E0027352B /* APoDCalendar.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = APoDCalendar.intentdefinition; sourceTree = "<group>"; };
 		EF7070292A6D51D70027352B /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		EF7070342A6D51D70027352B /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
-		EF7070722A6D54340027352B /* APoDTodayIntentExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = APoDTodayIntentExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF7070752A6D54340027352B /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
-		EF7070772A6D54340027352B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +125,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF706FE92A6D05AB0027352B /* YouTubePlayerKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF4A0B322A73BD52005053A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF4A0B372A73BD52005053A0 /* SwiftUI.framework in Frameworks */,
+				EF4A0B362A73BD52005053A0 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF4A0B4E2A73BE33005053A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF4A0B522A73BE33005053A0 /* Intents.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,23 +154,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EF70706F2A6D54340027352B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EF7070732A6D54340027352B /* Intents.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		EF382B8F2A6CDE12005946D7 = {
 			isa = PBXGroup;
 			children = (
+				EF4A0B432A73BD5C005053A0 /* APoDCalendarExtension.entitlements */,
 				EF382B9A2A6CDE12005946D7 /* APoD-SwiftUI */,
 				EF7070102A6D170F0027352B /* APoDToday */,
-				EF7070742A6D54340027352B /* APoDTodayIntentExtension */,
+				EF4A0B382A73BD52005053A0 /* APoDCalendar */,
+				EF4A0B532A73BE33005053A0 /* APoDCalendarIntents */,
 				EF70700B2A6D170F0027352B /* Frameworks */,
 				EF382B992A6CDE12005946D7 /* Products */,
 			);
@@ -136,7 +175,8 @@
 			children = (
 				EF382B982A6CDE12005946D7 /* APoD-SwiftUI.app */,
 				EF70700A2A6D170F0027352B /* APoDTodayExtension.appex */,
-				EF7070722A6D54340027352B /* APoDTodayIntentExtension.appex */,
+				EF4A0B352A73BD52005053A0 /* APoDCalendarExtension.appex */,
+				EF4A0B512A73BE33005053A0 /* APoDCalendarIntents.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,6 +188,7 @@
 				EF382B9D2A6CDE12005946D7 /* APoDView.swift */,
 				EF382BAA2A6CDE57005946D7 /* APoDModel.swift */,
 				EF382BAC2A6CDE6A005946D7 /* APoDAPIHelper.swift */,
+				EF4A0B472A73BDA9005053A0 /* WidgetUtils.swift */,
 				EF706FE52A6CDFD80027352B /* Utils.swift */,
 				EF382B9F2A6CDE13005946D7 /* Assets.xcassets */,
 				EF382BA12A6CDE13005946D7 /* APoD_SwiftUI.entitlements */,
@@ -162,6 +203,28 @@
 				EF382BA32A6CDE13005946D7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EF4A0B382A73BD52005053A0 /* APoDCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				EF4A0B392A73BD52005053A0 /* APoDCalendarBundle.swift */,
+				EF4A0B3B2A73BD52005053A0 /* APoDCalendar.swift */,
+				EF7070232A6D516E0027352B /* APoDCalendar.intentdefinition */,
+				EF4A0B3D2A73BD5C005053A0 /* Assets.xcassets */,
+				EF4A0B3F2A73BD5C005053A0 /* Info.plist */,
+			);
+			path = APoDCalendar;
+			sourceTree = "<group>";
+		};
+		EF4A0B532A73BE33005053A0 /* APoDCalendarIntents */ = {
+			isa = PBXGroup;
+			children = (
+				EF4A0B5A2A73BE33005053A0 /* APoDCalendarIntents.entitlements */,
+				EF4A0B542A73BE33005053A0 /* APoDCalendarIntentHandler.swift */,
+				EF4A0B562A73BE33005053A0 /* Info.plist */,
+			);
+			path = APoDCalendarIntents;
 			sourceTree = "<group>";
 		};
 		EF70700B2A6D170F0027352B /* Frameworks */ = {
@@ -183,18 +246,8 @@
 				EF7070152A6D17100027352B /* Assets.xcassets */,
 				EF7070172A6D17100027352B /* Info.plist */,
 				EF7070182A6D17100027352B /* APoDToday.entitlements */,
-				EF7070232A6D516E0027352B /* APoDTodayIntents.intentdefinition */,
 			);
 			path = APoDToday;
-			sourceTree = "<group>";
-		};
-		EF7070742A6D54340027352B /* APoDTodayIntentExtension */ = {
-			isa = PBXGroup;
-			children = (
-				EF7070752A6D54340027352B /* IntentHandler.swift */,
-				EF7070772A6D54340027352B /* Info.plist */,
-			);
-			path = APoDTodayIntentExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,7 +266,8 @@
 			);
 			dependencies = (
 				EF70701A2A6D17100027352B /* PBXTargetDependency */,
-				EF7070792A6D54340027352B /* PBXTargetDependency */,
+				EF4A0B412A73BD5C005053A0 /* PBXTargetDependency */,
+				EF4A0B582A73BE33005053A0 /* PBXTargetDependency */,
 			);
 			name = "APoD-SwiftUI";
 			packageProductDependencies = (
@@ -222,6 +276,40 @@
 			productName = "APoD-SwiftUI";
 			productReference = EF382B982A6CDE12005946D7 /* APoD-SwiftUI.app */;
 			productType = "com.apple.product-type.application";
+		};
+		EF4A0B342A73BD52005053A0 /* APoDCalendarExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF4A0B442A73BD5C005053A0 /* Build configuration list for PBXNativeTarget "APoDCalendarExtension" */;
+			buildPhases = (
+				EF4A0B312A73BD52005053A0 /* Sources */,
+				EF4A0B322A73BD52005053A0 /* Frameworks */,
+				EF4A0B332A73BD52005053A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = APoDCalendarExtension;
+			productName = APoDCalendarExtension;
+			productReference = EF4A0B352A73BD52005053A0 /* APoDCalendarExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		EF4A0B502A73BE33005053A0 /* APoDCalendarIntents */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF4A0B5B2A73BE33005053A0 /* Build configuration list for PBXNativeTarget "APoDCalendarIntents" */;
+			buildPhases = (
+				EF4A0B4D2A73BE33005053A0 /* Sources */,
+				EF4A0B4E2A73BE33005053A0 /* Frameworks */,
+				EF4A0B4F2A73BE33005053A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = APoDCalendarIntents;
+			productName = APoDCalendarIntents;
+			productReference = EF4A0B512A73BE33005053A0 /* APoDCalendarIntents.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		EF7070092A6D170F0027352B /* APoDTodayExtension */ = {
 			isa = PBXNativeTarget;
@@ -240,23 +328,6 @@
 			productReference = EF70700A2A6D170F0027352B /* APoDTodayExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		EF7070712A6D54340027352B /* APoDTodayIntentExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EF70707B2A6D54340027352B /* Build configuration list for PBXNativeTarget "APoDTodayIntentExtension" */;
-			buildPhases = (
-				EF70706E2A6D54340027352B /* Sources */,
-				EF70706F2A6D54340027352B /* Frameworks */,
-				EF7070702A6D54340027352B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = APoDTodayIntentExtension;
-			productName = APoDTodayIntentExtension;
-			productReference = EF7070722A6D54340027352B /* APoDTodayIntentExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -270,10 +341,13 @@
 					EF382B972A6CDE12005946D7 = {
 						CreatedOnToolsVersion = 15.0;
 					};
-					EF7070092A6D170F0027352B = {
+					EF4A0B342A73BD52005053A0 = {
 						CreatedOnToolsVersion = 15.0;
 					};
-					EF7070712A6D54340027352B = {
+					EF4A0B502A73BE33005053A0 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					EF7070092A6D170F0027352B = {
 						CreatedOnToolsVersion = 15.0;
 					};
 				};
@@ -296,7 +370,8 @@
 			targets = (
 				EF382B972A6CDE12005946D7 /* APoD-SwiftUI */,
 				EF7070092A6D170F0027352B /* APoDTodayExtension */,
-				EF7070712A6D54340027352B /* APoDTodayIntentExtension */,
+				EF4A0B342A73BD52005053A0 /* APoDCalendarExtension */,
+				EF4A0B502A73BE33005053A0 /* APoDCalendarIntents */,
 			);
 		};
 /* End PBXProject section */
@@ -311,18 +386,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EF4A0B332A73BD52005053A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF4A0B3E2A73BD5C005053A0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF4A0B4F2A73BE33005053A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EF7070082A6D170F0027352B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				EF7070162A6D17100027352B /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EF7070702A6D54340027352B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,8 +420,33 @@
 				EF382BAD2A6CDE6A005946D7 /* APoDAPIHelper.swift in Sources */,
 				EF382BAB2A6CDE57005946D7 /* APoDModel.swift in Sources */,
 				EF382B9E2A6CDE12005946D7 /* APoDView.swift in Sources */,
-				EF7070592A6D52A90027352B /* APoDTodayIntents.intentdefinition in Sources */,
+				EF7070592A6D52A90027352B /* APoDCalendar.intentdefinition in Sources */,
+				EF4A0B4B2A73BDD1005053A0 /* WidgetUtils.swift in Sources */,
 				EF382B9C2A6CDE12005946D7 /* APoDApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF4A0B312A73BD52005053A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF4A0B602A73BE63005053A0 /* Utils.swift in Sources */,
+				EF4A0B4C2A73BE1A005053A0 /* APoDCalendar.intentdefinition in Sources */,
+				EF4A0B4A2A73BDCF005053A0 /* WidgetUtils.swift in Sources */,
+				EF4A0B3A2A73BD52005053A0 /* APoDCalendarBundle.swift in Sources */,
+				EF4A0B612A73BEA2005053A0 /* APoDAPIHelper.swift in Sources */,
+				EF4A0B642A73BEAB005053A0 /* APoDModel.swift in Sources */,
+				EF4A0B3C2A73BD52005053A0 /* APoDCalendar.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF4A0B4D2A73BE33005053A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF4A0B5E2A73BE4E005053A0 /* APoDCalendar.intentdefinition in Sources */,
+				EF4A0B552A73BE33005053A0 /* APoDCalendarIntentHandler.swift in Sources */,
+				EF4A0B5F2A73BE62005053A0 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,36 +455,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF7070222A6D17D90027352B /* Utils.swift in Sources */,
+				EF4A0B632A73BEA2005053A0 /* APoDAPIHelper.swift in Sources */,
 				EF7070122A6D170F0027352B /* APoDTodayBundle.swift in Sources */,
-				EF7070202A6D17290027352B /* APoDAPIHelper.swift in Sources */,
+				EF4A0B652A73BEAB005053A0 /* APoDModel.swift in Sources */,
 				EF7070142A6D170F0027352B /* APoDToday.swift in Sources */,
-				EF70705A2A6D52AA0027352B /* APoDTodayIntents.intentdefinition in Sources */,
-				EF7070212A6D177A0027352B /* APoDModel.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EF70706E2A6D54340027352B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EF70707E2A6D546C0027352B /* APoDTodayIntents.intentdefinition in Sources */,
-				EF7070762A6D54340027352B /* IntentHandler.swift in Sources */,
-				EF70707F2A6D54E30027352B /* Utils.swift in Sources */,
+				EF4A0B492A73BDCF005053A0 /* WidgetUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		EF4A0B412A73BD5C005053A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF4A0B342A73BD52005053A0 /* APoDCalendarExtension */;
+			targetProxy = EF4A0B402A73BD5C005053A0 /* PBXContainerItemProxy */;
+		};
+		EF4A0B582A73BE33005053A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF4A0B502A73BE33005053A0 /* APoDCalendarIntents */;
+			targetProxy = EF4A0B572A73BE33005053A0 /* PBXContainerItemProxy */;
+		};
 		EF70701A2A6D17100027352B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EF7070092A6D170F0027352B /* APoDTodayExtension */;
 			targetProxy = EF7070192A6D17100027352B /* PBXContainerItemProxy */;
-		};
-		EF7070792A6D54340027352B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EF7070712A6D54340027352B /* APoDTodayIntentExtension */;
-			targetProxy = EF7070782A6D54340027352B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -433,7 +536,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -491,7 +594,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -527,7 +630,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -571,7 +674,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -589,6 +692,128 @@
 			};
 			name = Release;
 		};
+		EF4A0B452A73BD5C005053A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = APoDCalendarExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VEBQ28K9EA;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = APoDCalendar/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = APoDCalendar;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.krayc.APoD-SwiftUI.APoDCalendar";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EF4A0B462A73BD5C005053A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = APoDCalendarExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VEBQ28K9EA;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = APoDCalendar/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = APoDCalendar;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.krayc.APoD-SwiftUI.APoDCalendar";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EF4A0B5C2A73BE33005053A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = APoDCalendarIntents/APoDCalendarIntents.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VEBQ28K9EA;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = APoDCalendarIntents/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = APoDCalendarIntents;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.krayc.APoD-SwiftUI.APoDCalendarIntents";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EF4A0B5D2A73BE33005053A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = APoDCalendarIntents/APoDCalendarIntents.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VEBQ28K9EA;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = APoDCalendarIntents/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = APoDCalendarIntents;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.krayc.APoD-SwiftUI.APoDCalendarIntents";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		EF70701D2A6D17100027352B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -603,7 +828,7 @@
 				INFOPLIST_FILE = APoDToday/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = APoDToday;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -621,6 +846,7 @@
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -641,7 +867,7 @@
 				INFOPLIST_FILE = APoDToday/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = APoDToday;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -659,64 +885,10 @@
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		EF70707C2A6D54340027352B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VEBQ28K9EA;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = APoDTodayIntentExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = APoDTodayIntentExtension;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.krayc.APoD-SwiftUI.APoDTodayIntentExtension";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		EF70707D2A6D54340027352B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VEBQ28K9EA;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = APoDTodayIntentExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = APoDTodayIntentExtension;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.krayc.APoD-SwiftUI.APoDTodayIntentExtension";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -741,20 +913,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		EF4A0B442A73BD5C005053A0 /* Build configuration list for PBXNativeTarget "APoDCalendarExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF4A0B452A73BD5C005053A0 /* Debug */,
+				EF4A0B462A73BD5C005053A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF4A0B5B2A73BE33005053A0 /* Build configuration list for PBXNativeTarget "APoDCalendarIntents" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF4A0B5C2A73BE33005053A0 /* Debug */,
+				EF4A0B5D2A73BE33005053A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EF70701F2A6D17100027352B /* Build configuration list for PBXNativeTarget "APoDTodayExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EF70701D2A6D17100027352B /* Debug */,
 				EF70701E2A6D17100027352B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EF70707B2A6D54340027352B /* Build configuration list for PBXNativeTarget "APoDTodayIntentExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EF70707C2A6D54340027352B /* Debug */,
-				EF70707D2A6D54340027352B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

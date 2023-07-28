@@ -1,15 +1,15 @@
 //
 //  IntentHandler.swift
-//  APoDTodayIntentExtension
+//  APoDCalendarIntents
 //
-//  Created by Kuixi Song on 7/23/23.
+//  Created by Kuixi Song on 7/28/23.
 //
 
 import Intents
 
-class IntentHandler: INExtension, APoDTodayIntentsIntentHandling {
+class IntentHandler: INExtension, APoDCalendarIntentHandling {
 
-    func resolveSelectDate(for intent: APoDTodayIntentsIntent, with completion: @escaping (INDateComponentsResolutionResult) -> Void) {
+    func resolveSelectDate(for intent: APoDCalendarIntent, with completion: @escaping (INDateComponentsResolutionResult) -> Void) {
         guard let dateComponents = intent.selectDate, let date = dateComponents.date else {
             completion(.confirmationRequired(with: intent.selectDate))
             return
