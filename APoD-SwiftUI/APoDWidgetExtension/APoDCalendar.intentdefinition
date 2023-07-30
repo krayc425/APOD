@@ -26,7 +26,7 @@
 			<key>INIntentIneligibleForSuggestions</key>
 			<true/>
 			<key>INIntentLastParameterTag</key>
-			<integer>7</integer>
+			<integer>10</integer>
 			<key>INIntentName</key>
 			<string>APoDCalendar</string>
 			<key>INIntentParameters</key>
@@ -76,10 +76,8 @@
 							<string>Primary</string>
 						</dict>
 					</array>
-					<key>INIntentParameterSupportsResolution</key>
-					<true/>
 					<key>INIntentParameterTag</key>
-					<integer>7</integer>
+					<integer>9</integer>
 					<key>INIntentParameterType</key>
 					<string>DateComponents</string>
 				</dict>

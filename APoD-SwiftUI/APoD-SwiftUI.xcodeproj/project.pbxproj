@@ -35,6 +35,7 @@
 		EF4A0B9C2A74E1A4005053A0 /* APoDCalendar.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EF7070232A6D516E0027352B /* APoDCalendar.intentdefinition */; };
 		EF4A0B9D2A74E1B3005053A0 /* APoDAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF382BAC2A6CDE6A005946D7 /* APoDAPIHelper.swift */; };
 		EF4A0B9E2A74E1BC005053A0 /* APoDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF382BAA2A6CDE57005946D7 /* APoDModel.swift */; };
+		EF4A0B9F2A760611005053A0 /* APoDCalendar.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EF7070232A6D516E0027352B /* APoDCalendar.intentdefinition */; };
 		EF706FE62A6CDFD80027352B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF706FE52A6CDFD80027352B /* Utils.swift */; };
 		EF706FE92A6D05AB0027352B /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = EF706FE82A6D05AB0027352B /* YouTubePlayerKit */; };
 /* End PBXBuildFile section */
@@ -350,6 +351,7 @@
 				EF706FE62A6CDFD80027352B /* Utils.swift in Sources */,
 				EF382BAD2A6CDE6A005946D7 /* APoDAPIHelper.swift in Sources */,
 				EF382BAB2A6CDE57005946D7 /* APoDModel.swift in Sources */,
+				EF4A0B9F2A760611005053A0 /* APoDCalendar.intentdefinition in Sources */,
 				EF4A0B9A2A74E167005053A0 /* APoDWidgetUtils.swift in Sources */,
 				EF382B9E2A6CDE12005946D7 /* APoDView.swift in Sources */,
 				EF382B9C2A6CDE12005946D7 /* APoDApp.swift in Sources */,
