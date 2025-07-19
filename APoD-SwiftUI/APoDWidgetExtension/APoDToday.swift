@@ -20,7 +20,7 @@ struct APoDTodayProvider: TimelineProvider {
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<APoDWidgetEntry>) -> ()) {
-        APoDWidgetEntry.getTimeline(for: .now, isFromIntent: false, completion: completion)
+        APoDWidgetEntry.getTimeline(for: .now, completion: completion)
     }
 
 }
@@ -35,7 +35,7 @@ struct APoDToday: Widget {
         }
         .configurationDisplayName("Today's APoD")
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge])
-        .contentMarginsDisabledIfAvailable()
+        .contentMarginsDisabled()
     }
 
 }

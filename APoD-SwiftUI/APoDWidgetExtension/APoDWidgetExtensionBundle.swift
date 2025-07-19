@@ -12,6 +12,5 @@ import SwiftUI
 struct APoDWidgetExtensionBundle: WidgetBundle {
     var body: some Widget {
         APoDToday()
-        APoDCalendar()
     }
 }
